@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Abstract Stack of Boxes -->
+  <!-- Bottom Box -->
+  <rect x="25" y="60" width="50" height="30" fill="#bc8154" stroke="#734a39" stroke-width="2"/>
+  <line x1="25" y1="60" x2="75" y2="60" stroke="#734a39" stroke-width="2"/>
+  
+  <!-- Middle Box -->
+  <rect x="30" y="35" width="40" height="25" fill="#c08456" stroke="#734a39" stroke-width="2"/>
+  
+  <!-- Top Box (Being pushed/placed) -->
+  <rect x="40" y="10" width="30" height="25" fill="#d2a27c" stroke="#734a39" stroke-width="2" transform="rotate(-5 55 22.5)"/>
+  
+  <!-- Simple Text hint if needed, but keeping it graphic -->
+</svg>

@@ -1,0 +1,66 @@
+:root {
+  /* Brand Colors */
+  --brand-primary: #bc8154;      /* Box Orange */
+  --brand-primary-dark: #8c5e3c;
+  --brand-secondary: #33394b;    /* Dark Blue/Gray Background */
+  --brand-accent: #734a39;       /* Dark Brown */
+  --brand-neutral: #8f826d;      /* Sage/Gray */
+  --brand-light: #f4efe9;        /* Light Beige for backgrounds */
+
+  /* Override Bootstrap Variables */
+  --bs-primary: var(--brand-primary);
+  --bs-primary-rgb: 188, 129, 84;
+  
+  --bs-secondary: var(--brand-neutral);
+  --bs-secondary-rgb: 143, 130, 109;
+
+  --bs-dark: var(--brand-secondary);
+  --bs-dark-rgb: 51, 57, 75;
+
+  --bs-body-bg: #fff;
+  --bs-body-color: var(--brand-secondary);
+  
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Custom Component Overrides */
+
+.bg-primary {
+  background-color: var(--brand-primary) !important;
+}
+
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-primary-dark);
+  border-color: var(--brand-primary-dark);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--brand-secondary);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--brand-primary);
+}
+
+/* Hero Section Customization to match Logo Background */
+.hero-section {
+  background-color: var(--brand-secondary);
+  color: #fff;
+}
