@@ -11,7 +11,7 @@ const Navigation = () => {
       <Container>
         <Navbar.Brand href="#home" className="d-flex align-items-center">
           <img
-            src="/logo.png"
+            src="logo.png"
             width="40"
             height="40"
             className="d-inline-block align-top me-2 rounded"
