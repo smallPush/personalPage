@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import QuoteCalculator from './components/QuoteCalculator';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <About />
       <Services />
       <QuoteCalculator />
+      <ContactForm />
       <Footer />
     </div>
   );

@@ -3,6 +3,7 @@
         "home": "Home",
         "about": "About",
         "services": "Services",
+        "quote": "Quote",
         "contact": "Contact"
     },
     "hero": {
@@ -52,5 +53,19 @@
     },
     "footer": {
         "rights": "All rights reserved."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "name": "Name",
+        "email": "Email Address",
+        "message": "Message",
+        "captcha": {
+            "question": "What is {{num1}} + {{num2}}?",
+            "label": "Solve the sum",
+            "error": "Incorrect answer. Please try again."
+        },
+        "submit": "Send Message",
+        "success": "Message sent successfully!",
+        "error": "There was an error sending the message. Please try again."
     }
 }

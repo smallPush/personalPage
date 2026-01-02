@@ -18,7 +18,7 @@ const QuoteCalculator = () => {
   };
 
   return (
-    <section id="contact" className="py-5">
+    <section id="quote" className="py-5">
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>

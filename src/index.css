@@ -1,16 +1,23 @@
 :root {
   /* Brand Colors */
-  --brand-primary: #bc8154;      /* Box Orange */
+  --brand-primary: #bc8154;
+  /* Box Orange */
   --brand-primary-dark: #8c5e3c;
-  --brand-secondary: #33394b;    /* Dark Blue/Gray Background */
-  --brand-accent: #734a39;       /* Dark Brown */
-  --brand-neutral: #8f826d;      /* Sage/Gray */
-  --brand-light: #f4efe9;        /* Light Beige for backgrounds */
+  --brand-secondary: #33394b;
+  /* Dark Blue/Gray Background */
+  --brand-accent: #734a39;
+  /* Dark Brown */
+  --brand-neutral: #8f826d;
+  /* Sage/Gray */
+  --brand-light: #f4efe9;
+  /* Light Beige for backgrounds */
+  --brand-secondary-light: #eef2f7;
+  /* Very light version of secondary blue */
 
   /* Override Bootstrap Variables */
   --bs-primary: var(--brand-primary);
   --bs-primary-rgb: 188, 129, 84;
-  
+
   --bs-secondary: var(--brand-neutral);
   --bs-secondary-rgb: 143, 130, 109;
 
@@ -19,7 +26,7 @@
 
   --bs-body-bg: #fff;
   --bs-body-color: var(--brand-secondary);
-  
+
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -63,4 +70,8 @@ body {
 .hero-section {
   background-color: var(--brand-secondary);
   color: #fff;
+}
+
+.bg-brand-light-blue {
+  background-color: var(--brand-secondary-light) !important;
 }

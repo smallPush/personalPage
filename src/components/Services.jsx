@@ -25,7 +25,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-5 bg-light">
+    <section id="services" className="py-5 bg-brand-light-blue">
       <Container>
         <h2 className="text-center mb-5">{t('services.title')}</h2>
         <Row>

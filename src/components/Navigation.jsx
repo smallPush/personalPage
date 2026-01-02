@@ -26,6 +26,7 @@ const Navigation = () => {
             <Nav.Link href="#home">{t('navigation.home')}</Nav.Link>
             <Nav.Link href="#about">{t('navigation.about')}</Nav.Link>
             <Nav.Link href="#services">{t('navigation.services')}</Nav.Link>
+            <Nav.Link href="#quote">{t('navigation.quote')}</Nav.Link>
             <Nav.Link href="#contact">{t('navigation.contact')}</Nav.Link>
             <LanguageSelector />
           </Nav>
