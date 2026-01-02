@@ -1,0 +1,56 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "Expert CiviCRM & Drupal Solutions for Non-Profits and Enterprises.",
+        "cta": "Get Started"
+    },
+    "about": {
+        "title": "About Us",
+        "text": "SmallPush is a new enterprise founded by an expert with over 14 years of experience in the software industry. We specialize in custom developments for CiviCRM and Drupal, helping organizations streamline their operations and manage their data effectively."
+    },
+    "services": {
+        "title": "Our Services",
+        "civi": {
+            "title": "CiviCRM Custom Development",
+            "text": "Tailored CiviCRM solutions to fit your organization's unique needs."
+        },
+        "drupal": {
+            "title": "Drupal Development",
+            "text": "Robust and scalable Drupal websites and applications."
+        },
+        "payment": {
+            "title": "Spanish Payments Ecosystem",
+            "text": "Expert integration with Spanish payment gateways and banking systems."
+        },
+        "fiscal": {
+            "title": "Fiscal Models Management",
+            "text": "Solutions for managing fiscal data and generating tax reports (e.g., Model 182)."
+        }
+    },
+    "quote": {
+        "title": "Request a Quote",
+        "projectType": {
+            "label": "Project Type",
+            "civi": "CiviCRM Development",
+            "drupal": "Drupal Development",
+            "payment": "Payment Integration",
+            "fiscal": "Fiscal Models"
+        },
+        "hours": {
+            "label": "Estimated Hours Needed"
+        },
+        "submit": "Estimate Cost",
+        "result": {
+            "title": "Estimated Cost:",
+            "disclaimer": "*This is a rough estimate. Contact us for a detailed quote."
+        }
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    }
+}

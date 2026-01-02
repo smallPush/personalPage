@@ -1,0 +1,56 @@
+{
+    "navigation": {
+        "home": "Inicio",
+        "about": "Sobre Nosotros",
+        "services": "Servicios",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "subtitle": "Soluciones Expertas en CiviCRM y Drupal para ONGs y Empresas.",
+        "cta": "Empezar"
+    },
+    "about": {
+        "title": "Sobre Nosotros",
+        "text": "SmallPush es una empresa fundada por un experto con más de 14 años de experiencia en la industria del software. Nos especializamos en desarrollos a medida para CiviCRM y Drupal, ayudando a organizaciones a optimizar sus operaciones y gestionar sus datos de manera efectiva."
+    },
+    "services": {
+        "title": "Nuestros Servicios",
+        "civi": {
+            "title": "Desarrollo a Medida de CiviCRM",
+            "text": "Soluciones CiviCRM adaptadas a las necesidades únicas de su organización."
+        },
+        "drupal": {
+            "title": "Desarrollo Drupal",
+            "text": "Sitios web y aplicaciones Drupal robustos y escalables."
+        },
+        "payment": {
+            "title": "Ecosistema de Pagos Español",
+            "text": "Integración experta con pasarelas de pago y sistemas bancarios españoles."
+        },
+        "fiscal": {
+            "title": "Gestión de Modelos Fiscales",
+            "text": "Soluciones para gestionar datos fiscales y generar informes de impuestos (ej. Modelo 182)."
+        }
+    },
+    "quote": {
+        "title": "Solicitar Presupuesto",
+        "projectType": {
+            "label": "Tipo de Proyecto",
+            "civi": "Desarrollo CiviCRM",
+            "drupal": "Desarrollo Drupal",
+            "payment": "Integración de Pagos",
+            "fiscal": "Modelos Fiscales"
+        },
+        "hours": {
+            "label": "Horas Estimadas Necesarias"
+        },
+        "submit": "Estimar Coste",
+        "result": {
+            "title": "Coste Estimado:",
+            "disclaimer": "*Esta es una estimación aproximada. Contáctenos para un presupuesto detallado."
+        }
+    },
+    "footer": {
+        "rights": "Todos los derechos reservados."
+    }
+}

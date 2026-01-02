@@ -1,7 +1,11 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 
 const Navigation = () => {
+  const { t } = useTranslation();
+
   return (
     <Navbar bg="light" expand="lg" fixed="top">
       <Container>
@@ -18,11 +22,12 @@ const Navigation = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#services">Services</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+          <Nav className="ms-auto align-items-center">
+            <Nav.Link href="#home">{t('navigation.home')}</Nav.Link>
+            <Nav.Link href="#about">{t('navigation.about')}</Nav.Link>
+            <Nav.Link href="#services">{t('navigation.services')}</Nav.Link>
+            <Nav.Link href="#contact">{t('navigation.contact')}</Nav.Link>
+            <LanguageSelector />
           </Nav>
         </Navbar.Collapse>
       </Container>

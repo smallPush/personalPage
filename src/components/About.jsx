@@ -1,16 +1,18 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="py-5">
       <Container>
         <Row className="justify-content-center">
           <Col md={10}>
-            <h2 className="text-center mb-4">About Us</h2>
+            <h2 className="text-center mb-4">{t('about.title')}</h2>
             <p className="lead text-center">
-              SmallPush is a new enterprise founded by an expert with over 14 years of experience in the software industry.
-              We specialize in custom developments for CiviCRM and Drupal, helping organizations streamline their operations and manage their data effectively.
+              {t('about.text')}
             </p>
           </Col>
         </Row>

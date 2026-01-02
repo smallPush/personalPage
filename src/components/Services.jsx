@@ -1,30 +1,33 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "CiviCRM Custom Development",
-      text: "Tailored CiviCRM solutions to fit your organization's unique needs."
+      title: t('services.civi.title'),
+      text: t('services.civi.text')
     },
     {
-      title: "Drupal Development",
-      text: "Robust and scalable Drupal websites and applications."
+      title: t('services.drupal.title'),
+      text: t('services.drupal.text')
     },
     {
-      title: "Spanish Payments Ecosystem",
-      text: "Expert integration with Spanish payment gateways and banking systems."
+      title: t('services.payment.title'),
+      text: t('services.payment.text')
     },
     {
-      title: "Fiscal Models Management",
-      text: "Solutions for managing fiscal data and generating tax reports (e.g., Model 182)."
+      title: t('services.fiscal.title'),
+      text: t('services.fiscal.text')
     }
   ];
 
   return (
     <section id="services" className="py-5 bg-light">
       <Container>
-        <h2 className="text-center mb-5">Our Services</h2>
+        <h2 className="text-center mb-5">{t('services.title')}</h2>
         <Row>
           {services.map((service, index) => (
             <Col md={6} lg={3} className="mb-4" key={index}>
