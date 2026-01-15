@@ -46,15 +46,26 @@ const ContactForm = () => {
 
         try {
             // Use environment variable for the Formspree ID
-            const formId = import.meta.env.VITE_FORMSPREE_ID || 'mlgdbarg';
+            const formId = import.meta.env.VITE_FORMSPREE_ID;
+
+            if (!formId) {
+                console.error('Formspree ID is not configured (VITE_FORMSPREE_ID is missing)');
+                setStatus({ type: 'danger', msg: t('contact.error') });
+                setIsSubmitting(false);
+                return;
+            }
+
+            const formDataPayload = new FormData();
+            formDataPayload.append('name', formData.name);
+            formDataPayload.append('email', formData.email);
+            formDataPayload.append('message', formData.message);
+
             const response = await fetch(`https://formspree.io/f/${formId}`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    message: formData.message
-                })
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formDataPayload
             });
 
             if (response.ok) {
