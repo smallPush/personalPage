@@ -4,6 +4,7 @@
         "about": "Sobre Nosotros",
         "services": "Servicios",
         "quote": "Presupuesto",
+        "notices": "Noticias",
         "contact": "Contacto"
     },
     "hero": {
@@ -67,5 +68,8 @@
         "submit": "Enviar Mensaje",
         "success": "¡Mensaje enviado con éxito!",
         "error": "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    },
+    "notices": {
+        "title": "Noticias"
     }
 }

@@ -4,6 +4,7 @@
         "about": "About",
         "services": "Services",
         "quote": "Quote",
+        "notices": "News",
         "contact": "Contact"
     },
     "hero": {
@@ -67,5 +68,8 @@
         "submit": "Send Message",
         "success": "Message sent successfully!",
         "error": "There was an error sending the message. Please try again."
+    },
+    "notices": {
+        "title": "News"
     }
 }
