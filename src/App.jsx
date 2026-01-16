@@ -1,25 +1,24 @@
 import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import QuoteCalculator from './components/QuoteCalculator';
-import Notices from './components/Notices';
-import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import News from './pages/News';
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Navigation />
-      <Hero />
-      <About />
-      <Services />
-      <QuoteCalculator />
-      <Notices />
-      <ContactForm />
-      <Footer />
-    </div>
+    <Router>
+      <div className="d-flex flex-column min-vh-100">
+        <Navigation />
+        <main className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/news" element={<News />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
