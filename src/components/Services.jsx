@@ -21,6 +21,14 @@ const Services = () => {
     {
       title: t('services.fiscal.title'),
       text: t('services.fiscal.text')
+    },
+    {
+      title: t('services.ads.title'),
+      text: t('services.ads.text')
+    },
+    {
+      title: t('services.ai.title'),
+      text: t('services.ai.text')
     }
   ];
 

@@ -13,6 +13,8 @@ const QuoteCalculator = () => {
     let rate = 50; // Base rate
     if (projectType === 'drupal') rate = 60;
     if (projectType === 'payment') rate = 70;
+    if (projectType === 'ads') rate = 65;
+    if (projectType === 'ai') rate = 80;
 
     setEstimatedCost(hours * rate);
   };
@@ -36,6 +38,8 @@ const QuoteCalculator = () => {
                       <option value="drupal">{t('quote.projectType.drupal')}</option>
                       <option value="payment">{t('quote.projectType.payment')}</option>
                       <option value="fiscal">{t('quote.projectType.fiscal')}</option>
+                      <option value="ads">{t('quote.projectType.ads')}</option>
+                      <option value="ai">{t('quote.projectType.ai')}</option>
                     </Form.Select>
                   </Form.Group>
 
