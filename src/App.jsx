@@ -4,8 +4,14 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import News from './pages/News';
+import CookieBanner from './components/CookieBanner';
+import { initializeConsent } from './utils/cookieConsent';
 
 function App() {
+  React.useEffect(() => {
+    initializeConsent();
+  }, []);
+
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100">
@@ -17,6 +23,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </Router>
   );

@@ -81,5 +81,26 @@
     },
     "notices": {
         "title": "Noticias"
+    },
+    "cookies": {
+        "banner": {
+            "text": "Utilizamos cookies para mejorar su experiencia y analizar nuestro tráfico. Por favor, elija sus preferencias.",
+            "acceptAll": "Aceptar todas",
+            "rejectAll": "Rechazar todas",
+            "settings": "Configuración de cookies"
+        },
+        "settings": {
+            "title": "Configuración de cookies",
+            "description": "Elija qué cookies desea permitir. Algunas cookies son necesarias para que el sitio web funcione correctamente.",
+            "necessary": {
+                "label": "Necesarias",
+                "desc": "Obligatorias para que el sitio funcione correctamente. No se pueden desactivar."
+            },
+            "analytics": {
+                "label": "Analíticas",
+                "desc": "Nos ayudan a entender cómo los visitantes interactúan con el sitio web."
+            },
+            "save": "Guardar preferencias"
+        }
     }
 }
