@@ -16,6 +16,8 @@ export const updateGtagConsent = (consent) => {
     window.gtag('consent', 'update', {
         'analytics_storage': consent.analytics ? 'granted' : 'denied',
         'ad_storage': consent.ads ? 'granted' : 'denied',
+        'ad_user_data': consent.ads ? 'granted' : 'denied',
+        'ad_personalization': consent.ads ? 'granted' : 'denied',
         // Optional: you can add more based on requirements
     });
 };
