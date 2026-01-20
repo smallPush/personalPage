@@ -21,7 +21,10 @@ const Navigation = () => {
     >
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand className="d-flex align-items-center" style={{ cursor: 'pointer' }} onClick={() => setExpanded(false)}>
+          <Navbar.Brand className="d-flex align-items-center" style={{ cursor: 'pointer' }} onClick={() => {
+            setExpanded(false);
+            window.scrollTo(0, 0);
+          }}>
             <img
               src="logo.png"
               width="40"
@@ -37,7 +40,10 @@ const Navigation = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center" onSelect={() => setExpanded(false)}>
             <LinkContainer to="/">
-              <Nav.Link onClick={() => setExpanded(false)}>{t('navigation.home')}</Nav.Link>
+              <Nav.Link onClick={() => {
+                setExpanded(false);
+                window.scrollTo(0, 0);
+              }}>{t('navigation.home')}</Nav.Link>
             </LinkContainer>
 
             <Nav.Link
