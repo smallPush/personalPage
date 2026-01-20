@@ -21,7 +21,13 @@ const Notices = ({ singleNoticeId }) => {
     const currentNotice = singleNoticeId ? notices.find(n => n.id === singleNoticeId) : null;
     useSeo(
         currentNotice?.seoTitle || (singleNoticeId ? null : t('notices.seoTitle', 'News - SmallPush')),
-        currentNotice?.seoDescription || (singleNoticeId ? null : t('notices.seoDescription', 'Latest news and updates from SmallPush.'))
+        currentNotice?.seoDescription || (singleNoticeId ? null : t('notices.seoDescription', 'Latest news and updates from SmallPush.')),
+        {
+            keywords: currentNotice?.keywords || t('notices.seoKeywords', 'news, updates, technology, smallpush'),
+            type: singleNoticeId ? 'article' : 'website',
+            url: window.location.href,
+            image: currentNotice?.image || '/logo.png' // Fallback to logo if no image
+        }
     );
 
     useEffect(() => {
