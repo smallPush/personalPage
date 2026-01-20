@@ -80,7 +80,13 @@
         "error": "There was an error sending the message. Please try again."
     },
     "notices": {
-        "title": "News"
+        "title": "News",
+        "seoTitle": "News and Updates - SmallPush",
+        "seoDescription": "Stay up to date with the latest news, updates and articles about CiviCRM, Drupal and technology from SmallPush.",
+        "back": "Back to News",
+        "itemTitle": "News Detail",
+        "notFound": "News item not found.",
+        "viewLink": "View more"
     },
     "cookies": {
         "banner": {
