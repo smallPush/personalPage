@@ -71,9 +71,9 @@
         "email": "Correo Electrónico",
         "message": "Mensaje",
         "captcha": {
-            "question": "¿Cuánto es {{num1}} + {{num2}}?",
-            "label": "Resuelve la suma",
-            "error": "Respuesta incorrecta. Inténtalo de nuevo."
+            "question": "Selecciona el icono diferente",
+            "label": "Selecciona el icono diferente",
+            "error": "Incorrecto. Por favor inténtalo de nuevo."
         },
         "submit": "Enviar Mensaje",
         "success": "¡Mensaje enviado con éxito!",

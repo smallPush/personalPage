@@ -71,9 +71,9 @@
         "email": "Email Address",
         "message": "Message",
         "captcha": {
-            "question": "What is {{num1}} + {{num2}}?",
-            "label": "Solve the sum",
-            "error": "Incorrect answer. Please try again."
+            "question": "Select the different icon",
+            "label": "Select the different icon",
+            "error": "Incorrect. Please try again."
         },
         "submit": "Send Message",
         "success": "Message sent successfully!",

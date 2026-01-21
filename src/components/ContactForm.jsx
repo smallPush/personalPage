@@ -11,7 +11,8 @@ const ContactForm = () => {
         captchaInput: ''
     });
 
-    const [captcha, setCaptcha] = useState({ n1: 0, n2: 0, sum: 0 });
+    const [captcha, setCaptcha] = useState({ options: [], correctIndex: -1 });
+    const [captchaVerified, setCaptchaVerified] = useState(false);
     const [status, setStatus] = useState({ type: '', msg: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -21,13 +22,42 @@ const ContactForm = () => {
     }, []);
 
     const generateCaptcha = () => {
-        const n1 = Math.floor(Math.random() * 10) + 1;
-        const n2 = Math.floor(Math.random() * 10) + 1;
-        setCaptcha({ n1, n2, sum: n1 + n2 });
+        const emojis = ['🚀', '🌟', '🌙', '⚡', '🔥', '💎', '🎈', '🍕', '🐱', '🌵', '🌺', '🎸'];
+
+        // Pick two distinct emojis
+        const mainEmojiIndex = Math.floor(Math.random() * emojis.length);
+        let diffEmojiIndex = Math.floor(Math.random() * emojis.length);
+
+        while (diffEmojiIndex === mainEmojiIndex) {
+            diffEmojiIndex = Math.floor(Math.random() * emojis.length);
+        }
+
+        const mainEmoji = emojis[mainEmojiIndex];
+        const diffEmoji = emojis[diffEmojiIndex];
+
+        // Create options array with 4 main emojis and 1 different emoji
+        // We'll place the different one at a random position
+        const correctIndex = Math.floor(Math.random() * 5);
+        const options = Array(5).fill(mainEmoji);
+        options[correctIndex] = diffEmoji;
+
+        setCaptcha({ options, correctIndex });
+        setCaptchaVerified(false);
+        setFormData(prev => ({ ...prev, captchaInput: '' })); // Clear hidden input if any
     };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleCaptchaClick = (index) => {
+        if (index === captcha.correctIndex) {
+            setCaptchaVerified(true);
+            setStatus({ type: '', msg: '' });
+        } else {
+            setStatus({ type: 'danger', msg: t('contact.captcha.error') });
+            generateCaptcha();
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -35,10 +65,8 @@ const ContactForm = () => {
         setStatus({ type: '', msg: '' });
 
         // Validate Captcha
-        if (parseInt(formData.captchaInput) !== captcha.sum) {
+        if (!captchaVerified) {
             setStatus({ type: 'danger', msg: t('contact.captcha.error') });
-            generateCaptcha();
-            setFormData({ ...formData, captchaInput: '' });
             return;
         }
 
@@ -136,16 +164,22 @@ const ContactForm = () => {
 
                                     <Form.Group className="mb-4">
                                         <Form.Label>
-                                            {t('contact.captcha.question', { num1: captcha.n1, num2: captcha.n2 })}
+                                            {t('contact.captcha.question')}
                                         </Form.Label>
-                                        <Form.Control
-                                            type="number"
-                                            name="captchaInput"
-                                            value={formData.captchaInput}
-                                            onChange={handleChange}
-                                            required
-                                            placeholder={t('contact.captcha.label')}
-                                        />
+                                        <div className="d-flex justify-content-between gap-2">
+                                            {captcha.options.map((emoji, index) => (
+                                                <Button
+                                                    key={index}
+                                                    variant={captchaVerified && index === captcha.correctIndex ? "success" : "outline-secondary"}
+                                                    onClick={() => handleCaptchaClick(index)}
+                                                    className="flex-grow-1 fs-4"
+                                                    disabled={captchaVerified && index !== captcha.correctIndex}
+                                                    type="button"
+                                                >
+                                                    {emoji}
+                                                </Button>
+                                            ))}
+                                        </div>
                                     </Form.Group>
 
                                     <div className="d-grid">
