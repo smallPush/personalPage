@@ -1,23 +1,21 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import GlassContainer from './GlassContainer';
 
 const About = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="about" className="py-5">
-      <Container>
-        <Row className="justify-content-center">
-          <Col md={10}>
-            <h2 className="text-center mb-4">{t('about.title')}</h2>
-            <p className="lead text-center">
-              {t('about.text')}
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    <div className="row justify-content-center">
+      <div className="col-lg-10">
+        <GlassContainer className="text-center p-5">
+          <h2 className="text-fluid-lg mb-4">{t('about.title')}</h2>
+          <p className="lead mx-auto" style={{ maxWidth: '800px', opacity: 0.9 }}>
+            {t('about.text')}
+          </p>
+        </GlassContainer>
+      </div>
+    </div>
   );
 };
 

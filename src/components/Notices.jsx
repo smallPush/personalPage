@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { notices } from '../data/notices';
 import useSeo from '../utils/useSeo';
+import GlassContainer from './GlassContainer';
 
 const Notices = ({ singleNoticeId }) => {
     const { t, i18n } = useTranslation();
@@ -77,56 +78,52 @@ const Notices = ({ singleNoticeId }) => {
     }, [currentNotice]);
 
     return (
-        <section id="notices" className="py-5 bg-light">
+        <div id="notices" className="py-5">
             {jsonLd && (
                 <script type="application/ld+json">
                     {JSON.stringify(jsonLd)}
                 </script>
             )}
-            <Container>
-                <div className="d-flex justify-content-between align-items-center mb-5">
-                    <h2 className="mb-0">{singleNoticeId ? t('notices.itemTitle', 'News Item') : t('notices.title', 'News')}</h2>
-                    {singleNoticeId && (
-                        <Button as={Link} to="/news" variant="outline-primary">
+            <div className="d-flex justify-content-between align-items-center mb-5 mt-4">
+                <h2 className="text-fluid-lg mb-0">{singleNoticeId ? t('notices.itemTitle', 'News Item') : t('notices.title', 'News')}</h2>
+                {singleNoticeId && (
+                    <Button as={Link} to="/news" variant="outline-primary" className="rounded-pill px-4">
+                        {t('notices.back', 'Back to News')}
+                    </Button>
+                )}
+            </div>
+            <Row className="justify-content-center">
+                {displayNotices.map((notice) => (
+                    <Col key={notice.id} md={12} className="mb-5">
+                        <GlassContainer className="p-4 p-md-5">
+                            <div className="d-flex justify-content-between text-muted mb-4 pb-3 border-bottom border-white border-opacity-10">
+                                <span className="small tracking-widest uppercase">{notice.date}</span>
+                                {!singleNoticeId && (
+                                    <Link to={`/news/${notice.id}`} className="text-primary text-decoration-none small fw-bold">
+                                        {t('notices.viewLink', 'Permalink').toUpperCase()} →
+                                    </Link>
+                                )}
+                            </div>
+                            <div className="markdown-content lead" style={{ opacity: 0.9 }}>
+                                {posts[notice.id] ? (
+                                    <ReactMarkdown>{posts[notice.id]}</ReactMarkdown>
+                                ) : (
+                                    <div className="py-5 text-center opacity-50">{t('notices.loading', 'Loading content...')}</div>
+                                )}
+                            </div>
+                        </GlassContainer>
+                    </Col>
+                ))}
+                {displayNotices.length === 0 && (
+                    <Col md={10} className="text-center py-5">
+                        <p className="opacity-50">{t('notices.notFound', 'News item not found.')}</p>
+                        <Button as={Link} to="/news" variant="primary" className="mt-3">
                             {t('notices.back', 'Back to News')}
                         </Button>
-                    )}
-                </div>
-                <Row className="justify-content-center">
-                    {displayNotices.map((notice) => (
-                        <Col key={notice.id} md={10} className="mb-4">
-                            <Card className="shadow-sm">
-                                <Card.Body>
-                                    <div className="d-flex justify-content-between text-muted mb-3">
-                                        <small>{notice.date}</small>
-                                        {!singleNoticeId && (
-                                            <Link to={`/news/${notice.id}`} className="btn btn-link btn-sm p-0">
-                                                {t('notices.viewLink', 'Permalink')}
-                                            </Link>
-                                        )}
-                                    </div>
-                                    <div className="markdown-content">
-                                        {posts[notice.id] ? (
-                                            <ReactMarkdown>{posts[notice.id]}</ReactMarkdown>
-                                        ) : (
-                                            <p>Loading...</p>
-                                        )}
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                    {displayNotices.length === 0 && (
-                        <Col md={10} className="text-center">
-                            <p>{t('notices.notFound', 'News item not found.')}</p>
-                            <Button as={Link} to="/news" variant="primary">
-                                {t('notices.back', 'Back to News')}
-                            </Button>
-                        </Col>
-                    )}
-                </Row>
-            </Container>
-        </section>
+                    </Col>
+                )}
+            </Row>
+        </div>
     );
 };
 
