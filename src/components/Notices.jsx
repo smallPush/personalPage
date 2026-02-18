@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { notices } from '../data/notices';
@@ -17,7 +18,7 @@ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
 
     return (
         <>
-            <ReactMarkdown>{displayContent}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{displayContent}</ReactMarkdown>
             {isTruncated && (
                 <div className="mt-4">
                     <Button as={Link} to={`/news/${noticeId}`} variant="outline-primary" className="rounded-pill px-4">
