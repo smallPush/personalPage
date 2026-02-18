@@ -1,45 +1,94 @@
 :root {
-  /* Brand Colors */
+  /* Futuristic Color Palette */
+  --accent-glow: hsla(28, 55%, 53%, 0.4);
+  /* Based on --brand-primary */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-stroke: rgba(255, 255, 255, 0.2);
+  --dark-void: #0a0c10;
+  --nebula-core: #1a1e26;
+
+  /* Brand Colors (Preserved and Enhanced) */
   --brand-primary: #bc8154;
-  /* Box Orange */
   --brand-primary-dark: #8c5e3c;
   --brand-secondary: #33394b;
-  /* Dark Blue/Gray Background */
   --brand-accent: #734a39;
-  /* Dark Brown */
   --brand-neutral: #8f826d;
-  /* Sage/Gray */
   --brand-light: #f4efe9;
-  /* Light Beige for backgrounds */
   --brand-secondary-light: #eef2f7;
-  /* Very light version of secondary blue */
+
+  /* Fluid Typography (2026 Standard) */
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  --font-size-lg: clamp(1.2rem, 1.1rem + 0.5vw, 2rem);
+  --font-size-xl: clamp(2rem, 1.5rem + 2vw, 4.5rem);
+
+  /* Performance Optimizations */
+  --transition-smooth: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 
   /* Override Bootstrap Variables */
   --bs-primary: var(--brand-primary);
   --bs-primary-rgb: 188, 129, 84;
-
   --bs-secondary: var(--brand-neutral);
   --bs-secondary-rgb: 143, 130, 109;
-
   --bs-dark: var(--brand-secondary);
   --bs-dark-rgb: 51, 57, 75;
+  --bs-body-bg: var(--dark-void);
+  --bs-body-color: #e0e6ed;
 
-  --bs-body-bg: #fff;
-  --bs-body-color: var(--brand-secondary);
-
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--dark-void);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(188, 129, 84, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(51, 57, 75, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--bs-body-color);
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Utilities */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  border-radius: 20px;
+  padding: 2rem;
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--glass-stroke);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px 0 rgba(188, 129, 84, 0.15);
+}
+
+/* Futuristic Text */
+.text-fluid-xl {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #fff 0%, var(--brand-primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Custom Component Overrides */
-
 .bg-primary {
   background-color: var(--brand-primary) !important;
 }
@@ -50,28 +99,68 @@ body {
 
 .btn-primary {
   background-color: var(--brand-primary);
-  border-color: var(--brand-primary);
+  border-color: transparent;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  transition: var(--transition-smooth);
 }
 
 .btn-primary:hover {
   background-color: var(--brand-primary-dark);
-  border-color: var(--brand-primary-dark);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: scale(1.02);
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: var(--brand-secondary);
+.navbar {
+  transition: var(--transition-smooth);
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-  color: var(--brand-primary);
+.navbar .navbar-brand {
+  color: #fff !important;
 }
 
-/* Hero Section Customization to match Logo Background */
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar .nav-link.text-primary {
+  color: #ffaa66 !important;
+  /* Brighter orange for better contrast */
+  text-shadow: 0 0 10px rgba(255, 170, 102, 0.3);
+}
+
 .hero-section {
-  background-color: var(--brand-secondary);
+  background: transparent;
   color: #fff;
 }
 
-.bg-brand-light-blue {
-  background-color: var(--brand-secondary-light) !important;
+/* Text Visibility Fixes */
+.text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Card Overrides (for components not yet refactored) */
+.card {
+  background: var(--glass-bg) !important;
+  color: var(--bs-body-color) !important;
+  border-color: var(--glass-border) !important;
+}
+
+.card-title {
+  color: #fff !important;
 }

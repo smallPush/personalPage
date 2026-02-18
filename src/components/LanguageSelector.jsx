@@ -10,20 +10,20 @@ const LanguageSelector = () => {
     };
 
     return (
-        <ButtonGroup size="sm" className="ms-3">
-            <Button
-                variant={i18n.language === 'en' ? 'primary' : 'outline-primary'}
+        <div className="language-selector d-flex p-1 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-10">
+            <button
+                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'en' ? 'bg-primary text-white shadow-sm' : 'text-white border-0 opacity-50'}`}
                 onClick={() => changeLanguage('en')}
             >
                 EN
-            </Button>
-            <Button
-                variant={i18n.language === 'es' || i18n.language.startsWith('es') ? 'primary' : 'outline-primary'}
+            </button>
+            <button
+                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'es' || i18n.language.startsWith('es') ? 'bg-primary text-white shadow-sm' : 'text-white border-0 opacity-50'}`}
                 onClick={() => changeLanguage('es')}
             >
                 ES
-            </Button>
-        </ButtonGroup>
+            </button>
+        </div>
     );
 };
 

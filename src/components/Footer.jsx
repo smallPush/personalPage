@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="bg-dark text-white py-4 text-center">
+    <footer className="py-5 text-center mt-5" style={{ opacity: 0.6 }}>
       <Container>
-        <p className="mb-0">&copy; {new Date().getFullYear()} SmallPush. {t('footer.rights')}</p>
+        <div className="mb-3 border-top border-secondary opacity-25 mx-auto" style={{ maxWidth: '200px' }}></div>
+        <p className="small mb-0 tracking-widest">&copy; {new Date().getFullYear()} SMALLPUSH. {t('footer.rights')}</p>
       </Container>
     </footer>
   );
