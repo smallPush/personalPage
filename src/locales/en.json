@@ -86,7 +86,8 @@
         "back": "Back to News",
         "itemTitle": "News Detail",
         "notFound": "News item not found.",
-        "viewLink": "View more"
+        "viewLink": "View more",
+        "readMore": "Read More"
     },
     "cookies": {
         "banner": {

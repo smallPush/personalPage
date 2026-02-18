@@ -86,7 +86,8 @@
         "back": "Volver a Noticias",
         "itemTitle": "Detalle de Noticia",
         "notFound": "Noticia no encontrada.",
-        "viewLink": "Ver más"
+        "viewLink": "Ver más",
+        "readMore": "Leer más"
     },
     "cookies": {
         "banner": {
