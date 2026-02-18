@@ -95,7 +95,7 @@ const Notices = ({ singleNoticeId }) => {
             <Row className="justify-content-center">
                 {displayNotices.map((notice) => (
                     <Col key={notice.id} md={12} className="mb-5">
-                        <GlassContainer className="p-4 p-md-5">
+                        <GlassContainer style={{ padding: 'clamp(1.5rem, 5vw, 4rem)' }}>
                             <div className="d-flex justify-content-between text-muted mb-4 pb-3 border-bottom border-white border-opacity-10">
                                 <span className="small tracking-widest uppercase">{notice.date}</span>
                                 {!singleNoticeId && (

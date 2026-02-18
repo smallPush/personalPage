@@ -10,7 +10,7 @@ function News() {
     }, [id]);
 
     return (
-        <div style={{ paddingTop: '80px' }}>
+        <div className="container px-4 px-lg-5" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
             <Notices singleNoticeId={id} />
         </div>
     );
