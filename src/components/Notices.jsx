@@ -7,6 +7,28 @@ import { notices } from '../data/notices';
 import useSeo from '../utils/useSeo';
 import GlassContainer from './GlassContainer';
 
+const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
+    const lines = useMemo(() => content.split('\n'), [content]);
+    const isTruncated = !singleNoticeId && lines.length > 10;
+    const displayContent = useMemo(() => {
+        if (singleNoticeId) return content;
+        return isTruncated ? lines.slice(0, 10).join('\n') + '...' : content;
+    }, [content, singleNoticeId, lines, isTruncated]);
+
+    return (
+        <>
+            <ReactMarkdown>{displayContent}</ReactMarkdown>
+            {isTruncated && (
+                <div className="mt-4">
+                    <Button as={Link} to={`/news/${noticeId}`} variant="outline-primary" className="rounded-pill px-4">
+                        {t('notices.readMore', 'Read More')}
+                    </Button>
+                </div>
+            )}
+        </>
+    );
+};
+
 const Notices = ({ singleNoticeId }) => {
     const { t, i18n } = useTranslation();
     const [posts, setPosts] = useState({});
@@ -106,7 +128,12 @@ const Notices = ({ singleNoticeId }) => {
                             </div>
                             <div className="markdown-content lead" style={{ opacity: 0.9 }}>
                                 {posts[notice.id] ? (
-                                    <ReactMarkdown>{posts[notice.id]}</ReactMarkdown>
+                                    <NoticeContent
+                                        content={posts[notice.id]}
+                                        singleNoticeId={singleNoticeId}
+                                        noticeId={notice.id}
+                                        t={t}
+                                    />
                                 ) : (
                                     <div className="py-5 text-center opacity-50">{t('notices.loading', 'Loading content...')}</div>
                                 )}
