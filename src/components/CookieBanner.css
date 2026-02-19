@@ -53,6 +53,7 @@
 .cookie-btn-primary:hover {
     background: var(--brand-primary-dark);
     box-shadow: 0 0 15px var(--accent-glow);
+    transform: translateY(-2px);
 }
 
 .cookie-btn-secondary {
@@ -63,6 +64,7 @@
 
 .cookie-btn-secondary:hover {
     background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 .cookie-btn-text {

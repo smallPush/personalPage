@@ -41,6 +41,11 @@
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -109,6 +114,40 @@ body {
   background-color: var(--brand-primary-dark);
   box-shadow: 0 0 20px var(--accent-glow);
   transform: scale(1.02);
+}
+
+/* Button & Interactive Element Consistency */
+.btn {
+  transition: var(--transition-smooth) !important;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:focus, 
+.btn:active, 
+.btn-primary:focus, 
+.btn-primary:active,
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem var(--accent-glow) !important;
+  outline: none;
+}
+
+/* Link Consistency */
+a {
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--brand-primary);
+  opacity: 0.8;
+}
+
+/* Form Focus Overrides */
+.form-control:focus {
+  border-color: var(--brand-primary) !important;
+  box-shadow: 0 0 0 0.25rem var(--accent-glow) !important;
 }
 
 .navbar {
