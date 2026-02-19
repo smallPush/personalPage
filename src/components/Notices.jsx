@@ -20,7 +20,7 @@ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
             <ReactMarkdown>{displayContent}</ReactMarkdown>
             {isTruncated && (
                 <div className="mt-4">
-                    <Button as={Link} to={`/news/${noticeId}`} variant="outline-primary" className="rounded-pill px-4">
+                    <Button as={Link} to={`/news/${noticeId}`} variant="primary" className="rounded-pill px-4">
                         {t('notices.readMore', 'Read More')}
                     </Button>
                 </div>
@@ -109,7 +109,7 @@ const Notices = ({ singleNoticeId }) => {
             <div className="d-flex justify-content-between align-items-center mb-5 mt-4">
                 <h2 className="text-fluid-lg mb-0">{singleNoticeId ? t('notices.itemTitle', 'News Item') : t('notices.title', 'News')}</h2>
                 {singleNoticeId && (
-                    <Button as={Link} to="/news" variant="outline-primary" className="rounded-pill px-4">
+                    <Button as={Link} to="/news" variant="primary" className="rounded-pill px-4">
                         {t('notices.back', 'Back to News')}
                     </Button>
                 )}
