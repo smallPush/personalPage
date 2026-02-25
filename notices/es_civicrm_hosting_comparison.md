@@ -33,4 +33,4 @@ Si busca un despliegue moderno y contenedorizado (usando Docker):
 *   **Elija AWS si:** Ya utiliza otros servicios de AWS, necesita la potencia y rentabilidad de SES para campañas de correo masivas, o desea aprovechar Aurora RDS.
 *   **Elija GCP si:** Prioriza la facilidad de uso, desea la mejor experiencia de Kubernetes de su clase (GKE), o prefiere una experiencia de consola y facturación más directa.
 
-En **SmallPush**, tenemos experiencia desplegando y optimizando CiviCRM en ambas plataformas. [¡Contáctenos](/contact) para discutir cuál es la adecuada para su organización!
+En **SmallPush**, tenemos experiencia desplegando y optimizando CiviCRM en ambas plataformas. [¡Contáctenos](/#contact) para discutir cuál es la adecuada para su organización!
