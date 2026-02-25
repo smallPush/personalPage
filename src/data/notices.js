@@ -1,5 +1,13 @@
 export const notices = [
     {
+        id: 'civicrm-hosting-comparison',
+        filename: 'civicrm_hosting_comparison.md',
+        date: '2026-02-25',
+        seoTitle: 'Hosting CiviCRM: Google Cloud vs AWS - SmallPush',
+        seoDescription: 'A detailed comparison between Google Cloud Platform and Amazon Web Services for hosting CiviCRM. Learn which cloud provider is best for your organization.',
+        keywords: 'CiviCRM, hosting, GCP, AWS, cloud, CRM, non-profit, comparison'
+    },
+    {
         id: 'civicrm-tuning',
         filename: 'civicrm_tuning.md',
         date: '2026-02-18'
