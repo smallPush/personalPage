@@ -3,6 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { notices } from '../data/notices';
 import useSeo from '../utils/useSeo';
 import GlassContainer from './GlassContainer';
@@ -17,7 +18,25 @@ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
 
     return (
         <>
-            <ReactMarkdown>{displayContent}</ReactMarkdown>
+            <ReactMarkdown
+                components={{
+                    a: ({ ...props }) => {
+                        const href = props.href || '';
+                        const isInternal = href.startsWith('/') || href.startsWith('#');
+                        const isHash = href.includes('#');
+
+                        if (isInternal) {
+                            if (isHash) {
+                                return <HashLink smooth to={href} {...props} />;
+                            }
+                            return <Link to={href} {...props} />;
+                        }
+                        return <a target="_blank" rel="noopener noreferrer" {...props} />;
+                    }
+                }}
+            >
+                {displayContent}
+            </ReactMarkdown>
             {isTruncated && (
                 <div className="mt-4">
                     <Button as={Link} to={`/news/${noticeId}`} variant="primary" className="rounded-pill px-4">

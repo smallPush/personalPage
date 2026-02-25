@@ -33,4 +33,4 @@ If you are looking at a modern, containerized deployment (using Docker):
 *   **Choose AWS if:** You already use other AWS services, need the raw power and cost-efficiency of SES for massive email campaigns, or want to leverage Aurora RDS.
 *   **Choose GCP if:** You prioritize ease of use, want the best-in-class Kubernetes experience (GKE), or prefer a more straightforward billing and console experience.
 
-At **SmallPush**, we have experience deploying and optimizing CiviCRM on both platforms. [Contact us](/contact) to discuss which one is right for your organization!
+At **SmallPush**, we have experience deploying and optimizing CiviCRM on both platforms. [Contact us](/#contact) to discuss which one is right for your organization!
