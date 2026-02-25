@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getStoredConsent, setStoredConsent } from '../utils/cookieConsent';
 import './CookieBanner.css';
 
-const CookieSettings = ({ isOpen, onClose, onSave, currentConsent }) => {
+const CookieSettings = ({ isOpen, onSave, currentConsent }) => {
     const { t } = useTranslation();
     const [preferences, setPreferences] = useState(currentConsent || { analytics: false, ads: false });
 
@@ -57,15 +57,8 @@ const CookieSettings = ({ isOpen, onClose, onSave, currentConsent }) => {
 
 const CookieBanner = () => {
     const { t } = useTranslation();
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(() => !getStoredConsent());
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    useEffect(() => {
-        const consent = getStoredConsent();
-        if (!consent) {
-            setIsVisible(true);
-        }
-    }, []);
 
     const handleAcceptAll = () => {
         const consent = { analytics: true, ads: true };
@@ -107,7 +100,6 @@ const CookieBanner = () => {
             </div>
             <CookieSettings
                 isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
                 onSave={handleSaveSettings}
                 currentConsent={getStoredConsent()}
             />

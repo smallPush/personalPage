@@ -68,24 +68,26 @@ const ContactForm = () => {
         setIsSubmitting(true);
 
         try {
-            const formId = import.meta.env.VITE_FORMSPREE_ID;
+            const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+            const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
-            if (!formId) {
-                console.error('Formspree ID is not configured');
+            if (!botToken || !chatId) {
+                console.error('Telegram configuration is missing');
                 setStatus({ type: 'danger', msg: t('contact.error') });
                 setIsSubmitting(false);
                 return;
             }
 
-            const formDataPayload = new FormData();
-            formDataPayload.append('name', formData.name);
-            formDataPayload.append('email', formData.email);
-            formDataPayload.append('message', formData.message);
+            const text = `📬 *New Contact Form Submission*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n\n*Message:*\n${formData.message}`;
 
-            const response = await fetch(`https://formspree.io/f/${formId}`, {
+            const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: formDataPayload
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: text,
+                    parse_mode: 'Markdown'
+                })
             });
 
             if (response.ok) {
@@ -95,7 +97,7 @@ const ContactForm = () => {
             } else {
                 setStatus({ type: 'danger', msg: t('contact.error') });
             }
-        } catch (error) {
+        } catch {
             setStatus({ type: 'danger', msg: t('contact.error') });
         } finally {
             setIsSubmitting(false);
