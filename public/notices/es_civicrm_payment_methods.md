@@ -45,4 +45,4 @@ La mejor estrategia a menudo implica una mezcla:
 
 En **SmallPush**, nos especializamos en configurar estos procesadores de pago dentro de CiviCRM para asegurar que su recaudación de fondos funcione sin problemas.
 
-**¿Necesita ayuda para configurar su pasarela de pago?** [Contáctenos](/contact) para una consulta.
+**¿Necesita ayuda para configurar su pasarela de pago?** [Contáctenos](/#contact) para una consulta.

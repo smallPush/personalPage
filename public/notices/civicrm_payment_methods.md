@@ -45,4 +45,4 @@ The best strategy often involves a mix:
 
 At **SmallPush**, we specialize in configuring these payment processors within CiviCRM to ensure your fundraising runs smoothly.
 
-**Need help setting up your payment gateway?** [Contact us](/contact) for a consultation.
+**Need help setting up your payment gateway?** [Contact us](/#contact) for a consultation.
