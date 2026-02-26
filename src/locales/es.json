@@ -94,7 +94,10 @@
         "itemTitle": "Detalle de Noticia",
         "notFound": "Noticia no encontrada.",
         "viewLink": "Ver más",
-        "readMore": "Leer más"
+        "readMore": "Leer más",
+        "filterByTag": "Filtrar por etiqueta:",
+        "clearFilter": "Limpiar filtro",
+        "searchTagsPlaceholder": "Buscar etiquetas..."
     },
     "cookies": {
         "banner": {

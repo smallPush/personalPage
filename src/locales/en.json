@@ -94,7 +94,10 @@
         "itemTitle": "News Detail",
         "notFound": "News item not found.",
         "viewLink": "View more",
-        "readMore": "Read More"
+        "readMore": "Read More",
+        "filterByTag": "Filter by tag:",
+        "clearFilter": "Clear filter",
+        "searchTagsPlaceholder": "Search tags..."
     },
     "cookies": {
         "banner": {

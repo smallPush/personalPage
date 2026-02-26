@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Badge, Form } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -51,13 +51,33 @@ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
 const Notices = ({ singleNoticeId }) => {
     const { t, i18n } = useTranslation();
     const [posts, setPosts] = useState({});
+    const [selectedTag, setSelectedTag] = useState(null);
+    const [tagSearch, setTagSearch] = useState('');
+
+    const uniqueTags = useMemo(() => {
+        const tags = new Set();
+        notices.forEach(notice => {
+            if (notice.tags) {
+                notice.tags.forEach(tag => tags.add(tag));
+            }
+        });
+        return Array.from(tags).sort();
+    }, []);
+
+    const filteredTags = useMemo(() => {
+        if (!tagSearch.trim()) return uniqueTags;
+        return uniqueTags.filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()));
+    }, [uniqueTags, tagSearch]);
 
     const displayNotices = useMemo(() => {
         if (singleNoticeId) {
             return notices.filter(n => n.id === singleNoticeId);
         }
+        if (selectedTag) {
+            return notices.filter(n => n.tags && n.tags.includes(selectedTag));
+        }
         return notices;
-    }, [singleNoticeId]);
+    }, [singleNoticeId, selectedTag]);
 
     // SEO management for single notice view
     const currentNotice = singleNoticeId ? notices.find(n => n.id === singleNoticeId) : null;
@@ -133,14 +153,73 @@ const Notices = ({ singleNoticeId }) => {
                     </Button>
                 )}
             </div>
+
+            {!singleNoticeId && (
+                <div className="mb-5">
+                    <div className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder={t('notices.searchTagsPlaceholder', 'Search tags...')}
+                            value={tagSearch}
+                            onChange={(e) => setTagSearch(e.target.value)}
+                            style={{ maxWidth: '300px' }}
+                        />
+                    </div>
+                    <div className="d-flex flex-wrap align-items-center gap-2">
+                        <span className="fw-bold me-2">{t('notices.filterByTag', 'Filter by tag:')}</span>
+                        {filteredTags.map(tag => (
+                            <Badge
+                                key={tag}
+                                bg={selectedTag === tag ? 'primary' : 'light'}
+                                text={selectedTag === tag ? 'white' : 'dark'}
+                                className={`cursor-pointer border ${selectedTag === tag ? 'border-primary' : 'border-secondary'}`}
+                                style={{ cursor: 'pointer', fontSize: '0.9rem' }}
+                                onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+                            >
+                                {tag}
+                            </Badge>
+                        ))}
+                        {selectedTag && (
+                            <Button
+                                variant="link"
+                                className="text-decoration-none p-0 ms-2 text-muted"
+                                onClick={() => setSelectedTag(null)}
+                                size="sm"
+                            >
+                                {t('notices.clearFilter', 'Clear filter')}
+                            </Button>
+                        )}
+                    </div>
+                </div>
+            )}
             <Row className="justify-content-center">
                 {displayNotices.map((notice) => (
                     <Col key={notice.id} md={12} className="mb-5">
                         <GlassContainer style={{ padding: 'clamp(1.5rem, 5vw, 4rem)' }}>
                             <div className="d-flex justify-content-between text-muted mb-4 pb-3 border-bottom border-white border-opacity-10">
-                                <span className="small tracking-widest uppercase">{notice.date}</span>
+                                <div className="d-flex flex-column gap-2">
+                                    <span className="small tracking-widest uppercase">{notice.date}</span>
+                                    {notice.tags && (
+                                        <div className="d-flex flex-wrap gap-1">
+                                            {notice.tags.map(tag => (
+                                                <Badge
+                                                    key={tag}
+                                                    bg="secondary"
+                                                    className="opacity-75"
+                                                    style={{ cursor: 'pointer', fontSize: '0.75rem' }}
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        if (!singleNoticeId) setSelectedTag(tag);
+                                                    }}
+                                                >
+                                                    {tag}
+                                                </Badge>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                                 {!singleNoticeId && (
-                                    <Link to={`/news/${notice.id}`} className="text-primary text-decoration-none small fw-bold">
+                                    <Link to={`/news/${notice.id}`} className="text-primary text-decoration-none small fw-bold align-self-start">
                                         {t('notices.viewLink', 'Permalink').toUpperCase()} →
                                     </Link>
                                 )}
