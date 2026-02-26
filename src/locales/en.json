@@ -96,7 +96,8 @@
         "viewLink": "View more",
         "readMore": "Read More",
         "filterByTag": "Filter by tag:",
-        "clearFilter": "Clear filter"
+        "clearFilter": "Clear filter",
+        "searchTagsPlaceholder": "Search tags..."
     },
     "cookies": {
         "banner": {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Row, Col, Button, Badge } from 'react-bootstrap';
+import { Row, Col, Button, Badge, Form } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -52,6 +52,7 @@ const Notices = ({ singleNoticeId }) => {
     const { t, i18n } = useTranslation();
     const [posts, setPosts] = useState({});
     const [selectedTag, setSelectedTag] = useState(null);
+    const [tagSearch, setTagSearch] = useState('');
 
     const uniqueTags = useMemo(() => {
         const tags = new Set();
@@ -62,6 +63,11 @@ const Notices = ({ singleNoticeId }) => {
         });
         return Array.from(tags).sort();
     }, []);
+
+    const filteredTags = useMemo(() => {
+        if (!tagSearch.trim()) return uniqueTags;
+        return uniqueTags.filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()));
+    }, [uniqueTags, tagSearch]);
 
     const displayNotices = useMemo(() => {
         if (singleNoticeId) {
@@ -149,30 +155,41 @@ const Notices = ({ singleNoticeId }) => {
             </div>
 
             {!singleNoticeId && (
-                <div className="mb-5 d-flex flex-wrap align-items-center gap-2">
-                    <span className="fw-bold me-2">{t('notices.filterByTag', 'Filter by tag:')}</span>
-                    {uniqueTags.map(tag => (
-                        <Badge
-                            key={tag}
-                            bg={selectedTag === tag ? 'primary' : 'light'}
-                            text={selectedTag === tag ? 'white' : 'dark'}
-                            className={`cursor-pointer border ${selectedTag === tag ? 'border-primary' : 'border-secondary'}`}
-                            style={{ cursor: 'pointer', fontSize: '0.9rem' }}
-                            onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
-                        >
-                            {tag}
-                        </Badge>
-                    ))}
-                    {selectedTag && (
-                        <Button
-                            variant="link"
-                            className="text-decoration-none p-0 ms-2 text-muted"
-                            onClick={() => setSelectedTag(null)}
-                            size="sm"
-                        >
-                            {t('notices.clearFilter', 'Clear filter')}
-                        </Button>
-                    )}
+                <div className="mb-5">
+                    <div className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder={t('notices.searchTagsPlaceholder', 'Search tags...')}
+                            value={tagSearch}
+                            onChange={(e) => setTagSearch(e.target.value)}
+                            style={{ maxWidth: '300px' }}
+                        />
+                    </div>
+                    <div className="d-flex flex-wrap align-items-center gap-2">
+                        <span className="fw-bold me-2">{t('notices.filterByTag', 'Filter by tag:')}</span>
+                        {filteredTags.map(tag => (
+                            <Badge
+                                key={tag}
+                                bg={selectedTag === tag ? 'primary' : 'light'}
+                                text={selectedTag === tag ? 'white' : 'dark'}
+                                className={`cursor-pointer border ${selectedTag === tag ? 'border-primary' : 'border-secondary'}`}
+                                style={{ cursor: 'pointer', fontSize: '0.9rem' }}
+                                onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+                            >
+                                {tag}
+                            </Badge>
+                        ))}
+                        {selectedTag && (
+                            <Button
+                                variant="link"
+                                className="text-decoration-none p-0 ms-2 text-muted"
+                                onClick={() => setSelectedTag(null)}
+                                size="sm"
+                            >
+                                {t('notices.clearFilter', 'Clear filter')}
+                            </Button>
+                        )}
+                    </div>
                 </div>
             )}
             <Row className="justify-content-center">
