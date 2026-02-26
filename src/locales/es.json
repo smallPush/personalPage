@@ -1,4 +1,11 @@
 {
+    "seo": {
+        "home": {
+            "title": "SmallPush - Expertos en CiviCRM, Métodos de Pago y Drupal",
+            "description": "Soluciones digitales a medida para crecimiento y captación. Especializados en Métodos de Pago CiviCRM, Stripe, Redsys e Integración Drupal.",
+            "keywords": "CiviCRM, Métodos de Pago, Stripe, Redsys, Drupal, CRM, ONG, crecimiento digital"
+        }
+    },
     "navigation": {
         "home": "Inicio",
         "about": "Sobre Nosotros",
