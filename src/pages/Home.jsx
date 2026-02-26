@@ -12,12 +12,12 @@ function Home() {
     const { t } = useTranslation();
 
     useSeo(
-        'SmallPush - CiviCRM & Drupal Experts',
-        t('hero.subtitle', 'Expert CiviCRM and Drupal Solutions for NGOs and Companies.'),
+        t('seo.home.title', 'SmallPush - CiviCRM & Drupal Experts'),
+        t('seo.home.description', 'Expert CiviCRM and Drupal Solutions for NGOs and Companies.'),
         {
             image: '/logo.png',
             url: window.location.href,
-            keywords: 'civicrm, drupal, software, development, smallpush, ngo'
+            keywords: t('seo.home.keywords', 'civicrm, drupal, software, development, smallpush, ngo')
         }
     );
 

@@ -1,4 +1,11 @@
 {
+    "seo": {
+        "home": {
+            "title": "SmallPush - CiviCRM, Payment Methods & Drupal Experts",
+            "description": "Custom digital solutions for customer acquisition and growth. Specialized in CiviCRM Payment Methods, Stripe, Redsys, and Drupal Integration.",
+            "keywords": "CiviCRM, Payment Methods, Stripe, Redsys, Drupal, CRM, Non-profit, digital growth"
+        }
+    },
     "navigation": {
         "home": "Home",
         "about": "About",
