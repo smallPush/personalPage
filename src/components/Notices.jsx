@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Row, Col, Button, Badge, Form } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
@@ -54,6 +54,8 @@ const Notices = ({ singleNoticeId }) => {
     const [selectedTag, setSelectedTag] = useState(null);
     const [tagSearch, setTagSearch] = useState('');
 
+    const currentLang = i18n.language.split('-')[0];
+
     const uniqueTags = useMemo(() => {
         const tags = new Set();
         notices.forEach(notice => {
@@ -81,11 +83,19 @@ const Notices = ({ singleNoticeId }) => {
 
     // SEO management for single notice view
     const currentNotice = singleNoticeId ? notices.find(n => n.id === singleNoticeId) : null;
+
+    // Helper to get localized field or fallback to English
+    const getLocalizedField = useCallback((fieldObj) => {
+        if (!fieldObj) return '';
+        if (typeof fieldObj === 'string') return fieldObj;
+        return fieldObj[currentLang] || fieldObj['en'] || '';
+    }, [currentLang]);
+
     useSeo(
-        currentNotice?.seoTitle || (singleNoticeId ? null : t('notices.seoTitle', 'News - SmallPush')),
-        currentNotice?.seoDescription || (singleNoticeId ? null : t('notices.seoDescription', 'Latest news and updates from SmallPush.')),
+        getLocalizedField(currentNotice?.seoTitle) || (singleNoticeId ? null : t('notices.seoTitle', 'News - SmallPush')),
+        getLocalizedField(currentNotice?.seoDescription) || (singleNoticeId ? null : t('notices.seoDescription', 'Latest news and updates from SmallPush.')),
         {
-            keywords: currentNotice?.keywords || t('notices.seoKeywords', 'news, updates, technology, smallpush'),
+            keywords: getLocalizedField(currentNotice?.keywords) || t('notices.seoKeywords', 'news, updates, technology, smallpush'),
             type: singleNoticeId ? 'article' : 'website',
             url: window.location.href,
             image: currentNotice?.image || '/logo.png' // Fallback to logo if no image
@@ -96,8 +106,7 @@ const Notices = ({ singleNoticeId }) => {
         const fetchNotices = async () => {
             const loadedPosts = {};
             for (const notice of displayNotices) {
-                const lang = i18n.language.split('-')[0];
-                const prefix = lang === 'es' ? 'es_' : '';
+                const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
                 const filename = `${prefix}${notice.filename}`;
 
                 try {
@@ -120,7 +129,7 @@ const Notices = ({ singleNoticeId }) => {
         };
 
         fetchNotices();
-    }, [i18n.language, displayNotices]);
+    }, [currentLang, displayNotices]);
 
     // structured data for SEO
     const jsonLd = useMemo(() => {
@@ -128,15 +137,15 @@ const Notices = ({ singleNoticeId }) => {
         return {
             "@context": "https://schema.org",
             "@type": "NewsArticle",
-            "headline": currentNotice.seoTitle,
+            "headline": getLocalizedField(currentNotice.seoTitle),
             "datePublished": currentNotice.date,
-            "description": currentNotice.seoDescription,
+            "description": getLocalizedField(currentNotice.seoDescription),
             "author": {
                 "@type": "Organization",
                 "name": "SmallPush"
             }
         };
-    }, [currentNotice]);
+    }, [currentNotice, getLocalizedField]);
 
     return (
         <div id="notices" className="py-5">

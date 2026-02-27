@@ -1,0 +1,123 @@
+{
+    "seo": {
+        "home": {
+            "title": "SmallPush - Experts en CiviCRM, Mètodes de Pagament i Drupal",
+            "description": "Solucions digitals a mida per al creixement i la captació. Especialitzats en Mètodes de Pagament CiviCRM, Stripe, Redsys i Integració Drupal.",
+            "keywords": "CiviCRM, Mètodes de Pagament, Stripe, Redsys, Drupal, CRM, ONG, creixement digital"
+        }
+    },
+    "navigation": {
+        "home": "Inici",
+        "about": "Sobre Nosaltres",
+        "services": "Serveis",
+        "quote": "Pressupost",
+        "notices": "Notícies",
+        "contact": "Contacte"
+    },
+    "hero": {
+        "subtitle": "Solucions Expertes en CiviCRM i Drupal per a ONGs i Empreses.",
+        "cta": "Començar"
+    },
+    "about": {
+        "title": "Sobre Nosaltres",
+        "text": "SmallPush és una empresa fundada per un expert amb més de 14 anys d'experiència en la indústria del programari. Ens especialitzem en desenvolupaments a mida per a CiviCRM i Drupal, ajudant organitzacions a optimitzar les seves operacions i gestionar les seves dades de manera efectiva."
+    },
+    "services": {
+        "title": "Els Nostres Serveis",
+        "civi": {
+            "title": "Desenvolupament a Mida de CiviCRM",
+            "text": "Solucions CiviCRM adaptades a les necessitats úniques de la vostra organització."
+        },
+        "drupal": {
+            "title": "Desenvolupament Drupal",
+            "text": "Llocs web i aplicacions Drupal robustos i escalables."
+        },
+        "payment": {
+            "title": "Ecosistema de Pagaments Espanyol",
+            "text": "Integració experta amb passarel·les de pagament i sistemes bancaris espanyols."
+        },
+        "fiscal": {
+            "title": "Gestió de Models Fiscals",
+            "text": "Solucions per gestionar dades fiscals i generar informes d'impostos (ex. Model 182)."
+        },
+        "ads": {
+            "title": "Desenvolupament d'ADs",
+            "text": "Campanyes de captació de clients optimitzades per maximitzar la seva conversió."
+        },
+        "ai": {
+            "title": "Integració amb IA",
+            "text": "Implementació de solucions d'Intel·ligència Artificial per automatitzar i potenciar el vostre negoci."
+        }
+    },
+    "quote": {
+        "title": "Sol·licitar Pressupost",
+        "projectType": {
+            "label": "Tipus de Projecte",
+            "civi": "Desenvolupament CiviCRM",
+            "drupal": "Desenvolupament Drupal",
+            "payment": "Integració de Pagaments",
+            "fiscal": "Models Fiscals",
+            "ads": "Desenvolupament d'ADs",
+            "ai": "Integració amb IA"
+        },
+        "hours": {
+            "label": "Hores Estimades Necessàries"
+        },
+        "submit": "Estimar Cost",
+        "result": {
+            "title": "Cost Estimat:",
+            "disclaimer": "*Aquesta és una estimació aproximada. Contacteu-nos per a un pressupost detallat."
+        }
+    },
+    "footer": {
+        "rights": "Tots els drets reservats."
+    },
+    "contact": {
+        "title": "Contacta'ns",
+        "name": "Nom",
+        "email": "Correu Electrònic",
+        "message": "Missatge",
+        "captcha": {
+            "question": "Selecciona la icona diferent",
+            "label": "Selecciona la icona diferent",
+            "error": "Incorrecte. Si us plau, torna-ho a provar."
+        },
+        "submit": "Enviar Missatge",
+        "success": "Missatge enviat amb èxit!",
+        "error": "Hi ha hagut un error en enviar el missatge. Si us plau, torna-ho a provar."
+    },
+    "notices": {
+        "title": "Notícies",
+        "seoTitle": "Notícies i Novetats - SmallPush",
+        "seoDescription": "Mantigues-te al dia amb les últimes notícies, actualitzacions i articles sobre CiviCRM, Drupal i tecnologia de SmallPush.",
+        "back": "Tornar a Notícies",
+        "itemTitle": "Detall de Notícia",
+        "notFound": "Notícia no trobada.",
+        "viewLink": "Veure més",
+        "readMore": "Llegir més",
+        "filterByTag": "Filtrar per etiqueta:",
+        "clearFilter": "Netejar filtre",
+        "searchTagsPlaceholder": "Cercar etiquetes..."
+    },
+    "cookies": {
+        "banner": {
+            "text": "Utilitzem cookies per millorar la vostra experiència i analitzar el nostre trànsit. Si us plau, trieu les vostres preferències.",
+            "acceptAll": "Acceptar totes",
+            "rejectAll": "Rebutjar totes",
+            "settings": "Configuració de cookies"
+        },
+        "settings": {
+            "title": "Configuració de cookies",
+            "description": "Trieu quines cookies voleu permetre. Algunes cookies són necessàries perquè el lloc web funcioni correctament.",
+            "necessary": {
+                "label": "Necessàries",
+                "desc": "Obligatòries perquè el lloc funcioni correctament. No es poden desactivar."
+            },
+            "analytics": {
+                "label": "Analítiques",
+                "desc": "Ens ajuden a entendre com els visitants interactuen amb el lloc web."
+            },
+            "save": "Desar preferències"
+        }
+    }
+}
