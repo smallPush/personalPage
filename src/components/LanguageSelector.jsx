@@ -23,6 +23,12 @@ const LanguageSelector = () => {
             >
                 ES
             </button>
+            <button
+                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'ca' || i18n.language.startsWith('ca') ? 'bg-primary text-white shadow-sm' : 'text-white border-0 opacity-50'}`}
+                onClick={() => changeLanguage('ca')}
+            >
+                CA
+            </button>
         </div>
     );
 };
