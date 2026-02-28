@@ -12,7 +12,7 @@ CiviCRM és una eina potent, però la seva arquitectura relacional profunda requ
 Aquest és el paràmetre més crític. Defineix quanta memòria RAM dedica el motor a cachejar dades i índexs de taules.
 * **La Regla:** Ha de ser prou gran per albergar la major part de la teva base de dades activa.
 * **Ajust:** En un servidor dedicat, assigna entre el **70% i 80%** de la RAM total.
-* **Fórmula ràpida:** $$	ext{Buffer Pool} = 	ext{RAM Total} 	imes 0.75$$
+* **Fórmula ràpida:** $$\text{Buffer Pool} = \text{RAM Total} \times 0.75$$
 
 ### 2. Gestió d'escriptures: `innodb_log_file_size`
 CiviCRM realitza escriptures constants (logs d'activitat, canvis de grups, triggers). Si aquest valor és molt petit, el sistema patirà "checkpoints" freqüents que congelen la base de dades mentre s'escriu al disc.
