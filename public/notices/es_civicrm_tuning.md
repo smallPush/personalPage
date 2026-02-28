@@ -12,7 +12,7 @@ CiviCRM es una herramienta potente, pero su arquitectura relacional profunda req
 Este es el parámetro más crítico. Define cuánta memoria RAM dedica el motor a cachear datos e índices de tablas.
 * **La Regla:** Debe ser lo suficientemente grande para albergar la mayor parte de tu base de datos activa.
 * **Ajuste:** En un servidor dedicado, asigna entre el **70% y 80%** de la RAM total.
-* **Fórmula rápida:** $$	ext{Buffer Pool} = 	ext{RAM Total} 	imes 0.75$$
+* **Fórmula rápida:** $$\text{Buffer Pool} = \text{RAM Total} \times 0.75$$
 
 ### 2. Gestión de escrituras: `innodb_log_file_size`
 CiviCRM realiza escrituras constantes (logs de actividad, cambios de grupos, triggers). Si este valor es muy pequeño, el sistema sufrirá "checkpoints" frecuentes que congelan la base de datos mientras se escribe al disco.
@@ -50,5 +50,3 @@ No hagas cambios a ciegas. Utiliza estas herramientas para auditar tu estado act
 
 ### ¿Necesitas ir más allá?
 Si después de estos ajustes el rendimiento no mejora, es posible que tengas **índices fragmentados** o tareas de limpieza de tablas `civicrm_cache` pendientes.
-
-**¿Te gustaría que prepare un script SQL para identificar y limpiar automáticamente las tablas de caché que más espacio ocupan en tu CiviCRM?**

@@ -12,7 +12,7 @@ CiviCRM is a powerful tool, but its deep relational architecture requires **MySQ
 This is the most critical parameter. It defines how much RAM the engine dedicates to caching data and table indexes.
 * **The Rule:** It should be large enough to hold most of your active database.
 * **Adjustment:** On a dedicated server, allocate between **70% and 80%** of the total RAM.
-* **Quick Formula:** $$	ext{Buffer Pool} = 	ext{Total RAM} 	imes 0.75$$
+* **Quick Formula:** $$\text{Buffer Pool} = \text{Total RAM} \times 0.75$$
 
 ### 2. Write Management: `innodb_log_file_size`
 CiviCRM performs constant writes (activity logs, group changes, triggers). If this value is too small, the system will suffer frequent "checkpoints" that freeze the database while writing to disk.
@@ -50,5 +50,3 @@ Don't make changes blindly. Use these tools to audit your current status:
 
 ### Need to go further?
 If performance doesn't improve after these adjustments, you might have **fragmented indexes** or pending `civicrm_cache` table cleanup tasks.
-
-**Would you like me to prepare a SQL script to automatically identify and clean up the cache tables that take up the most space in your CiviCRM?**

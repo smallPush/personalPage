@@ -19,7 +19,7 @@ The second major disruption is the metamorphosis of CiviCRM Hooks (`hook_civicrm
 ### Generating Grant Proposals with 10-Year Memory
 Imagine a flow where a "Major Donor" level donor reaches a contribution milestone. The CiviCRM Hook doesn't send a generic "Thank You", but orchestrates a serverless architecture:
 
-1. **Context Extraction**: El sistema recupera el JSON completo de la actividad del contacto de la última década (meeting notes, supported campaigns, evolution of their philanthropic wealth).
+1. **Context Extraction**: The system retrieves the full JSON of the contact's activity from the last decade (meeting notes, supported campaigns, evolution of their philanthropic wealth).
 2. **Inference**: This data is injected into a model (like Llama 3 or GPT-4o) with a System Prompt that knows the NGO's strategic goals for the coming year.
 3. **Result**: The system drafts a hyper-personalized grant proposal that aligns the donor's historical interests with current projects, ready to be reviewed by the fundraising department.
 
