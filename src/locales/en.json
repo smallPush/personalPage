@@ -60,13 +60,49 @@
             "ads": "Ads Development",
             "ai": "AI Integration"
         },
+        "subtitle": "Build your custom project estimate in seconds.",
         "hours": {
-            "label": "Estimated Hours Needed"
+            "label": "Estimated Hours",
+            "unit": "hrs"
         },
         "submit": "Estimate Cost",
+        "cta": "Discuss This Project",
         "result": {
             "title": "Estimated Cost:",
             "disclaimer": "*This is a rough estimate. Contact us for a detailed quote."
+        },
+        "exampleTitle": "Estimated Scope Example",
+        "examples": {
+            "civi": {
+                "small": "Resolution of specific issues or basic configuration of an extension.",
+                "medium": "CiviCRM installation, initial setup, and data import of a small database.",
+                "large": "Development of a complex workflow with custom integrations and a member portal."
+            },
+            "drupal": {
+                "small": "Security updates or small design tweaks on an existing theme.",
+                "medium": "Development of a custom landing page or setup of new content types.",
+                "large": "Creation of a full web portal from scratch with custom design and data migration."
+            },
+            "payment": {
+                "small": "Standard configuration of Stripe or PayPal without complex customizations.",
+                "medium": "Integration of a payment processor (e.g., Redsys) with 3 rounds of client revisions.",
+                "large": "Development of a recurring payments system, bank reconciliation, and multiple gateways."
+            },
+            "fiscal": {
+                "small": "Quick adjustments to the export format of an existing fiscal model.",
+                "medium": "Generation or revision of Model 182 adapted to current regulations.",
+                "large": "Full automation of fiscal models, donation certificates, and data processing."
+            },
+            "ads": {
+                "small": "Quick audit of existing campaigns or basic initial setup.",
+                "medium": "Setup of 2-3 new campaigns with conversion tracking and Google Analytics.",
+                "large": "Comprehensive multi-channel acquisition strategy and custom advanced dashboards."
+            },
+            "ai": {
+                "small": "Technical consultation on feasibility or quick test script with the OpenAI API.",
+                "medium": "Integration of a smart chatbot into your web trained with your own documents (FAQ).",
+                "large": "Orchestration of advanced agents (LLMs) to automate complex processes in the CRM."
+            }
         }
     },
     "footer": {

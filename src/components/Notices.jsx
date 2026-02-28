@@ -164,42 +164,78 @@ const Notices = ({ singleNoticeId }) => {
             </div>
 
             {!singleNoticeId && (
-                <div className="mb-5">
-                    <div className="mb-3">
-                        <Form.Control
-                            type="text"
-                            placeholder={t('notices.searchTagsPlaceholder', 'Search tags...')}
-                            value={tagSearch}
-                            onChange={(e) => setTagSearch(e.target.value)}
-                            style={{ maxWidth: '300px' }}
-                        />
-                    </div>
-                    <div className="d-flex flex-wrap align-items-center gap-2">
-                        <span className="fw-bold me-2">{t('notices.filterByTag', 'Filter by tag:')}</span>
-                        {filteredTags.map(tag => (
-                            <Badge
-                                key={tag}
-                                bg={selectedTag === tag ? 'primary' : 'light'}
-                                text={selectedTag === tag ? 'white' : 'dark'}
-                                className={`cursor-pointer border ${selectedTag === tag ? 'border-primary' : 'border-secondary'}`}
-                                style={{ cursor: 'pointer', fontSize: '0.9rem' }}
-                                onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
-                            >
-                                {tag}
-                            </Badge>
-                        ))}
-                        {selectedTag && (
-                            <Button
-                                variant="link"
-                                className="text-decoration-none p-0 ms-2 text-muted"
-                                onClick={() => setSelectedTag(null)}
-                                size="sm"
-                            >
-                                {t('notices.clearFilter', 'Clear filter')}
-                            </Button>
-                        )}
-                    </div>
-                </div>
+                <GlassContainer className="mb-5 p-4 rounded-4 bg-dark bg-opacity-25 border border-white border-opacity-10 position-relative overflow-hidden">
+                    {/* Decorative glow */}
+                    <div className="position-absolute top-0 start-0 w-50 h-100 bg-primary opacity-5 blur-3xl z-n1" style={{ filter: 'blur(80px)' }}></div>
+
+                    <Row className="align-items-center g-4">
+                        <Col lg={5}>
+                            <div className="position-relative">
+                                {/* Search Icon */}
+                                <div className="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </div>
+                                <Form.Control
+                                    type="text"
+                                    placeholder={t('notices.searchTagsPlaceholder', 'Search tags...')}
+                                    value={tagSearch}
+                                    onChange={(e) => setTagSearch(e.target.value)}
+                                    className="bg-black bg-opacity-50 text-white border-secondary rounded-pill ps-5 pe-5 py-2 transition-all focus-ring-primary"
+                                />
+                                {/* Clear Button */}
+                                {tagSearch && (
+                                    <button
+                                        onClick={() => setTagSearch('')}
+                                        className="position-absolute top-50 end-0 translate-middle-y pe-3 bg-transparent border-0 text-muted hover-text-white transition-all"
+                                        style={{ cursor: 'pointer' }}
+                                        aria-label={t('notices.clearFilter', 'Clear filter')}
+                                    >
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </button>
+                                )}
+                            </div>
+                        </Col>
+
+                        <Col lg={7}>
+                            <div className="d-flex flex-wrap align-items-center gap-2">
+                                <span className="text-white-50 small fw-bold text-uppercase tracking-wider me-2">
+                                    {t('notices.filterByTag', 'Filter by tag:')}
+                                </span>
+                                {filteredTags.map(tag => (
+                                    <Badge
+                                        key={tag}
+                                        bg={selectedTag === tag ? 'primary' : 'dark'}
+                                        text={selectedTag === tag ? 'white' : 'light'}
+                                        className={`px-3 py-2 rounded-pill cursor-pointer transition-all border ${selectedTag === tag
+                                                ? 'border-primary shadow-sm scale-105'
+                                                : 'border-secondary border-opacity-50 hover-bg-secondary opacity-75 hover-opacity-100'
+                                            }`}
+                                        style={{
+                                            cursor: 'pointer',
+                                            fontSize: '0.85rem',
+                                            transform: selectedTag === tag ? 'scale(1.05)' : 'scale(1)',
+                                            transition: 'all 0.2s ease'
+                                        }}
+                                        onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+                                    >
+                                        {tag}
+                                    </Badge>
+                                ))}
+                                {selectedTag && (
+                                    <Button
+                                        variant="link"
+                                        className="text-decoration-none p-0 ms-1 text-muted small hover-text-white transition-all d-flex align-items-center"
+                                        onClick={() => setSelectedTag(null)}
+                                        size="sm"
+                                    >
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                        {t('notices.clearFilter', 'Clear')}
+                                    </Button>
+                                )}
+                            </div>
+                        </Col>
+                    </Row>
+                </GlassContainer>
             )}
             <Row className="justify-content-center">
                 {displayNotices.map((notice) => (

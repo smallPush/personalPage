@@ -82,5 +82,26 @@ export const notices = [
             ca: 'programari, desenvolupament, crm, civicrm, drupal, digitalització, consultoria, smallpush, tecnologia'
         },
         tags: ['SmallPush', 'Software Development', 'CiviCRM', 'Drupal']
+    },
+    {
+        id: 'civicrm-agents-architecture',
+        filename: 'civicrm_agents_architecture.md',
+        date: '2026-02-28',
+        seoTitle: {
+            en: 'CiviCRM 6.11: AI Agent Architectures and Predictive Intelligence',
+            es: 'CiviCRM 6.11: Arquitecturas de Agentes de IA e Inteligencia Predictiva',
+            ca: 'CiviCRM 6.11: Arquitectures d\'Agents d\'IA i Intel·ligència Predictiva'
+        },
+        seoDescription: {
+            en: 'Explore how CiviCRM 6.11 transforms from a relational database to a predictive engine using Vector Databases and LLM orchestration.',
+            es: 'Explora cómo CiviCRM 6.11 se transforma de una base de datos relacional a un motor predictivo mediante Bases de Datos Vectoriales y orquestación de LLMs.',
+            ca: 'Explora com CiviCRM 6.11 es transforma d\'una base de dades relacional a un motor predictiu mitjançant Bases de Dades Vectorials i orquestració de LLMs.'
+        },
+        keywords: {
+            en: 'CiviCRM, AI, Agents, LLM, Vector Database, Predictive Intelligence, Non-profit, CRM',
+            es: 'CiviCRM, IA, Agentes, LLM, Base de Datos Vectorial, Inteligencia Predictiva, ONG, CRM',
+            ca: 'CiviCRM, IA, Agents, LLM, Base de Dades Vectorial, Intel·ligència Predictiva, ONG, CRM'
+        },
+        tags: ['CiviCRM', 'AI', 'Agents', 'LLM', 'Predictive']
     }
 ];

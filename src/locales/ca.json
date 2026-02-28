@@ -60,13 +60,49 @@
             "ads": "Desenvolupament d'ADs",
             "ai": "Integració amb IA"
         },
+        "subtitle": "Crea una estimació a mida per al teu projecte en segons.",
         "hours": {
-            "label": "Hores Estimades Necessàries"
+            "label": "Hores Estimades",
+            "unit": "h"
         },
         "submit": "Estimar Cost",
+        "cta": "Parlem del teu Projecte",
         "result": {
             "title": "Cost Estimat:",
             "disclaimer": "*Aquesta és una estimació aproximada. Contacteu-nos per a un pressupost detallat."
+        },
+        "exampleTitle": "Exemple d'Abast",
+        "examples": {
+            "civi": {
+                "small": "Resolució d'incidències puntuals o configuració bàsica d'una extensió.",
+                "medium": "Instal·lació de CiviCRM, configuració inicial i importació de base de dades petita.",
+                "large": "Desenvolupament d'un flux de treball complex amb integracions personalitzades i portal de socis."
+            },
+            "drupal": {
+                "small": "Actualitzacions de seguretat o petits ajustos de disseny en un tema existent.",
+                "medium": "Desenvolupament d'una landing page personalitzada o configuració de nous tipus de contingut.",
+                "large": "Creació d'un portal web complet des de zero amb disseny a mida i migració de dades."
+            },
+            "payment": {
+                "small": "Configuració estàndard de Stripe o PayPal sense personalitzacions complexes.",
+                "medium": "Integració d'un processador de pagament (ex. Redsys) amb 3 rondes de revisions amb el client.",
+                "large": "Desenvolupament d'un sistema de pagaments recurrents, conciliació bancària i múltiples passarel·les."
+            },
+            "fiscal": {
+                "small": "Ajustos ràpids en l'exportació d'un model fiscal existent.",
+                "medium": "Generació o revisió del Model 182 adaptat a la normativa vigent.",
+                "large": "Automatització completa de models fiscals, certificats de donació i encreuament de dades."
+            },
+            "ads": {
+                "small": "Auditoria ràpida de campanyes existents o configuració inicial bàsica.",
+                "medium": "Configuració de 2-3 campanyes noves amb seguiment de conversions i Google Analytics.",
+                "large": "Estratègia integral de captació en múltiples canals i quadres de comandament avançats a mida."
+            },
+            "ai": {
+                "small": "Consulta tècnica sobre viabilitat o script de prova ràpida amb l'API d'OpenAI.",
+                "medium": "Integració d'un xatbot intel·ligent al seu web entrenat amb els seus propis documents (FAQ).",
+                "large": "Orquestració d'agents avançats (LLMs) per automatitzar processos complexos en el CRM."
+            }
         }
     },
     "footer": {

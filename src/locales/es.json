@@ -60,13 +60,49 @@
             "ads": "Desarrollo de ADs",
             "ai": "Integración con IA"
         },
+        "subtitle": "Crea una estimación a medida para tu proyecto en segundos.",
         "hours": {
-            "label": "Horas Estimadas Necesarias"
+            "label": "Horas Estimadas",
+            "unit": "h"
         },
         "submit": "Estimar Coste",
+        "cta": "Hablemos de tu Proyecto",
         "result": {
             "title": "Coste Estimado:",
             "disclaimer": "*Esta es una estimación aproximada. Contáctenos para un presupuesto detallado."
+        },
+        "exampleTitle": "Ejemplo de Alcance",
+        "examples": {
+            "civi": {
+                "small": "Resolución de incidencias puntuales o configuración básica de una extensión.",
+                "medium": "Instalación de CiviCRM, configuración inicial e importación de base de datos pequeña.",
+                "large": "Desarrollo de un flujo de trabajo complejo con integraciones personalizadas y portal de socios."
+            },
+            "drupal": {
+                "small": "Actualizaciones de seguridad o pequeños ajustes de diseño en un tema existente.",
+                "medium": "Desarrollo de una landing page personalizada o configuración de nuevos tipos de contenido.",
+                "large": "Creación de un portal web completo desde cero con diseño a medida y migración de datos."
+            },
+            "payment": {
+                "small": "Configuración estándar de Stripe o PayPal sin personalizaciones complejas.",
+                "medium": "Integración de un procesador de pago (ej. Redsys) con 3 rondas de revisiones con el cliente.",
+                "large": "Desarrollo de un sistema de pagos recurrentes, conciliación bancaria y múltiples pasarelas."
+            },
+            "fiscal": {
+                "small": "Ajustes rápidos en la exportación de un modelo fiscal existente.",
+                "medium": "Generación o revisión del Modelo 182 adaptado a la normativa vigente.",
+                "large": "Automatización completa de modelos fiscales, certificados de donación y cruce de datos."
+            },
+            "ads": {
+                "small": "Auditoría rápida de campañas existentes o configuración inicial básica.",
+                "medium": "Configuración de 2-3 campañas nuevas con configuración de conversiones y Google Analytics.",
+                "large": "Estrategia integral de captación en múltiples canales y dashboards avanzados a medida."
+            },
+            "ai": {
+                "small": "Consulta técnica sobre viabilidad o script de prueba rápida con la API de OpenAI.",
+                "medium": "Integración de un chatbot inteligente en su web entrenado con sus propios documentos (FAQ).",
+                "large": "Orquestación de agentes avanzados (LLMs) para automatizar procesos complejos en el CRM."
+            }
         }
     },
     "footer": {
