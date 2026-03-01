@@ -11,6 +11,7 @@
         "about": "About",
         "services": "Services",
         "quote": "Quote",
+        "donorFunnel": "Donor Funnel",
         "notices": "News",
         "contact": "Contact"
     },
@@ -154,6 +155,62 @@
                 "desc": "Help us understand how visitors interact with the website."
             },
             "save": "Save Preferences"
+        }
+    },
+    "donorFunnel": {
+        "hero": {
+            "title": "AI Donor Funnel",
+            "subtitle": "Empathetic Automation with LangChain & Symfony"
+        },
+        "narrative": {
+            "title": "From Followers to Ambassadors",
+            "text": "Transforming social interactions into real impact through conversational AI and CRM architecture."
+        },
+        "ecosystem": {
+            "title": "The Tech Ecosystem",
+            "meta": {
+                "title": "Meta API",
+                "role": "The Ears",
+                "desc": "Captures real-time comments & DMs via Webhooks."
+            },
+            "fastapi": {
+                "title": "FastAPI",
+                "role": "The Connector",
+                "desc": "Python microservice bridging social events to AI."
+            },
+            "langchain": {
+                "title": "LangChain",
+                "role": "The Brain",
+                "desc": "Classifies intents & generates human-like responses."
+            },
+            "symfony": {
+                "title": "Symfony",
+                "role": "The Memory",
+                "desc": "Robust CRM securely storing profiles & history."
+            }
+        },
+        "journey": {
+            "title": "The Donor Journey",
+            "phase1": {
+                "title": "Phase 1: Discovery",
+                "desc": "Silent profiling through early micro-interactions."
+            },
+            "phase2": {
+                "title": "Phase 2: Engagement",
+                "desc": "Empathetic responses and intent identification."
+            },
+            "phase3": {
+                "title": "Phase 3: Consideration",
+                "desc": "RAG Agent answering complex questions via DMs."
+            },
+            "phase4": {
+                "title": "Phase 4: Conversion",
+                "desc": "Validated payment and hyper-personalized gratitude."
+            }
+        },
+        "cta": {
+            "title": "Ready to transform your acquisition?",
+            "button": "Discuss your funnel"
         }
     }
 }

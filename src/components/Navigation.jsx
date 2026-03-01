@@ -84,6 +84,15 @@ const Navigation = () => {
               {t('navigation.quote')}
             </Nav.Link>
 
+            <LinkContainer to="/donor-funnel">
+              <Nav.Link
+                className={`px-3 py-2 rounded-3 transition-all ${location.pathname === '/donor-funnel' ? 'text-primary fw-bold' : ''}`}
+                onClick={() => setExpanded(false)}
+              >
+                {t('navigation.donorFunnel', 'Donor Funnel')}
+              </Nav.Link>
+            </LinkContainer>
+
             <LinkContainer to="/news">
               <Nav.Link
                 className={`px-3 py-2 rounded-3 transition-all ${location.pathname.startsWith('/news') ? 'text-primary fw-bold' : ''}`}

@@ -11,6 +11,7 @@
         "about": "Sobre Nosaltres",
         "services": "Serveis",
         "quote": "Pressupost",
+        "donorFunnel": "Embut de Donants",
         "notices": "Notícies",
         "contact": "Contacte"
     },
@@ -154,6 +155,62 @@
                 "desc": "Ens ajuden a entendre com els visitants interactuen amb el lloc web."
             },
             "save": "Desar preferències"
+        }
+    },
+    "donorFunnel": {
+        "hero": {
+            "title": "Embut de Donants amb IA",
+            "subtitle": "Automatització Empàtica amb LangChain i Symfony"
+        },
+        "narrative": {
+            "title": "De Seguidors a Ambaixadors",
+            "text": "Transformant interaccions a xarxes socials en impacte real mitjançant IA conversacional i arquitectura CRM."
+        },
+        "ecosystem": {
+            "title": "L'Ecosistema Tecnològic",
+            "meta": {
+                "title": "Meta API",
+                "role": "Les Orelles",
+                "desc": "Capta comentaris i DMs en temps real via Webhooks."
+            },
+            "fastapi": {
+                "title": "FastAPI",
+                "role": "El Connector",
+                "desc": "Microservei Python que uneix esdeveniments socials amb la IA."
+            },
+            "langchain": {
+                "title": "LangChain",
+                "role": "El Cervell",
+                "desc": "Classifica intipcions i genera respostes humanes."
+            },
+            "symfony": {
+                "title": "Symfony",
+                "role": "La Memòria",
+                "desc": "CRM robust que emmagatzema perfils i historial amb seguretat."
+            }
+        },
+        "journey": {
+            "title": "El Viatge del Donant",
+            "phase1": {
+                "title": "Fase 1: Descoberta",
+                "desc": "Perfilat silenciós mitjançant micro-interaccions inicials."
+            },
+            "phase2": {
+                "title": "Fase 2: Engagement",
+                "desc": "Respostes empàtiques i identificació d'intencions."
+            },
+            "phase3": {
+                "title": "Fase 3: Consideració",
+                "desc": "Agent RAG responent dubtes complexos via DM."
+            },
+            "phase4": {
+                "title": "Fase 4: Conversió",
+                "desc": "Pagament validat i gratitud híper-personalitzada."
+            }
+        },
+        "cta": {
+            "title": "Llest per transformar la teva captació?",
+            "button": "Parlem del teu embut"
         }
     }
 }

@@ -72,13 +72,17 @@ const Notices = ({ singleNoticeId }) => {
     }, [uniqueTags, tagSearch]);
 
     const displayNotices = useMemo(() => {
+        let filteredNotices;
         if (singleNoticeId) {
-            return notices.filter(n => n.id === singleNoticeId);
+            filteredNotices = notices.filter(n => n.id === singleNoticeId);
+        } else if (selectedTag) {
+            filteredNotices = notices.filter(n => n.tags && n.tags.includes(selectedTag));
+        } else {
+            filteredNotices = [...notices];
         }
-        if (selectedTag) {
-            return notices.filter(n => n.tags && n.tags.includes(selectedTag));
-        }
-        return notices;
+
+        // Sort by date descending
+        return filteredNotices.sort((a, b) => new Date(b.date) - new Date(a.date));
     }, [singleNoticeId, selectedTag]);
 
     // SEO management for single notice view
@@ -207,8 +211,8 @@ const Notices = ({ singleNoticeId }) => {
                                         bg={selectedTag === tag ? 'primary' : 'dark'}
                                         text={selectedTag === tag ? 'white' : 'light'}
                                         className={`px-3 py-2 rounded-pill cursor-pointer transition-all border ${selectedTag === tag
-                                                ? 'border-primary shadow-sm scale-105'
-                                                : 'border-secondary border-opacity-50 hover-bg-secondary opacity-75 hover-opacity-100'
+                                            ? 'border-primary shadow-sm scale-105'
+                                            : 'border-secondary border-opacity-50 hover-bg-secondary opacity-75 hover-opacity-100'
                                             }`}
                                         style={{
                                             cursor: 'pointer',

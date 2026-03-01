@@ -11,6 +11,7 @@
         "about": "Sobre Nosotros",
         "services": "Servicios",
         "quote": "Presupuesto",
+        "donorFunnel": "Embudo de Donantes",
         "notices": "Noticias",
         "contact": "Contacto"
     },
@@ -154,6 +155,62 @@
                 "desc": "Nos ayudan a entender cómo los visitantes interactúan con el sitio web."
             },
             "save": "Guardar preferencias"
+        }
+    },
+    "donorFunnel": {
+        "hero": {
+            "title": "Embudo de Donantes con IA",
+            "subtitle": "Automatización Empática con LangChain y Symfony"
+        },
+        "narrative": {
+            "title": "De Seguidores a Embajadores",
+            "text": "Transformando interacciones en redes sociales en impacto real mediante IA conversacional y arquitectura CRM."
+        },
+        "ecosystem": {
+            "title": "El Ecosistema Tecnológico",
+            "meta": {
+                "title": "Meta API",
+                "role": "Los Oídos",
+                "desc": "Captura comentarios y DMs en tiempo real vía Webhooks."
+            },
+            "fastapi": {
+                "title": "FastAPI",
+                "role": "El Conector",
+                "desc": "Microservicio Python que une eventos sociales con la IA."
+            },
+            "langchain": {
+                "title": "LangChain",
+                "role": "El Cerebro",
+                "desc": "Clasifica intenciones y genera respuestas humanas."
+            },
+            "symfony": {
+                "title": "Symfony",
+                "role": "La Memoria",
+                "desc": "CRM robusto que almacena perfiles e historial con seguridad."
+            }
+        },
+        "journey": {
+            "title": "El Viaje del Donante",
+            "phase1": {
+                "title": "Fase 1: Descubrimiento",
+                "desc": "Perfilado silencioso mediante micro-interacciones iniciales."
+            },
+            "phase2": {
+                "title": "Fase 2: Engagement",
+                "desc": "Respuestas empáticas e identificación de intenciones."
+            },
+            "phase3": {
+                "title": "Fase 3: Consideración",
+                "desc": "Agente RAG respondiendo dudas complejas vía DM."
+            },
+            "phase4": {
+                "title": "Fase 4: Conversión",
+                "desc": "Pago validado y gratitud híper-personalizada."
+            }
+        },
+        "cta": {
+            "title": "¿Listo para transformar tu captación?",
+            "button": "Hablemos de tu funnel"
         }
     }
 }
