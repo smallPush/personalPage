@@ -23,6 +23,7 @@ const QuoteCalculator = () => {
     const selectedProject = projectTypes.find(p => p.id === projectType);
     const rate = selectedProject ? selectedProject.rate : 50;
     setEstimatedCost(hours * rate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projectType, hours]);
 
   return (
