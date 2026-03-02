@@ -57,13 +57,7 @@ const Notices = ({ singleNoticeId }) => {
     const currentLang = i18n.language.split('-')[0];
 
     const uniqueTags = useMemo(() => {
-        const tags = new Set();
-        notices.forEach(notice => {
-            if (notice.tags) {
-                notice.tags.forEach(tag => tags.add(tag));
-            }
-        });
-        return Array.from(tags).sort();
+        return Array.from(new Set(notices.flatMap(notice => notice.tags || []))).sort();
     }, []);
 
     const filteredTags = useMemo(() => {
