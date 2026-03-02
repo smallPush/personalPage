@@ -72,7 +72,6 @@ const ContactForm = () => {
             const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
             if (!botToken || !chatId) {
-                console.error('Telegram configuration is missing');
                 setStatus({ type: 'danger', msg: t('contact.error') });
                 setIsSubmitting(false);
                 return;
