@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
@@ -17,12 +17,7 @@ const ContactForm = () => {
     const [status, setStatus] = useState({ type: '', msg: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Generate new captcha on mount
-    useEffect(() => {
-        generateCaptcha();
-    }, []);
-
-    const generateCaptcha = () => {
+    const generateCaptcha = useCallback(() => {
         const emojis = ['🚀', '🌟', '🌙', '⚡', '🔥', '💎', '🎈', '🍕', '🐱', '🌵', '🌺', '🎸'];
         const mainEmojiIndex = Math.floor(Math.random() * emojis.length);
         let diffEmojiIndex = Math.floor(Math.random() * emojis.length);
@@ -40,7 +35,12 @@ const ContactForm = () => {
         setCaptcha({ options, correctIndex });
         setCaptchaVerified(false);
         setFormData(prev => ({ ...prev, captchaInput: '' }));
-    };
+    }, []);
+
+    // Generate new captcha on mount
+    useEffect(() => {
+        generateCaptcha();
+    }, [generateCaptcha]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
