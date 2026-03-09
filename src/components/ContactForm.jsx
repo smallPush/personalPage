@@ -20,11 +20,7 @@ const ContactForm = () => {
     const generateCaptcha = useCallback(() => {
         const emojis = ['🚀', '🌟', '🌙', '⚡', '🔥', '💎', '🎈', '🍕', '🐱', '🌵', '🌺', '🎸'];
         const mainEmojiIndex = Math.floor(Math.random() * emojis.length);
-        let diffEmojiIndex = Math.floor(Math.random() * emojis.length);
-
-        while (diffEmojiIndex === mainEmojiIndex) {
-            diffEmojiIndex = Math.floor(Math.random() * emojis.length);
-        }
+        const diffEmojiIndex = (mainEmojiIndex + 1 + Math.floor(Math.random() * (emojis.length - 1))) % emojis.length;
 
         const mainEmoji = emojis[mainEmojiIndex];
         const diffEmoji = emojis[diffEmojiIndex];
