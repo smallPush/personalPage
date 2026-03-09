@@ -1,5 +1,3 @@
-import React from 'react';
-import { ButtonGroup, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSelector = () => {
