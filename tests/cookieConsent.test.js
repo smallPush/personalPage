@@ -1,6 +1,44 @@
 import test, { describe, it, beforeEach } from 'node:test';
 import assert from 'node:assert';
 
+describe('getStoredConsent', () => {
+    let getStoredConsent;
+
+    beforeEach(async () => {
+        // Reset globals
+        global.window = {};
+        global.localStorage = {
+            getItem: () => null,
+            setItem: () => {}
+        };
+
+        // Dynamically import the module so it uses the updated globals
+        const module = await import('../src/utils/cookieConsent.js?t=' + Date.now());
+        getStoredConsent = module.getStoredConsent;
+    });
+
+    it('returns null when there is no stored consent', () => {
+        global.localStorage.getItem = (key) => {
+            if (key === 'cookie-consent-preferences') return null;
+            return null;
+        };
+
+        const result = getStoredConsent();
+        assert.strictEqual(result, null);
+    });
+
+    it('returns parsed consent object when there is stored consent', () => {
+        const storedConsent = { analytics: true, ads: false };
+        global.localStorage.getItem = (key) => {
+            if (key === 'cookie-consent-preferences') return JSON.stringify(storedConsent);
+            return null;
+        };
+
+        const result = getStoredConsent();
+        assert.deepStrictEqual(result, storedConsent);
+    });
+});
+
 describe('updateGtagConsent', () => {
     let updateGtagConsent;
 
