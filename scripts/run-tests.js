@@ -1,3 +1,4 @@
+/* global process */
 import { spawnSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
