@@ -102,8 +102,7 @@ const Notices = ({ singleNoticeId }) => {
 
     useEffect(() => {
         const fetchNotices = async () => {
-            const loadedPosts = {};
-            for (const notice of displayNotices) {
+            const fetchPromises = displayNotices.map(async (notice) => {
                 const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
                 const filename = `${prefix}${notice.filename}`;
 
@@ -115,14 +114,26 @@ const Notices = ({ singleNoticeId }) => {
 
                     if (response.ok) {
                         const text = await response.text();
-                        loadedPosts[notice.id] = text;
+                        return { id: notice.id, text };
                     } else {
                         console.error(`Failed to load notice: ${notice.filename}`);
+                        return null;
                     }
                 } catch (error) {
                     console.error(`Error loading notice: ${notice.filename}`, error);
+                    return null;
+                }
+            });
+
+            const results = await Promise.all(fetchPromises);
+
+            const loadedPosts = {};
+            for (const result of results) {
+                if (result) {
+                    loadedPosts[result.id] = result.text;
                 }
             }
+
             setPosts(loadedPosts);
         };
 
