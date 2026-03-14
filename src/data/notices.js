@@ -103,5 +103,26 @@ export const notices = [
             ca: 'CiviCRM, IA, Agents, LLM, Base de Dades Vectorial, Intel·ligència Predictiva, ONG, CRM'
         },
         tags: ['CiviCRM', 'AI', 'Agents', 'LLM', 'Predictive']
+    },
+    {
+        id: 'social-ads-crm-integration',
+        filename: 'social_ads_crm_integration.md',
+        date: '2026-03-10',
+        seoTitle: {
+            en: 'Automating Lead Capture: Importing Social Media Ads Contacts to CRM',
+            es: 'Automatizando la Captura de Leads: Importando Contactos de Anuncios Sociales al CRM',
+            ca: 'Automatitzant la Captura de Leads: Important Contactes d\'Anuncis Socials al CRM'
+        },
+        seoDescription: {
+            en: 'Learn how to automate importing contacts from social network ads directly into your CRM to save time and increase conversions.',
+            es: 'Aprende cómo automatizar la importación de contactos desde anuncios de redes sociales directamente a tu CRM para ahorrar tiempo y aumentar conversiones.',
+            ca: 'Aprèn com automatitzar la importació de contactes des d\'anuncis de xarxes socials directament al teu CRM per estalviar temps i augmentar conversions.'
+        },
+        keywords: {
+            en: 'CRM, social media ads, lead generation, automation, integration, Facebook ads, LinkedIn ads',
+            es: 'CRM, anuncios en redes sociales, generación de leads, automatización, integración, Facebook ads, LinkedIn ads',
+            ca: 'CRM, anuncis a xarxes socials, generació de leads, automatització, integració, Facebook ads, LinkedIn ads'
+        },
+        tags: ['CRM', 'Social Media', 'Automation', 'Lead Generation']
     }
 ];
