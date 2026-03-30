@@ -4,20 +4,20 @@ import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
 import { HashLink } from 'react-router-hash-link';
 
+const projectTypes = [
+  { id: 'civi', icon: '💻', rate: 50 },
+  { id: 'drupal', icon: '🌐', rate: 60 },
+  { id: 'payment', icon: '💳', rate: 70 },
+  { id: 'fiscal', icon: '📊', rate: 60 },
+  { id: 'ads', icon: '📈', rate: 65 },
+  { id: 'ai', icon: '🤖', rate: 80 }
+];
+
 const QuoteCalculator = () => {
   const { t } = useTranslation();
   const [projectType, setProjectType] = useState('civi');
   const [hours, setHours] = useState(25);
   const [estimatedCost, setEstimatedCost] = useState(0);
-
-  const projectTypes = [
-    { id: 'civi', icon: '💻', rate: 50 },
-    { id: 'drupal', icon: '🌐', rate: 60 },
-    { id: 'payment', icon: '💳', rate: 70 },
-    { id: 'fiscal', icon: '📊', rate: 60 },
-    { id: 'ads', icon: '📈', rate: 65 },
-    { id: 'ai', icon: '🤖', rate: 80 }
-  ];
 
   useEffect(() => {
     const selectedProject = projectTypes.find(p => p.id === projectType);
