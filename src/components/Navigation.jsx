@@ -6,6 +6,54 @@ import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import LanguageSelector from './LanguageSelector';
 
+const NAV_LINKS = [
+  {
+    type: 'link',
+    to: '/',
+    labelKey: 'navigation.home',
+    isActive: (location) => location.pathname === '/',
+    scrollToTop: true,
+  },
+  {
+    type: 'hash',
+    to: '/#about',
+    labelKey: 'navigation.about',
+    isActive: (location) => location.hash === '#about',
+  },
+  {
+    type: 'hash',
+    to: '/#services',
+    labelKey: 'navigation.services',
+    isActive: (location) => location.hash === '#services',
+  },
+  {
+    type: 'hash',
+    to: '/#quote',
+    labelKey: 'navigation.quote',
+    isActive: (location) => location.hash === '#quote',
+  },
+  {
+    type: 'link',
+    to: '/donor-funnel',
+    labelKey: 'navigation.donorFunnel',
+    fallback: 'Donor Funnel',
+    isActive: (location) => location.pathname === '/donor-funnel',
+  },
+  {
+    type: 'link',
+    to: '/news',
+    labelKey: 'navigation.notices',
+    fallback: 'News',
+    isActive: (location) => location.pathname.startsWith('/news'),
+  },
+  {
+    type: 'hash',
+    to: '/#contact',
+    labelKey: 'navigation.contact',
+    isActive: (location) => location.hash === '#contact',
+  },
+];
+
 const Navigation = () => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -44,73 +92,44 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center gap-2" onSelect={() => setExpanded(false)}>
-            <LinkContainer to="/">
-              <Nav.Link
-                className={`px-3 py-2 rounded-3 transition-all ${location.pathname === '/' ? 'text-primary fw-bold' : ''}`}
-                onClick={() => {
-                  setExpanded(false);
+            {NAV_LINKS.map((link) => {
+              const isActive = link.isActive(location);
+              const className = `px-3 py-2 rounded-3 transition-all ${isActive ? 'text-primary fw-bold' : ''}`;
+
+              const handleClick = () => {
+                setExpanded(false);
+                if (link.scrollToTop) {
                   window.scrollTo(0, 0);
-                }}
-              >
-                {t('navigation.home')}
-              </Nav.Link>
-            </LinkContainer>
+                }
+              };
 
-            <Nav.Link
-              as={HashLink}
-              smooth
-              to="/#about"
-              className={`px-3 py-2 rounded-3 transition-all ${location.hash === '#about' ? 'text-primary fw-bold' : ''}`}
-              onClick={() => setExpanded(false)}
-            >
-              {t('navigation.about')}
-            </Nav.Link>
-            <Nav.Link
-              as={HashLink}
-              smooth
-              to="/#services"
-              className={`px-3 py-2 rounded-3 transition-all ${location.hash === '#services' ? 'text-primary fw-bold' : ''}`}
-              onClick={() => setExpanded(false)}
-            >
-              {t('navigation.services')}
-            </Nav.Link>
-            <Nav.Link
-              as={HashLink}
-              smooth
-              to="/#quote"
-              className={`px-3 py-2 rounded-3 transition-all ${location.hash === '#quote' ? 'text-primary fw-bold' : ''}`}
-              onClick={() => setExpanded(false)}
-            >
-              {t('navigation.quote')}
-            </Nav.Link>
+              const label = link.fallback
+                ? t(link.labelKey, link.fallback)
+                : t(link.labelKey);
 
-            <LinkContainer to="/donor-funnel">
-              <Nav.Link
-                className={`px-3 py-2 rounded-3 transition-all ${location.pathname === '/donor-funnel' ? 'text-primary fw-bold' : ''}`}
-                onClick={() => setExpanded(false)}
-              >
-                {t('navigation.donorFunnel', 'Donor Funnel')}
-              </Nav.Link>
-            </LinkContainer>
+              if (link.type === 'link') {
+                return (
+                  <LinkContainer key={link.to} to={link.to}>
+                    <Nav.Link className={className} onClick={handleClick}>
+                      {label}
+                    </Nav.Link>
+                  </LinkContainer>
+                );
+              }
 
-            <LinkContainer to="/news">
-              <Nav.Link
-                className={`px-3 py-2 rounded-3 transition-all ${location.pathname.startsWith('/news') ? 'text-primary fw-bold' : ''}`}
-                onClick={() => setExpanded(false)}
-              >
-                {t('navigation.notices', 'News')}
-              </Nav.Link>
-            </LinkContainer>
-
-            <Nav.Link
-              as={HashLink}
-              smooth
-              to="/#contact"
-              className={`px-3 py-2 rounded-3 transition-all ${location.hash === '#contact' ? 'text-primary fw-bold' : ''}`}
-              onClick={() => setExpanded(false)}
-            >
-              {t('navigation.contact')}
-            </Nav.Link>
+              return (
+                <Nav.Link
+                  key={link.to}
+                  as={HashLink}
+                  smooth
+                  to={link.to}
+                  className={className}
+                  onClick={handleClick}
+                >
+                  {label}
+                </Nav.Link>
+              );
+            })}
 
             <div className="ms-lg-3 py-2 py-lg-0">
               <LanguageSelector />
