@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Button, Badge } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
@@ -13,18 +13,14 @@ const projectTypes = [
   { id: 'ai', icon: '🤖', rate: 80 }
 ];
 
+const projectRates = Object.fromEntries(projectTypes.map(p => [p.id, p.rate]));
+
 const QuoteCalculator = () => {
   const { t } = useTranslation();
   const [projectType, setProjectType] = useState('civi');
   const [hours, setHours] = useState(25);
-  const [estimatedCost, setEstimatedCost] = useState(0);
 
-  useEffect(() => {
-    const selectedProject = projectTypes.find(p => p.id === projectType);
-    const rate = selectedProject ? selectedProject.rate : 50;
-    setEstimatedCost(hours * rate);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectType, hours]);
+  const estimatedCost = hours * (projectRates[projectType] || 50);
 
   return (
     <Row className="justify-content-center">
