@@ -11,6 +11,7 @@ vi.mock('react-i18next', () => ({
 }));
 
 // Mock fetch
+/* global global */
 global.fetch = vi.fn();
 
 describe('ContactForm', () => {

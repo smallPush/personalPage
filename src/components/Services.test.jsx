@@ -47,7 +47,7 @@ describe('Services Component', () => {
   });
 
   it('renders exactly 6 service containers', () => {
-    const { container } = render(<Services />);
+    render(<Services />);
 
     // Find all rendered columns containing services
     // The component maps the services array to Col elements
