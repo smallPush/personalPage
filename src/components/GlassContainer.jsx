@@ -1,5 +1,3 @@
-import React from 'react';
-
 const GlassContainer = ({ children, className = '', ...props }) => {
   return (
     <div
