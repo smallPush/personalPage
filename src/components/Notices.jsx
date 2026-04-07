@@ -8,6 +8,33 @@ import { notices } from '../data/notices';
 import useSeo from '../utils/useSeo';
 import GlassContainer from './GlassContainer';
 
+// --- Module-level Constants for Performance ---
+
+// Pre-sort notices descending by date
+const sortedNotices = [...notices].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// Pre-compute map of notice IDs to arrays (for unified return type)
+const noticesById = new Map();
+sortedNotices.forEach(n => noticesById.set(n.id, [n]));
+
+// Pre-compute map of tags to notice arrays
+const noticesByTag = new Map();
+sortedNotices.forEach(n => {
+    if (n.tags) {
+        n.tags.forEach(tag => {
+            if (!noticesByTag.has(tag)) {
+                noticesByTag.set(tag, []);
+            }
+            noticesByTag.get(tag).push(n);
+        });
+    }
+});
+
+// Pre-compute unique tags
+const moduleUniqueTags = Array.from(new Set(notices.flatMap(notice => notice.tags || []))).sort();
+
+// ----------------------------------------------
+
 const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
     const lines = useMemo(() => content.split('\n'), [content]);
     const isTruncated = !singleNoticeId && lines.length > 10;
@@ -56,27 +83,18 @@ const Notices = ({ singleNoticeId }) => {
 
     const currentLang = i18n.language.split('-')[0];
 
-    const uniqueTags = useMemo(() => {
-        return Array.from(new Set(notices.flatMap(notice => notice.tags || []))).sort();
-    }, []);
-
     const filteredTags = useMemo(() => {
-        if (!tagSearch.trim()) return uniqueTags;
-        return uniqueTags.filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()));
-    }, [uniqueTags, tagSearch]);
+        if (!tagSearch.trim()) return moduleUniqueTags;
+        return moduleUniqueTags.filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()));
+    }, [tagSearch]);
 
     const displayNotices = useMemo(() => {
-        let filteredNotices;
         if (singleNoticeId) {
-            filteredNotices = notices.filter(n => n.id === singleNoticeId);
+            return noticesById.get(singleNoticeId) || [];
         } else if (selectedTag) {
-            filteredNotices = notices.filter(n => n.tags && n.tags.includes(selectedTag));
-        } else {
-            filteredNotices = [...notices];
+            return noticesByTag.get(selectedTag) || [];
         }
-
-        // Sort by date descending
-        return filteredNotices.sort((a, b) => new Date(b.date) - new Date(a.date));
+        return sortedNotices;
     }, [singleNoticeId, selectedTag]);
 
     // SEO management for single notice view
