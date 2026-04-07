@@ -1,4 +1,4 @@
-import { Container, Row, Col, Badge, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { HashLink } from 'react-router-hash-link';
 import GlassContainer from '../components/GlassContainer';
