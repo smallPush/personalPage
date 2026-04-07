@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { HashLink } from 'react-router-hash-link';
