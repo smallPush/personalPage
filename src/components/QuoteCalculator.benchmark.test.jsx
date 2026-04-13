@@ -47,10 +47,6 @@ describe('QuoteCalculator Benchmark', () => {
     const endTime = performance.now();
     const duration = endTime - startTime;
 
-    console.log(`\n\n--- BENCHMARK RESULTS ---`);
-    console.log(`Time taken for ${ITERATIONS} interactions: ${duration.toFixed(2)}ms`);
-    console.log(`Average time per interaction: ${(duration / ITERATIONS).toFixed(2)}ms\n\n`);
-
     expect(duration).toBeGreaterThan(0);
     cleanup();
   }, 10000); // 10 seconds timeout
