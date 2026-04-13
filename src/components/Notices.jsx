@@ -134,11 +134,15 @@ const Notices = ({ singleNoticeId }) => {
                         const text = await response.text();
                         return { id: notice.id, text };
                     } else {
-                        console.error(`Failed to load notice: ${notice.filename}`);
+                        if (import.meta.env.DEV) {
+                            console.error(`Failed to load notice: ${notice.filename}`);
+                        }
                         return null;
                     }
                 } catch (error) {
-                    console.error(`Error loading notice: ${notice.filename}`, error);
+                    if (import.meta.env.DEV) {
+                        console.error(`Error loading notice: ${notice.filename}`, error);
+                    }
                     return null;
                 }
             });
