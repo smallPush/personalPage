@@ -8,6 +8,10 @@ import { notices } from '../data/notices';
 import useSeo from '../utils/useSeo';
 import GlassContainer from './GlassContainer';
 
+
+// Pre-load all markdown files at build time
+const noticeFiles = import.meta.glob('/public/notices/*.md', { query: '?raw', import: 'default', eager: true });
+
 // --- Module-level Constants for Performance ---
 
 // Pre-sort notices descending by date
@@ -122,23 +126,26 @@ const Notices = ({ singleNoticeId }) => {
         const fetchNotices = async () => {
             const fetchPromises = displayNotices.map(async (notice) => {
                 const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
-                const filename = `${prefix}${notice.filename}`;
+                const localizedPath = `/public/notices/${prefix}${notice.filename}`;
+                const fallbackPath = `/public/notices/${notice.filename}`;
 
                 try {
-                    let response = await fetch(`/notices/${filename}`);
-                    if (!response.ok && prefix !== '') {
-                        response = await fetch(`/notices/${notice.filename}`);
+                    // Try localized version first
+                    if (prefix !== '' && noticeFiles[localizedPath]) {
+                        const text = noticeFiles[localizedPath];
+                        return { id: notice.id, text };
                     }
 
-                    if (response.ok) {
-                        const text = await response.text();
+                    // Fallback to default (English) version
+                    if (noticeFiles[fallbackPath]) {
+                        const text = noticeFiles[fallbackPath];
                         return { id: notice.id, text };
-                    } else {
-                        if (import.meta.env.DEV) {
-                            console.error(`Failed to load notice: ${notice.filename}`);
-                        }
-                        return null;
                     }
+
+                    if (import.meta.env.DEV) {
+                        console.error(`Failed to load notice: ${notice.filename}`);
+                    }
+                    return null;
                 } catch (error) {
                     if (import.meta.env.DEV) {
                         console.error(`Error loading notice: ${notice.filename}`, error);
