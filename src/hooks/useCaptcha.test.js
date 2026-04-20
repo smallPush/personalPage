@@ -1,9 +1,25 @@
 import { renderHook, act } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import useCaptcha from './useCaptcha';
 
 describe('useCaptcha', () => {
+    let originalGetRandomValues;
+
+    beforeEach(() => {
+        originalGetRandomValues = window.crypto.getRandomValues;
+        window.crypto.getRandomValues = vi.fn();
+    });
+
+    afterEach(() => {
+        window.crypto.getRandomValues = originalGetRandomValues;
+    });
+
     it('initializes and generates a captcha correctly', () => {
+        const maxUint32 = 0xffffffff + 1;
+        window.crypto.getRandomValues.mockImplementation((arr) => {
+            arr[0] = Math.floor(Math.random() * maxUint32);
+        });
+
         const { result } = renderHook(() => useCaptcha());
 
         // Verify initial states
@@ -28,6 +44,31 @@ describe('useCaptcha', () => {
         expect(incorrectOptionsCount).toBe(4);
     });
 
+    it('generates predictable captcha based on mocked random values', () => {
+        let callCount = 0;
+        const maxUint32 = 0xffffffff + 1;
+
+        window.crypto.getRandomValues.mockImplementation((arr) => {
+            if (callCount === 0) arr[0] = Math.floor(0.5 * maxUint32); // mainEmojiIndex -> index 6 ('🎈')
+            else if (callCount === 1) arr[0] = Math.floor(0.2 * maxUint32); // diffEmoji offset -> index = (6 + 1 + Math.floor(0.2 * 11)) % 12 = (7 + 2) % 12 = 9 ('🌵')
+            else if (callCount === 2) arr[0] = Math.floor(0.9 * maxUint32); // correctIndex -> Math.floor(0.9 * 5) = 4
+            callCount++;
+        });
+
+        const { result } = renderHook(() => useCaptcha());
+        act(() => { result.current.generateCaptcha(); });
+
+        expect(callCount).toBe(3);
+        expect(result.current.captcha.correctIndex).toBe(4);
+
+        const options = result.current.captcha.options;
+        expect(options[4]).toBe('🌵'); // Diff emoji
+        expect(options[0]).toBe('🎈'); // Main emoji
+        expect(options[1]).toBe('🎈');
+        expect(options[2]).toBe('🎈');
+        expect(options[3]).toBe('🎈');
+    });
+
     it('can set captcha verified state', () => {
         const { result } = renderHook(() => useCaptcha());
 
@@ -39,6 +80,11 @@ describe('useCaptcha', () => {
     });
 
     it('generates a new captcha on demand', () => {
+        const maxUint32 = 0xffffffff + 1;
+        window.crypto.getRandomValues.mockImplementation((arr) => {
+            arr[0] = Math.floor(Math.random() * maxUint32);
+        });
+
         const { result } = renderHook(() => useCaptcha());
 
         act(() => {
