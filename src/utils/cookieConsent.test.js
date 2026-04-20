@@ -22,6 +22,11 @@ describe('cookieConsent', () => {
             localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
             expect(getStoredConsent()).toEqual(consent);
         });
+
+        it('throws an error if stored consent is invalid JSON', () => {
+            localStorage.setItem(COOKIE_CONSENT_KEY, '{invalid');
+            expect(() => getStoredConsent()).toThrow(SyntaxError);
+        });
     });
 
     describe('setStoredConsent', () => {
