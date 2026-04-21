@@ -180,7 +180,7 @@ const Notices = ({ singleNoticeId }) => {
     }, [singleNoticeId, selectedTag]);
 
     // SEO management for single notice view
-    const currentNotice = singleNoticeId ? notices.find(n => n.id === singleNoticeId) : null;
+    const currentNotice = singleNoticeId ? noticesById.get(singleNoticeId)?.[0] : null;
 
     // Helper to get localized field or fallback to English
     const getLocalizedField = useCallback((fieldObj) => {
