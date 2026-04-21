@@ -54,6 +54,20 @@ describe('useContactSubmit', () => {
         expect(onSuccess).toHaveBeenCalledTimes(1);
     });
 
+    it('submits successfully without onSuccess callback', async () => {
+        fetch.mockResolvedValueOnce({ ok: true });
+
+        const { result } = renderHook(() => useContactSubmit());
+
+        await act(async () => {
+            await result.current.submitContactForm(mockFormData, true);
+        });
+
+        expect(fetch).toHaveBeenCalledTimes(1);
+        expect(result.current.status).toEqual({ type: 'success', msg: 'contact.success' });
+        expect(result.current.isSubmitting).toBe(false);
+    });
+
     it('sets error on fetch failure', async () => {
         fetch.mockResolvedValueOnce({ ok: false });
 
