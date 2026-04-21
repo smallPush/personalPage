@@ -21,23 +21,12 @@ const useSeo = (title, description, options = {}) => {
       document.title = title;
     }
 
-    // Cache existing meta tags to avoid repeated DOM queries
-    const existingTags = document.head.querySelectorAll('meta');
-    const tagCache = new Map();
-    existingTags.forEach((tag) => {
-      const name = tag.getAttribute('name');
-      const property = tag.getAttribute('property');
-      if (name) tagCache.set(`name_${name}`, tag);
-      if (property) tagCache.set(`property_${property}`, tag);
-    });
-
     // Helper to update or create meta tags
     const updateMetaTag = (name, content, isProperty = false) => {
       if (!content) return;
       const attr = isProperty ? 'property' : 'name';
-      const cacheKey = `${attr}_${name}`;
 
-      let tag = tagCache.get(cacheKey);
+      let tag = document.head.querySelector(`meta[${attr}="${name}"]`);
 
       if (tag) {
         if (tag.getAttribute('content') !== content) {
@@ -48,7 +37,6 @@ const useSeo = (title, description, options = {}) => {
         tag.setAttribute(attr, name);
         tag.setAttribute('content', content);
         document.head.appendChild(tag);
-        tagCache.set(cacheKey, tag);
       }
     };
 
