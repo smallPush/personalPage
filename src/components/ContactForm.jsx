@@ -30,7 +30,8 @@ const ContactForm = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleCaptchaClick = (index) => {
+    const handleCaptchaClick = (e) => {
+        const index = parseInt(e.currentTarget.dataset.index, 10);
         if (index === captcha.correctIndex) {
             setCaptchaVerified(true);
             setStatus({ type: '', msg: '' });
@@ -119,8 +120,9 @@ const ContactForm = () => {
                                 {captcha.options.map((emoji, index) => (
                                     <Button
                                         key={index}
+                                        data-index={index}
                                         variant={captchaVerified && index === captcha.correctIndex ? "success" : "outline-secondary"}
-                                        onClick={() => handleCaptchaClick(index)}
+                                        onClick={handleCaptchaClick}
                                         className={`flex-grow-1 p-3 fs-3 transition-smooth ${captchaVerified && index !== captcha.correctIndex ? 'opacity-25' : ''}`}
                                         disabled={captchaVerified && index !== captcha.correctIndex}
                                         type="button"
