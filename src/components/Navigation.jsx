@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -59,6 +59,15 @@ const Navigation = () => {
   const location = useLocation();
   const [expanded, setExpanded] = useState(false);
 
+  const linkHandlers = useMemo(() => {
+    return NAV_LINKS.map((link) => () => {
+      setExpanded(false);
+      if (link.scrollToTop) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }, []);
+
   return (
     <Navbar
       expand="lg"
@@ -92,16 +101,9 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center gap-2" onSelect={() => setExpanded(false)}>
-            {NAV_LINKS.map((link) => {
+            {NAV_LINKS.map((link, index) => {
               const isActive = link.isActive(location);
               const className = `px-3 py-2 rounded-3 transition-all ${isActive ? 'text-primary fw-bold' : ''}`;
-
-              const handleClick = () => {
-                setExpanded(false);
-                if (link.scrollToTop) {
-                  window.scrollTo(0, 0);
-                }
-              };
 
               const label = link.fallback
                 ? t(link.labelKey, link.fallback)
@@ -110,7 +112,7 @@ const Navigation = () => {
               if (link.type === 'link') {
                 return (
                   <LinkContainer key={link.to} to={link.to}>
-                    <Nav.Link className={className} onClick={handleClick}>
+                    <Nav.Link className={className} onClick={linkHandlers[index]}>
                       {label}
                     </Nav.Link>
                   </LinkContainer>
@@ -124,7 +126,7 @@ const Navigation = () => {
                   smooth
                   to={link.to}
                   className={className}
-                  onClick={handleClick}
+                  onClick={linkHandlers[index]}
                 >
                   {label}
                 </Nav.Link>

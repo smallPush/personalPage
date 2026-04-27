@@ -93,7 +93,7 @@ describe('Navigation Component', () => {
 
     // Initial state: not expanded
     const toggleButton = container.querySelector('.navbar-toggler');
-    const collapseDiv = container.querySelector('.navbar-collapse');
+    container.querySelector('.navbar-collapse');
 
     // Simulating click on toggle
     fireEvent.click(toggleButton);
