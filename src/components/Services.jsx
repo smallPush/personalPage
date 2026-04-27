@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
@@ -5,14 +6,14 @@ import GlassContainer from './GlassContainer';
 const Services = () => {
   const { t } = useTranslation();
 
-  const services = [
+  const services = useMemo(() => [
     { title: t('services.civi.title'), text: t('services.civi.text'), icon: '📊' },
     { title: t('services.drupal.title'), text: t('services.drupal.text'), icon: '💧' },
     { title: t('services.payment.title'), text: t('services.payment.text'), icon: '💳' },
     { title: t('services.fiscal.title'), text: t('services.fiscal.text'), icon: '🧾' },
     { title: t('services.ads.title'), text: t('services.ads.text'), icon: '📈' },
     { title: t('services.ai.title'), text: t('services.ai.text'), icon: '🤖' }
-  ];
+  ], [t]);
 
   return (
     <div>
