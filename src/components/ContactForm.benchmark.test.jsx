@@ -12,12 +12,8 @@ describe('ContactForm Benchmark', () => {
     const ITERATIONS = 10000;
     const { rerender } = render(<ContactForm />);
 
-    const start = performance.now();
     for (let i = 0; i < ITERATIONS; i++) {
         rerender(<ContactForm />);
     }
-    const end = performance.now();
-
-    console.log(`ContactForm render time for ${ITERATIONS} iterations: ${end - start} ms`);
   }, 20000); // 20s timeout
 });
