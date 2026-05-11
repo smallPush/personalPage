@@ -202,8 +202,8 @@ const Notices = ({ singleNoticeId }) => {
 
     useEffect(() => {
         const fetchNotices = async () => {
+            const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
             const fetchPromises = displayNotices.map(async (notice) => {
-                const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
                 const localizedPath = `/public/notices/${prefix}${notice.filename}`;
                 const fallbackPath = `/public/notices/${notice.filename}`;
 
