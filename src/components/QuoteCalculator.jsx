@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Row, Col, Button, Badge } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
@@ -20,6 +20,11 @@ const QuoteCalculator = () => {
   const [projectType, setProjectType] = useState('civi');
   const [hours, setHours] = useState(25);
 
+  const handleProjectTypeClick = useCallback((e) => {
+    const id = e.currentTarget.dataset.id;
+    if (id) setProjectType(id);
+  }, []);
+
   const estimatedCost = hours * (projectRates[projectType] || 50);
 
   return (
@@ -40,7 +45,8 @@ const QuoteCalculator = () => {
               {projectTypes.map(pt => (
                 <Col xs={6} md={4} key={pt.id}>
                   <div
-                    onClick={() => setProjectType(pt.id)}
+                    onClick={handleProjectTypeClick}
+                    data-id={pt.id}
                     className={`h-100 p-3 rounded-4 cursor-pointer transition-all ${projectType === pt.id
                       ? 'bg-primary bg-opacity-25 border border-primary shadow-lg scale-105'
                       : 'bg-dark bg-opacity-50 border border-white border-opacity-10 hover-bg-light hover-border-opacity-25'
