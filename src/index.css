@@ -151,6 +151,9 @@ a:hover {
 
 .navbar {
   transition: var(--transition-smooth);
+  --bs-navbar-color: #334155;
+  --bs-navbar-hover-color: var(--brand-primary);
+  --bs-navbar-active-color: var(--brand-primary);
 }
 
 .navbar .navbar-brand {
@@ -160,6 +163,12 @@ a:hover {
 .navbar .nav-link {
   color: #334155 !important;
   font-weight: 500;
+}
+
+.navbar .nav-link.active,
+.navbar .show > .nav-link {
+  color: var(--brand-primary) !important;
+  background: rgba(11, 95, 255, 0.14);
 }
 
 .navbar .nav-link:hover {
