@@ -124,5 +124,26 @@ export const notices = [
             ca: 'CRM, anuncis a xarxes socials, generació de leads, automatització, integració, Facebook ads, LinkedIn ads'
         },
         tags: ['CRM', 'Social Media', 'Automation', 'Lead Generation']
+    },
+    {
+        id: 'sdd-ai-programming',
+        filename: 'sdd_ai_programming.md',
+        date: '2026-03-25',
+        seoTitle: {
+            en: 'Specification-Driven Development (SDD): AI Programming Paradigm',
+            es: 'Desarrollo Dirigido por Especificaciones (SDD): Paradigma de Programación con IA',
+            ca: 'Desenvolupament Dirigit per Especificacions (SDD): Paradigma de Programació amb IA'
+        },
+        seoDescription: {
+            en: 'Discover Specification-Driven Development (SDD), the new paradigm in AI programming that uses detailed specs to generate robust code and eliminate architectural drift.',
+            es: 'Descubre el Desarrollo Dirigido por Especificaciones (SDD), el nuevo paradigma en programación con IA que utiliza especificaciones detalladas para generar código robusto.',
+            ca: 'Descobreix el Desenvolupament Dirigit per Especificacions (SDD), el nou paradigma en programació amb IA que utilitza especificacions detallades per generar codi robust.'
+        },
+        keywords: {
+            en: 'SDD, Specification-Driven Development, AI, programming, artificial intelligence, software architecture, code generation',
+            es: 'SDD, Desarrollo Dirigido por Especificaciones, IA, programación, inteligencia artificial, arquitectura de software, generación de código',
+            ca: 'SDD, Desenvolupament Dirigit per Especificacions, IA, programació, intel·ligència artificial, arquitectura de programari, generació de codi'
+        },
+        tags: ['AI', 'Software Development', 'Architecture', 'Programming']
     }
 ];
