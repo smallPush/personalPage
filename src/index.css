@@ -259,3 +259,18 @@ a:hover {
 .language-selector .btn {
   color: #334155;
 }
+
+/* Markdown Content Elements */
+.markdown-content blockquote {
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--brand-primary);
+  background: rgba(11, 95, 255, 0.05); /* Soft primary background */
+  color: var(--bs-body-color);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+
+.markdown-content blockquote p:last-child {
+  margin-bottom: 0;
+}
