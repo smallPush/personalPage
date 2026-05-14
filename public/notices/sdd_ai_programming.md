@@ -24,18 +24,22 @@ SDD represents a massive power inversion in software engineering:
 
 Here is a visual representation of the SDD workflow compared to traditional AI prompting:
 
-```text
-Traditional AI Prompting:
-[ Idea ] ➔ [ Vague Prompt ] ➔ [ AI Generator ] ➔ [ Flawed Code ] ➔ (Endless debugging loop)
+```mermaid
+graph TD
+    subgraph Traditional AI Prompting
+        direction LR
+        A1[Idea] --> B1[Vague Prompt]
+        B1 --> C1[AI Generator]
+        C1 --> D1[Flawed Code]
+        D1 --> E1(Endless debugging loop)
+    end
 
-Specification-Driven Development:
-[ Idea ]
-   ↓
-[ Detailed Specification Document (The True Source) ]
-   ↓
-[ AI Implementation Engine (e.g., Augment Code, Spec Kit) ]
-   ↓
-[ Robust Code Implementation ]
+    subgraph Specification-Driven Development
+        direction TB
+        A2[Idea] --> B2["Detailed Specification Document<br>(The True Source)"]
+        B2 --> C2["AI Implementation Engine<br>(e.g., Augment Code, Spec Kit)"]
+        C2 --> D2[Robust Code Implementation]
+    end
 ```
 
 ### Key Components of an SDD Workflow:
