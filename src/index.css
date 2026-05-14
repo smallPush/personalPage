@@ -172,6 +172,31 @@ a:hover {
   text-shadow: none;
 }
 
+.navbar .navbar-toggler {
+  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.navbar .navbar-toggler-icon {
+  filter: none;
+}
+
+.nav-menu-link {
+  color: #334155 !important;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.nav-menu-link:hover {
+  color: var(--brand-primary) !important;
+  background: rgba(11, 95, 255, 0.08);
+}
+
+.nav-menu-link-active {
+  color: var(--brand-primary) !important;
+  background: rgba(11, 95, 255, 0.14);
+}
+
 .hero-section {
   background: transparent;
   color: var(--brand-secondary);

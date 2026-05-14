@@ -27,7 +27,7 @@ const Navigation = () => {
       fixed="top"
       expanded={expanded}
       onToggle={(toggle) => setExpanded(toggle)}
-      className="glass-effect m-3 rounded-4 shadow-sm"
+      className="glass-effect m-3 rounded-4 shadow-sm navbar-light"
       style={{
         width: 'calc(100% - 2rem)',
         left: '1rem',
@@ -56,7 +56,7 @@ const Navigation = () => {
           <Nav className="ms-auto align-items-center gap-2" onSelect={() => setExpanded(false)}>
             {NAV_LINKS.map((link, index) => {
               const isActive = link.isActive(location);
-              const className = `px-3 py-2 rounded-3 transition-all ${isActive ? 'text-primary fw-bold bg-primary bg-opacity-10' : ''}`;
+              const className = `nav-menu-link px-3 py-2 rounded-3 ${isActive ? 'nav-menu-link-active' : ''}`;
 
               const label = link.fallback
                 ? t(link.labelKey, link.fallback)

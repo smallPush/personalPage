@@ -31,3 +31,10 @@
 - Contact form send path requires `VITE_TELEGRAM_BOT_TOKEN` and `VITE_TELEGRAM_CHAT_ID` (`src/hooks/useContactSubmit.js`).
 - Analytics tag in `index.html` uses `%VITE_GA_MEASUREMENT_ID%`.
 - GitHub Pages deploy workflow is `.github/workflows/deploy.yml`; it runs on tag pushes (`'*'`) and manual dispatch, then builds and deploys `dist/`.
+
+## Web Design Criteria
+- Favor professional clarity over decorative effects: high contrast text, predictable spacing, and obvious hierarchy.
+- Keep navigation readability first: links must stay legible in desktop and mobile states (default, hover, active, expanded menu).
+- Use purposeful typography and restrained color accents; avoid low-contrast neon/glow-heavy combinations.
+- Preserve responsive behavior on both desktop and mobile when changing layouts, spacing, or component skins.
+- Prefer subtle depth (soft gradients/shadows) instead of heavy glassmorphism when it reduces readability.
