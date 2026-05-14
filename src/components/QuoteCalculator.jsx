@@ -30,7 +30,6 @@ const QuoteCalculator = () => {
     <Row className="justify-content-center">
       <Col md={10} lg={8} xl={7}>
         <GlassContainer className="p-4 p-md-5 overflow-hidden position-relative">
-          {/* Decorative background glow */}
           <div className="position-absolute top-0 start-50 translate-middle-x w-100 h-100 bg-primary opacity-10 blur-3xl z-n1 rounded-circle" style={{ filter: 'blur(100px)' }}></div>
 
           <div className="text-center mb-5">
@@ -39,7 +38,7 @@ const QuoteCalculator = () => {
           </div>
 
           <div className="mb-5">
-            <h5 className="mb-3 text-white-50 small fw-bold text-uppercase tracking-wider">{t('quote.projectType.label')}</h5>
+            <h5 className="mb-3 text-muted small fw-bold text-uppercase">{t('quote.projectType.label')}</h5>
             <Row className="g-3">
               {projectTypes.map(pt => (
                 <Col xs={6} md={4} key={pt.id}>
@@ -47,14 +46,14 @@ const QuoteCalculator = () => {
                     data-id={pt.id}
                     onClick={handleProjectTypeClick}
                     className={`h-100 p-3 rounded-4 cursor-pointer transition-all ${projectType === pt.id
-                      ? 'bg-primary bg-opacity-25 border border-primary shadow-lg scale-105'
-                      : 'bg-dark bg-opacity-50 border border-white border-opacity-10 hover-bg-light hover-border-opacity-25'
+                      ? 'bg-primary bg-opacity-10 border border-primary shadow-sm'
+                      : 'bg-white border border-secondary-subtle'
                       }`}
                     style={{ transition: 'all 0.3s ease', cursor: 'pointer', transform: projectType === pt.id ? 'scale(1.02)' : 'scale(1)' }}
                   >
                     <div className="text-center">
                       <div className="display-4 mb-2">{pt.icon}</div>
-                      <div className={`fw-medium ${projectType === pt.id ? 'text-white' : 'text-white-50'}`}>
+                      <div className={`fw-medium ${projectType === pt.id ? 'text-primary' : 'text-secondary'}`}>
                         {t(`quote.projectType.${pt.id}`)}
                       </div>
                     </div>
@@ -66,7 +65,7 @@ const QuoteCalculator = () => {
 
           <div className="mb-5">
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="text-white-50 small fw-bold text-uppercase tracking-wider mb-0">{t('quote.hours.label')}</h5>
+              <h5 className="text-muted small fw-bold text-uppercase mb-0">{t('quote.hours.label')}</h5>
               <Badge bg="primary" className="fs-6 px-3 py-2 rounded-pill">
                 {hours} {t('quote.hours.unit', 'hrs')}
               </Badge>
@@ -88,30 +87,30 @@ const QuoteCalculator = () => {
               </div>
             </div>
 
-            <div className="mt-4 p-3 rounded-3 bg-white bg-opacity-10 border border-white border-opacity-10 text-start shadow-sm transition-all">
+            <div className="mt-4 p-3 rounded-3 bg-white border border-secondary-subtle text-start shadow-sm transition-all">
               <div className="d-flex align-items-center mb-2">
                 <span className="me-2 fs-5">💡</span>
-                <span className="text-white-50 small fw-bold text-uppercase tracking-wider">
+                <span className="text-muted small fw-bold text-uppercase">
                   {t('quote.exampleTitle', 'Estimated Scope Example')}
                 </span>
               </div>
-              <p className="text-white mb-0 small opacity-75 lh-base">
+              <p className="mb-0 small text-secondary lh-base">
                 {t(`quote.examples.${projectType}.${hours <= 15 ? 'small' : hours <= 40 ? 'medium' : 'large'}`)}
               </p>
             </div>
           </div>
 
-          <div className="mt-5 p-4 p-md-5 rounded-4 bg-gradient-to-r from-primary-dark to-dark border border-primary border-opacity-25 position-relative overflow-hidden">
+          <div className="mt-5 p-4 p-md-5 rounded-4 bg-primary bg-opacity-10 border border-primary border-opacity-25 position-relative overflow-hidden">
             <div className="position-absolute top-0 end-0 p-3 opacity-10">
               <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
             </div>
 
             <div className="text-center position-relative z-1">
-              <p className="text-uppercase text-primary tracking-widest small fw-bold mb-2">{t('quote.result.title')}</p>
-              <div className="display-3 fw-bold mb-2 text-white text-shadow-sm">
+              <p className="text-uppercase text-primary small fw-bold mb-2">{t('quote.result.title')}</p>
+              <div className="display-3 fw-bold mb-2 text-dark">
                 €{estimatedCost.toLocaleString()}
               </div>
-              <p className="text-white-50 small mb-4">{t('quote.result.disclaimer')}</p>
+              <p className="text-muted small mb-4">{t('quote.result.disclaimer')}</p>
 
               <Button
                 as={HashLink}

@@ -60,7 +60,7 @@ const ContactForm = () => {
                             variant={status.type}
                             dismissible
                             onClose={() => setStatus({ type: '', msg: '' })}
-                            className="glass-effect border-0 text-white mb-4"
+                            className="glass-effect border-0 mb-4"
                             style={{ background: status.type === 'success' ? 'rgba(25, 135, 84, 0.2)' : 'rgba(220, 53, 69, 0.2)' }}
                         >
                             {status.msg}
@@ -79,7 +79,7 @@ const ContactForm = () => {
                                         onChange={handleChange}
                                         required
                                         placeholder="John Doe"
-                                        className="bg-dark text-white border-secondary py-3"
+                                        className="py-3"
                                     />
                                 </Form.Group>
                             </Col>
@@ -93,7 +93,7 @@ const ContactForm = () => {
                                         onChange={handleChange}
                                         required
                                         placeholder="john@example.com"
-                                        className="bg-dark text-white border-secondary py-3"
+                                        className="py-3"
                                     />
                                 </Form.Group>
                             </Col>
@@ -108,7 +108,7 @@ const ContactForm = () => {
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
-                                className="bg-dark text-white border-secondary"
+                                className=""
                             />
                         </Form.Group>
 
@@ -121,7 +121,7 @@ const ContactForm = () => {
                                     <Button
                                         key={index}
                                         data-index={index}
-                                        variant={captchaVerified && index === captcha.correctIndex ? "success" : "outline-secondary"}
+                                        variant={captchaVerified && index === captcha.correctIndex ? 'success' : 'outline-primary'}
                                         onClick={handleCaptchaClick}
                                         className={`flex-grow-1 p-3 fs-3 transition-smooth ${captchaVerified && index !== captcha.correctIndex ? 'opacity-25' : ''}`}
                                         disabled={captchaVerified && index !== captcha.correctIndex}

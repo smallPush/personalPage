@@ -6,7 +6,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="hero-section text-white text-center py-5 mb-5" style={{ marginTop: '100px' }} id="home">
+    <div className="hero-section text-center py-5 mb-5" style={{ marginTop: '100px' }} id="home">
       <Container className="py-5">
         <div className="mb-5 position-relative d-inline-block">
           <div
@@ -22,7 +22,7 @@ const Hero = () => {
           <img src="logo-alt.svg" alt="SmallPush Icon" width="160" height="160" className="img-fluid" />
         </div>
         <h1 className="text-fluid-xl mb-3">SmallPush</h1>
-        <p className="lead mb-5 mx-auto" style={{ maxWidth: '600px', opacity: 0.9 }}>
+        <p className="lead mb-5 mx-auto" style={{ maxWidth: '640px' }}>
           {t('hero.subtitle')}
         </p>
         <Button

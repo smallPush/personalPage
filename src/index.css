@@ -1,43 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* Futuristic Color Palette */
-  --accent-glow: hsla(28, 55%, 53%, 0.4);
-  /* Based on --brand-primary */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-stroke: rgba(255, 255, 255, 0.2);
-  --dark-void: #0a0c10;
-  --nebula-core: #1a1e26;
-
-  /* Brand Colors (Preserved and Enhanced) */
-  --brand-primary: #bc8154;
-  --brand-primary-dark: #8c5e3c;
-  --brand-secondary: #33394b;
-  --brand-accent: #734a39;
-  --brand-neutral: #8f826d;
-  --brand-light: #f4efe9;
-  --brand-secondary-light: #eef2f7;
-
-  /* Fluid Typography (2026 Standard) */
-  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
-  --font-size-lg: clamp(1.2rem, 1.1rem + 0.5vw, 2rem);
-  --font-size-xl: clamp(2rem, 1.5rem + 2vw, 4.5rem);
-
-  /* Performance Optimizations */
-  --transition-smooth: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-
-  /* Override Bootstrap Variables */
+  --brand-primary: #0b5fff;
+  --brand-primary-dark: #0846bd;
+  --brand-secondary: #0f172a;
+  --brand-accent: #1f2937;
+  --brand-neutral: #64748b;
+  --brand-light: #f8fafc;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --border-soft: #dbe4ef;
+  --accent-glow: rgba(11, 95, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(15, 23, 42, 0.09);
+  --glass-stroke: rgba(11, 95, 255, 0.2);
+  --font-size-base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --font-size-lg: clamp(1.35rem, 1.15rem + 0.5vw, 2rem);
+  --font-size-xl: clamp(2.2rem, 1.8rem + 2vw, 4rem);
+  --transition-smooth: 0.25s ease;
   --bs-primary: var(--brand-primary);
-  --bs-primary-rgb: 188, 129, 84;
+  --bs-primary-rgb: 11, 95, 255;
   --bs-secondary: var(--brand-neutral);
-  --bs-secondary-rgb: 143, 130, 109;
+  --bs-secondary-rgb: 100, 116, 139;
   --bs-dark: var(--brand-secondary);
-  --bs-dark-rgb: 51, 57, 75;
-  --bs-body-bg: var(--dark-void);
-  --bs-body-color: #e0e6ed;
-
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --bs-dark-rgb: 15, 23, 42;
+  --bs-body-bg: #f8fbff;
+  --bs-body-color: #162033;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,10 +41,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--dark-void);
+  background-color: var(--bs-body-bg);
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(188, 129, 84, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(51, 57, 75, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 0% 0%, rgba(11, 95, 255, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.08) 0%, transparent 38%);
   background-attachment: fixed;
   color: var(--bs-body-color);
   overflow-x: hidden;
@@ -61,13 +52,13 @@ body {
 
 /* Glassmorphism Utilities */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
   box-shadow:
-    0 8px 32px 0 rgba(0, 0, 0, 0.37),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 20px 45px -30px rgba(15, 23, 42, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .glass-card {
@@ -78,8 +69,8 @@ body {
 
 .glass-card:hover {
   border-color: var(--glass-stroke);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 48px 0 rgba(188, 129, 84, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 25px 50px -35px rgba(11, 95, 255, 0.45);
 }
 
 /* Futuristic Text */
@@ -87,10 +78,17 @@ body {
   font-size: var(--font-size-xl);
   font-weight: 800;
   letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #fff 0%, var(--brand-primary) 100%);
+  background: linear-gradient(125deg, #0f172a 10%, var(--brand-primary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.text-fluid-lg {
+  font-size: var(--font-size-lg);
+  color: var(--brand-secondary);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 /* Custom Component Overrides */
@@ -104,16 +102,17 @@ body {
 
 .btn-primary {
   background-color: var(--brand-primary);
-  border-color: transparent;
+  border-color: var(--brand-primary);
   padding: 0.8rem 2rem;
-  border-radius: 12px;
+  border-radius: 10px;
   transition: var(--transition-smooth);
 }
 
 .btn-primary:hover {
   background-color: var(--brand-primary-dark);
-  box-shadow: 0 0 20px var(--accent-glow);
-  transform: scale(1.02);
+  border-color: var(--brand-primary-dark);
+  box-shadow: 0 8px 24px -12px rgba(11, 95, 255, 0.8);
+  transform: translateY(-1px);
 }
 
 /* Button & Interactive Element Consistency */
@@ -155,51 +154,74 @@ a:hover {
 }
 
 .navbar .navbar-brand {
-  color: #fff !important;
+  color: var(--brand-secondary) !important;
 }
 
 .navbar .nav-link {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #334155 !important;
   font-weight: 500;
 }
 
 .navbar .nav-link:hover {
-  color: #fff !important;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--brand-primary) !important;
+  background: rgba(11, 95, 255, 0.08);
 }
 
 .navbar .nav-link.text-primary {
-  color: #ffaa66 !important;
-  /* Brighter orange for better contrast */
-  text-shadow: 0 0 10px rgba(255, 170, 102, 0.3);
+  color: var(--brand-primary) !important;
+  text-shadow: none;
 }
 
 .hero-section {
   background: transparent;
-  color: #fff;
+  color: var(--brand-secondary);
 }
 
 /* Text Visibility Fixes */
 .text-muted {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: #64748b !important;
 }
 
 .form-label {
-  color: rgba(255, 255, 255, 0.85);
+  color: #334155;
   font-weight: 500;
 }
 
 .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: #94a3b8;
+}
+
+.form-control,
+.form-select {
+  background-color: #fff;
+  border: 1px solid var(--border-soft);
+  color: var(--brand-secondary);
 }
 
 /* Card Overrides (for components not yet refactored) */
 .card {
-  background: var(--glass-bg) !important;
+  background: var(--surface) !important;
   color: var(--bs-body-color) !important;
-  border-color: var(--glass-border) !important;
+  border-color: var(--border-soft) !important;
 }
 
 .card-title {
-  color: #fff !important;
+  color: var(--brand-secondary) !important;
+}
+
+#root {
+  max-width: none;
+}
+
+.hero-section .lead {
+  color: #475569;
+}
+
+.language-selector {
+  background: #e8efff;
+  border: 1px solid #cfe0ff;
+}
+
+.language-selector .btn {
+  color: #334155;
 }

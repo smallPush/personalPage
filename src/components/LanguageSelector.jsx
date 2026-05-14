@@ -8,21 +8,21 @@ const LanguageSelector = () => {
     };
 
     return (
-        <div className="language-selector d-flex p-1 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-10">
+        <div className="language-selector d-flex p-1 rounded-pill">
             <button
-                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'en' ? 'bg-primary text-white shadow-sm' : 'text-white border-0 opacity-50'}`}
+                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'en' ? 'bg-primary text-white shadow-sm' : 'border-0 opacity-75'}`}
                 onClick={() => changeLanguage('en')}
             >
                 EN
             </button>
             <button
-                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'es' || i18n.language.startsWith('es') ? 'bg-primary text-white shadow-sm' : 'text-white border-0 opacity-50'}`}
+                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'es' || i18n.language.startsWith('es') ? 'bg-primary text-white shadow-sm' : 'border-0 opacity-75'}`}
                 onClick={() => changeLanguage('es')}
             >
                 ES
             </button>
             <button
-                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'ca' || i18n.language.startsWith('ca') ? 'bg-primary text-white shadow-sm' : 'text-white border-0 opacity-50'}`}
+                className={`btn btn-sm rounded-pill px-3 transition-smooth ${i18n.language === 'ca' || i18n.language.startsWith('ca') ? 'bg-primary text-white shadow-sm' : 'border-0 opacity-75'}`}
                 onClick={() => changeLanguage('ca')}
             >
                 CA

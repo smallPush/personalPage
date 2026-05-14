@@ -56,7 +56,7 @@ const Navigation = () => {
           <Nav className="ms-auto align-items-center gap-2" onSelect={() => setExpanded(false)}>
             {NAV_LINKS.map((link, index) => {
               const isActive = link.isActive(location);
-              const className = `px-3 py-2 rounded-3 transition-all ${isActive ? 'text-primary fw-bold' : ''}`;
+              const className = `px-3 py-2 rounded-3 transition-all ${isActive ? 'text-primary fw-bold bg-primary bg-opacity-10' : ''}`;
 
               const label = link.fallback
                 ? t(link.labelKey, link.fallback)
