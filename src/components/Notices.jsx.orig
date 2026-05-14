@@ -67,7 +67,7 @@ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
                         }
                         return <a target="_blank" rel="noopener noreferrer" {...props} />;
                     },
-                    code: ({inline, className, children, ...props}) => {
+                    code: ({node, inline, className, children, ...props}) => {
                         const match = /language-(\w+)/.exec(className || '');
                         if (!inline && match && match[1] === 'mermaid') {
                             const code = String(children).replace(/\n$/, '');

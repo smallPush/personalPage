@@ -1,6 +1,6 @@
-# 🚀 Specification-Driven Development (SDD): El Nuevo Paradigma en la Programación con IA
+# 🚀 Desarrollo Basado en Especificaciones (SDD): El Nuevo Paradigma en la Programación con IA
 
-El desarrollo de software está experimentando un cambio fundamental. Durante décadas, el código ha sido el rey. Sin embargo, con el auge de los potentes asistentes de codificación por IA, está surgiendo un nuevo enfoque: el **Desarrollo Dirigido por Especificaciones (SDD - Specification-Driven Development)**.
+El desarrollo de software está experimentando un cambio fundamental. Durante décadas, el código ha sido el rey. Sin embargo, con el auge de los potentes asistentes de codificación por IA, está surgiendo un nuevo enfoque: el **Desarrollo Dirigido por Especificaciones (SDD - Desarrollo Basado en Especificaciones)**.
 
 ## ⚠️ El Problema: El Bucle del "Vibe Coding"
 
@@ -24,18 +24,22 @@ El SDD representa una inversión de poder masiva en la ingeniería de software:
 
 Aquí hay una representación visual del flujo de trabajo SDD en comparación con el uso tradicional de prompts con IA:
 
-```text
-Uso Tradicional de Prompts con IA:
-[ Idea ] ➔ [ Prompt Vago ] ➔ [ Generador de IA ] ➔ [ Código con Errores ] ➔ (Bucle de depuración infinito)
+```mermaid
+graph TD
+    subgraph Prompting de IA Tradicional
+        direction LR
+        A1[Idea] --> B1[Prompt Vago]
+        B1 --> C1[Generador de IA]
+        C1 --> D1[Código Defectuoso]
+        D1 --> E1(Bucle de depuración sin fin)
+    end
 
-Desarrollo Dirigido por Especificaciones (SDD):
-[ Idea ]
-   ↓
-[ Documento de Especificación Detallado (La Verdadera Fuente) ]
-   ↓
-[ Motor de Implementación de IA (ej. Augment Code, Spec Kit) ]
-   ↓
-[ Implementación de Código Robusto ]
+    subgraph Desarrollo Basado en Especificaciones
+        direction TB
+        A2[Idea] --> B2["Documento de Especificación Detallada<br>(La Verdadera Fuente)"]
+        B2 --> C2["Motor de Implementación de IA<br>(ej., Augment Code, Spec Kit)"]
+        C2 --> D2[Implementación de Código Robusto]
+    end
 ```
 
 ### Componentes Clave de un Flujo de Trabajo SDD:
