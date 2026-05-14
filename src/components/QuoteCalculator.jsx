@@ -30,11 +30,14 @@ const QuoteCalculator = () => {
     <Row className="justify-content-center">
       <Col md={10} lg={8} xl={7}>
         <GlassContainer className="p-4 p-md-5 overflow-hidden position-relative">
-          <div className="position-absolute top-0 start-50 translate-middle-x w-100 h-100 bg-primary opacity-10 blur-3xl z-n1 rounded-circle" style={{ filter: 'blur(100px)' }}></div>
+          <div
+            className="position-absolute top-0 start-50 translate-middle-x w-100 h-100 bg-primary opacity-10 z-n1 rounded-circle"
+            style={{ filter: 'blur(130px)', opacity: 0.06 }}
+          ></div>
 
-          <div className="text-center mb-5">
+          <div className="text-center mb-5 rounded-4 px-3 py-3" style={{ background: 'rgba(255, 255, 255, 0.78)' }}>
             <h3 className="display-6 fw-bold mb-3">{t('quote.title')}</h3>
-            <p className="lead text-muted">{t('quote.subtitle', 'Build your custom project estimate in seconds.')}</p>
+            <p className="lead mb-0" style={{ color: '#334155' }}>{t('quote.subtitle', 'Build your custom project estimate in seconds.')}</p>
           </div>
 
           <div className="mb-5">
