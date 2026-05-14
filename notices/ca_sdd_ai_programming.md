@@ -1,6 +1,6 @@
-# 🚀 Specification-Driven Development (SDD): El Nou Paradigma en la Programació amb IA
+# 🚀 Desenvolupament Basat en Especificacions (SDD): El Nou Paradigma en la Programació amb IA
 
-El desenvolupament de programari està experimentant un canvi fonamental. Durant dècades, el codi ha estat el rei. No obstant això, amb l'auge dels potents assistents de codificació per IA, està sorgint un nou enfocament: el **Desenvolupament Dirigit per Especificacions (SDD - Specification-Driven Development)**.
+El desenvolupament de programari està experimentant un canvi fonamental. Durant dècades, el codi ha estat el rei. No obstant això, amb l'auge dels potents assistents de codificació per IA, està sorgint un nou enfocament: el **Desenvolupament Dirigit per Especificacions (SDD - Desenvolupament Basat en Especificacions)**.
 
 ## ⚠️ El Problema: El Bucle del "Vibe Coding"
 
@@ -24,18 +24,22 @@ El SDD representa una inversió de poder massiva en l'enginyeria de programari:
 
 Aquí hi ha una representació visual del flux de treball SDD en comparació amb l'ús tradicional de prompts amb IA:
 
-```text
-Ús Tradicional de Prompts amb IA:
-[ Idea ] ➔ [ Prompt Vanc ] ➔ [ Generador d'IA ] ➔ [ Codi amb Errors ] ➔ (Bucle de depuració infinit)
+```mermaid
+graph TD
+    subgraph Prompting d'IA Tradicional
+        direction LR
+        A1[Idea] --> B1[Prompt Vag]
+        B1 --> C1[Generador d'IA]
+        C1 --> D1[Codi Defectuós]
+        D1 --> E1(Bucle de depuració sense fi)
+    end
 
-Desenvolupament Dirigit per Especificacions (SDD):
-[ Idea ]
-   ↓
-[ Document d'Especificació Detallat (La Veritable Font) ]
-   ↓
-[ Motor d'Implementació d'IA (ex. Augment Code, Spec Kit) ]
-   ↓
-[ Implementació de Codi Robust ]
+    subgraph Desenvolupament Basat en Especificacions
+        direction TB
+        A2[Idea] --> B2["Document d'Especificació Detallada<br>(La Veritable Font)"]
+        B2 --> C2["Motor d'Implementació d'IA<br>(ex., Augment Code, Spec Kit)"]
+        C2 --> D2[Implementació de Codi Robust]
+    end
 ```
 
 ### Components Clau d'un Flux de Treball SDD:
