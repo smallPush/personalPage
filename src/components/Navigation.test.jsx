@@ -48,10 +48,10 @@ describe('Navigation Component', () => {
   it('highlights the active link based on pathname', () => {
     renderNavigation(['/']);
     const homeLink = screen.getByText('navigation.home');
-    expect(homeLink).toHaveClass('text-primary');
+    expect(homeLink).toHaveClass('nav-menu-link-active');
 
     const donorLink = screen.getByText('Donor Funnel');
-    expect(donorLink).not.toHaveClass('text-primary');
+    expect(donorLink).not.toHaveClass('nav-menu-link-active');
   });
 
   it('highlights the active link based on hash', () => {
@@ -62,16 +62,16 @@ describe('Navigation Component', () => {
     renderNavigation(['/#about']);
 
     const aboutLink = screen.getByText('navigation.about');
-    expect(aboutLink).toHaveClass('text-primary');
+    expect(aboutLink).toHaveClass('nav-menu-link-active');
 
     const homeLink = screen.getByText('navigation.home');
-    expect(homeLink).toHaveClass('text-primary');
+    expect(homeLink).toHaveClass('nav-menu-link-active');
   });
 
   it('highlights news link when pathname starts with /news', () => {
     renderNavigation(['/news/123']);
     const newsLink = screen.getByText('News');
-    expect(newsLink).toHaveClass('text-primary');
+    expect(newsLink).toHaveClass('nav-menu-link-active');
   });
 
   it('calls window.scrollTo when home link is clicked', () => {

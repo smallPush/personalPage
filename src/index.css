@@ -212,6 +212,12 @@ a:hover {
 }
 
 /* Text Visibility Fixes */
+.text-gray-200 {
+    color: #e5e7eb;
+}
+.text-gray-300 {
+    color: #d1d5db;
+}
 .text-muted {
   color: #64748b !important;
 }
