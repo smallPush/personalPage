@@ -3,7 +3,6 @@ import { render, screen, cleanup, fireEvent, act, waitFor } from '@testing-libra
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import Notices from './Notices';
-import { notices as _notices } from '../data/notices';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
