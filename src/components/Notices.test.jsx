@@ -15,6 +15,24 @@ vi.mock('../utils/useSeo', () => ({
   default: vi.fn(),
 }));
 
+vi.mock('../data/notices', async (importOriginal) => {
+  const actual = await importOriginal();
+  return {
+    ...actual,
+    notices: [
+      ...actual.notices,
+      {
+        id: 'fake-notice',
+        filename: 'does_not_exist.md',
+        date: '2026-04-01',
+        seoTitle: { en: 'Fake' },
+        seoDescription: { en: 'Fake' },
+        tags: ['FakeTag']
+      }
+    ]
+  };
+});
+
 describe('Notices Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -102,5 +120,26 @@ describe('Notices Component', () => {
     await waitFor(() => {
         expect(screen.queryByText('Loading content...')).not.toBeInTheDocument();
     });
+  });
+
+  it('handles error in fetchNotices catch block gracefully', async () => {
+    vi.stubEnv('DEV', true);
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation((msg) => {
+      if (typeof msg === 'string' && msg.includes('Failed to load notice: does_not_exist.md')) {
+        throw new Error('Simulated load error to trigger catch block');
+      }
+    });
+
+    await act(async () => {
+      renderNotices({ singleNoticeId: 'fake-notice' });
+    });
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Error loading notice: does_not_exist.md',
+      expect.any(Error)
+    );
+
+    vi.unstubAllEnvs();
+    errorSpy.mockRestore();
   });
 });
