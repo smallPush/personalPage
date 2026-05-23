@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Row, Col, Button, Badge, Form } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
@@ -176,7 +176,6 @@ const NoticeFilter = ({ selectedTag, setSelectedTag, t }) => {
 
 const Notices = ({ singleNoticeId }) => {
     const { t, i18n } = useTranslation();
-    const [posts, setPosts] = useState({});
     const [selectedTag, setSelectedTag] = useState(null);
 
     const currentLang = i18n.language.split('-')[0];
@@ -211,51 +210,37 @@ const Notices = ({ singleNoticeId }) => {
         }
     );
 
-    useEffect(() => {
-        const fetchNotices = async () => {
-            const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
-            const fetchPromises = displayNotices.map(async (notice) => {
-                const localizedPath = `/public/notices/${prefix}${notice.filename}`;
-                const fallbackPath = `/public/notices/${notice.filename}`;
+    const posts = useMemo(() => {
+        const loadedPosts = {};
+        const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
 
-                try {
-                    // Try localized version first
-                    if (prefix !== '' && noticeFiles[localizedPath]) {
-                        const text = noticeFiles[localizedPath];
-                        return { id: notice.id, text };
-                    }
+        for (const notice of displayNotices) {
+            const localizedPath = `/public/notices/${prefix}${notice.filename}`;
+            const fallbackPath = `/public/notices/${notice.filename}`;
 
-                    // Fallback to default (English) version
-                    if (noticeFiles[fallbackPath]) {
-                        const text = noticeFiles[fallbackPath];
-                        return { id: notice.id, text };
-                    }
-
-                    if (import.meta.env.DEV) {
-                        console.error(`Failed to load notice: ${notice.filename}`);
-                    }
-                    return null;
-                } catch (error) {
-                    if (import.meta.env.DEV) {
-                        console.error(`Error loading notice: ${notice.filename}`, error);
-                    }
-                    return null;
+            try {
+                // Try localized version first
+                if (prefix !== '' && noticeFiles[localizedPath]) {
+                    loadedPosts[notice.id] = noticeFiles[localizedPath];
+                    continue;
                 }
-            });
 
-            const results = await Promise.all(fetchPromises);
+                // Fallback to default (English) version
+                if (noticeFiles[fallbackPath]) {
+                    loadedPosts[notice.id] = noticeFiles[fallbackPath];
+                    continue;
+                }
 
-            const loadedPosts = {};
-            for (const result of results) {
-                if (result) {
-                    loadedPosts[result.id] = result.text;
+                if (import.meta.env.DEV) {
+                    console.error(`Failed to load notice: ${notice.filename}`);
+                }
+            } catch (error) {
+                if (import.meta.env.DEV) {
+                    console.error(`Error loading notice: ${notice.filename}`, error);
                 }
             }
-
-            setPosts(loadedPosts);
-        };
-
-        fetchNotices();
+        }
+        return loadedPosts;
     }, [currentLang, displayNotices]);
 
     // structured data for SEO
