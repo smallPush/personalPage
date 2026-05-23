@@ -92,9 +92,6 @@ body {
 }
 
 /* Custom Component Overrides */
-.bg-primary {
-  background-color: var(--brand-primary) !important;
-}
 
 .text-primary {
   color: var(--brand-primary) !important;
@@ -219,7 +216,7 @@ a:hover {
     color: #d1d5db;
 }
 .text-muted {
-  color: #64748b !important;
+  color: #334155 !important;
 }
 
 .form-label {
