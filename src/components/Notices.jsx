@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Row, Col, Button, Badge, Form } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ import MermaidChart from './MermaidChart';
 
 
 // Pre-load all markdown files at build time
-const noticeFiles = import.meta.glob('/public/notices/*.md', { query: '?raw', import: 'default', eager: true });
+const noticeFiles = import.meta.glob('/public/notices/*.md', { query: '?raw', import: 'default' });
 
 // --- Module-level Constants for Performance ---
 
@@ -210,37 +210,58 @@ const Notices = ({ singleNoticeId }) => {
         }
     );
 
-    const posts = useMemo(() => {
-        const loadedPosts = {};
-        const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
+    const [posts, setPosts] = useState({});
 
-        for (const notice of displayNotices) {
-            const localizedPath = `/public/notices/${prefix}${notice.filename}`;
-            const fallbackPath = `/public/notices/${notice.filename}`;
+    useEffect(() => {
+        let ignore = false;
 
-            try {
-                // Try localized version first
-                if (prefix !== '' && noticeFiles[localizedPath]) {
-                    loadedPosts[notice.id] = noticeFiles[localizedPath];
-                    continue;
-                }
+        const loadPosts = async () => {
+            const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
 
-                // Fallback to default (English) version
-                if (noticeFiles[fallbackPath]) {
-                    loadedPosts[notice.id] = noticeFiles[fallbackPath];
-                    continue;
-                }
+            const postPromises = displayNotices.map(async (notice) => {
+                const localizedPath = `/public/notices/${prefix}${notice.filename}`;
+                const fallbackPath = `/public/notices/${notice.filename}`;
 
-                if (import.meta.env.DEV) {
-                    console.error(`Failed to load notice: ${notice.filename}`);
+                try {
+                    // Try localized version first
+                    if (prefix !== '' && noticeFiles[localizedPath]) {
+                        return { id: notice.id, content: await noticeFiles[localizedPath]() };
+                    }
+
+                    // Fallback to default (English) version
+                    if (noticeFiles[fallbackPath]) {
+                        return { id: notice.id, content: await noticeFiles[fallbackPath]() };
+                    }
+
+                    if (import.meta.env.DEV) {
+                        console.error(`Failed to load notice: ${notice.filename}`);
+                    }
+                } catch (error) {
+                    if (import.meta.env.DEV) {
+                        console.error(`Error loading notice: ${notice.filename}`, error);
+                    }
                 }
-            } catch (error) {
-                if (import.meta.env.DEV) {
-                    console.error(`Error loading notice: ${notice.filename}`, error);
-                }
+                return { id: notice.id, content: null };
+            });
+
+            const results = await Promise.all(postPromises);
+
+            if (!ignore) {
+                const loadedPosts = {};
+                results.forEach(result => {
+                    if (result.content !== null) {
+                        loadedPosts[result.id] = result.content;
+                    }
+                });
+                setPosts(loadedPosts);
             }
-        }
-        return loadedPosts;
+        };
+
+        loadPosts();
+
+        return () => {
+            ignore = true;
+        };
     }, [currentLang, displayNotices]);
 
     // structured data for SEO
