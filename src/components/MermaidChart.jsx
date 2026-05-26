@@ -19,7 +19,7 @@ const MermaidChart = ({ chart }) => {
 
     const renderChart = async () => {
       try {
-        const id = `mermaid-chart-${Math.random().toString(36).substring(2, 9)}`;
+        const id = `mermaid-chart-${window.crypto.randomUUID()}`;
         const { svg } = await mermaid.render(id, chart);
         if (isMounted) {
           setSvg(svg);
