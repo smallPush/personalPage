@@ -15,8 +15,10 @@ vi.mock('react-i18next', () => ({
 
 // Mock HashLink
 vi.mock('react-router-hash-link', () => ({
-  // eslint-disable-next-line no-unused-vars
-  HashLink: ({ children, smooth, ...props }) => <a {...props}>{children}</a>,
+  HashLink: ({ children, ...props }) => {
+    const { smooth: _Smooth, ...rest } = props;
+    return <a {...rest}>{children}</a>;
+  },
 }));
 
 describe('QuoteCalculator', () => {
