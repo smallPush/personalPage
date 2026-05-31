@@ -40,7 +40,7 @@ describe('CookieBanner interactions', () => {
         });
 
         // Load the module via dynamic import
-        const module = await import('../CookieBanner.jsx');
+        const module = await import('./CookieBanner.jsx');
         CookieBanner = module.default;
     });
 
