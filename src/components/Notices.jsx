@@ -39,6 +39,16 @@ sortedNotices.forEach(n => {
 // Pre-compute unique tags
 const moduleUniqueTags = Array.from(new Set(notices.flatMap(notice => notice.tags || []))).sort();
 
+// Pre-compute notice loaders map to avoid string concatenation and object lookups during render
+const noticeLoadersMap = new Map();
+sortedNotices.forEach(notice => {
+    noticeLoadersMap.set(notice.id, {
+        es: noticeFiles[`/public/notices/es_${notice.filename}`],
+        ca: noticeFiles[`/public/notices/ca_${notice.filename}`],
+        en: noticeFiles[`/public/notices/${notice.filename}`]
+    });
+});
+
 // ----------------------------------------------
 
 const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
@@ -216,21 +226,17 @@ const Notices = ({ singleNoticeId }) => {
         let ignore = false;
 
         const loadPosts = async () => {
-            const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
+            const lang = currentLang === 'es' ? 'es' : currentLang === 'ca' ? 'ca' : 'en';
 
             const postPromises = displayNotices.map(async (notice) => {
-                const localizedPath = `/public/notices/${prefix}${notice.filename}`;
-                const fallbackPath = `/public/notices/${notice.filename}`;
-
                 try {
-                    // Try localized version first
-                    if (prefix !== '' && noticeFiles[localizedPath]) {
-                        return { id: notice.id, content: await noticeFiles[localizedPath]() };
-                    }
-
-                    // Fallback to default (English) version
-                    if (noticeFiles[fallbackPath]) {
-                        return { id: notice.id, content: await noticeFiles[fallbackPath]() };
+                    const loaders = noticeLoadersMap.get(notice.id);
+                    if (loaders) {
+                        // Try localized version first, then fallback to English
+                        const loader = (lang !== 'en' ? loaders[lang] : undefined) || loaders.en;
+                        if (loader) {
+                            return { id: notice.id, content: await loader() };
+                        }
                     }
 
                     if (import.meta.env.DEV) {
