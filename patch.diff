@@ -1,0 +1,167 @@
+--- src/components/Notices.jsx
++++ src/components/Notices.jsx
+@@ -32,6 +32,65 @@
+
+ // ----------------------------------------------
+
++const useNoticePosts = (displayNotices, currentLang, noticeFiles) => {
++    const [posts, setPosts] = useState({});
++
++    useEffect(() => {
++        let ignore = false;
++
++        const loadPosts = async () => {
++            const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
++
++            const postPromises = displayNotices.map(async (notice) => {
++                const localizedPath = `/public/notices/${prefix}${notice.filename}`;
++                const fallbackPath = `/public/notices/${notice.filename}`;
++
++                try {
++                    // Try localized version first
++                    if (prefix !== '' && noticeFiles[localizedPath]) {
++                        return { id: notice.id, content: await noticeFiles[localizedPath]() };
++                    }
++
++                    // Fallback to default (English) version
++                    if (noticeFiles[fallbackPath]) {
++                        return { id: notice.id, content: await noticeFiles[fallbackPath]() };
++                    }
++
++                    if (import.meta.env.DEV) {
++                        console.error(`Failed to load notice: ${notice.filename}`);
++                    }
++                } catch (error) {
++                    if (import.meta.env.DEV) {
++                        console.error(`Error loading notice: ${notice.filename}`, error);
++                    }
++                }
++                return { id: notice.id, content: null };
++            });
++
++            const results = await Promise.all(postPromises);
++
++            if (!ignore) {
++                const loadedPosts = {};
++                results.forEach(result => {
++                    if (result.content !== null) {
++                        loadedPosts[result.id] = result.content;
++                    }
++                });
++                setPosts(loadedPosts);
++            }
++        };
++
++        loadPosts();
++
++        return () => {
++            ignore = true;
++        };
++    }, [currentLang, displayNotices, noticeFiles]);
++
++    return posts;
++};
++
++const generateJsonLd = (currentNotice, getLocalizedField) => {
++    if (!currentNotice) return null;
++    return {
++        "@context": "https://schema.org",
++        "@type": "NewsArticle",
++        "headline": getLocalizedField(currentNotice.seoTitle),
++        "datePublished": currentNotice.date,
++        "description": getLocalizedField(currentNotice.seoDescription),
++        "author": {
++            "@type": "Organization",
++            "name": "SmallPush"
++        }
++    };
++};
++
+ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
+     const lines = useMemo(() => content.split('\n'), [content]);
+     const isTruncated = !singleNoticeId && lines.length > 10;
+@@ -207,67 +266,10 @@
+         }
+     );
+
+-    const [posts, setPosts] = useState({});
+-
+-    useEffect(() => {
+-        let ignore = false;
+-
+-        const loadPosts = async () => {
+-            const prefix = currentLang === 'es' ? 'es_' : currentLang === 'ca' ? 'ca_' : '';
+-
+-            const postPromises = displayNotices.map(async (notice) => {
+-                const localizedPath = `/public/notices/${prefix}${notice.filename}`;
+-                const fallbackPath = `/public/notices/${notice.filename}`;
+-
+-                try {
+-                    // Try localized version first
+-                    if (prefix !== '' && noticeFiles[localizedPath]) {
+-                        return { id: notice.id, content: await noticeFiles[localizedPath]() };
+-                    }
+-
+-                    // Fallback to default (English) version
+-                    if (noticeFiles[fallbackPath]) {
+-                        return { id: notice.id, content: await noticeFiles[fallbackPath]() };
+-                    }
+-
+-                    if (import.meta.env.DEV) {
+-                        console.error(`Failed to load notice: ${notice.filename}`);
+-                    }
+-                } catch (error) {
+-                    if (import.meta.env.DEV) {
+-                        console.error(`Error loading notice: ${notice.filename}`, error);
+-                    }
+-                }
+-                return { id: notice.id, content: null };
+-            });
+-
+-            const results = await Promise.all(postPromises);
+-
+-            if (!ignore) {
+-                const loadedPosts = {};
+-                results.forEach(result => {
+-                    if (result.content !== null) {
+-                        loadedPosts[result.id] = result.content;
+-                    }
+-                });
+-                setPosts(loadedPosts);
+-            }
+-        };
+-
+-        loadPosts();
+-
+-        return () => {
+-            ignore = true;
+-        };
+-    }, [currentLang, displayNotices]);
++    const posts = useNoticePosts(displayNotices, currentLang, noticeFiles);
+
+     // structured data for SEO
+-    const jsonLd = useMemo(() => {
+-        if (!currentNotice) return null;
+-        return {
+-            "@context": "https://schema.org",
+-            "@type": "NewsArticle",
+-            "headline": getLocalizedField(currentNotice.seoTitle),
+-            "datePublished": currentNotice.date,
+-            "description": getLocalizedField(currentNotice.seoDescription),
+-            "author": {
+-                "@type": "Organization",
+-                "name": "SmallPush"
+-            }
+-        };
+-    }, [currentNotice, getLocalizedField]);
++    const jsonLd = useMemo(() => generateJsonLd(currentNotice, getLocalizedField), [currentNotice, getLocalizedField]);
+
+     return (
+         <div id="notices" className="py-5">
+             {jsonLd && (
+                 <script type="application/ld+json">
+-                    {JSON.stringify(jsonLd)}
++                    {JSON.stringify(jsonLd).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')}
+                 </script>
+             )}
+             <div className="d-flex justify-content-between align-items-center mb-5 mt-4">
