@@ -43,4 +43,26 @@ describe('MermaidChart Component', () => {
 
     consoleSpy.mockRestore();
   });
+
+  it('sanitizes SVG output to prevent XSS', async () => {
+    // Mock mermaid.render to return an SVG with a malicious script payload
+    const maliciousSvg = '<svg id="malicious"><script>alert("XSS")</script><g><rect x="0" y="0" width="10" height="10" /></g></svg>';
+    mermaid.render.mockResolvedValueOnce({ svg: maliciousSvg });
+
+    const chart = 'graph TD;\n  A-->B;';
+
+    await act(async () => {
+      render(<MermaidChart chart={chart} />);
+    });
+
+    // Wait for the chart to be rendered
+    await waitFor(() => {
+      // The container should have the inner HTML, but script tags should be stripped
+      const container = document.querySelector('.mermaid-container');
+      expect(container).toBeInTheDocument();
+      expect(container.innerHTML).not.toContain('<script>');
+      expect(container.innerHTML).toContain('<svg id="malicious">');
+      expect(container.innerHTML).toContain('<rect');
+    });
+  });
 });
