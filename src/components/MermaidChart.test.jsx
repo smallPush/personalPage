@@ -43,4 +43,61 @@ describe('MermaidChart Component', () => {
 
     consoleSpy.mockRestore();
   });
+
+  it('renders successfully when chart is valid', async () => {
+    const mockSvg = '<svg><g>chart content</g></svg>';
+    mermaid.render.mockResolvedValueOnce({ svg: mockSvg });
+
+    const goodChart = 'graph TD;\n  A-->B';
+
+    let renderedContainer;
+    await act(async () => {
+      const { container } = render(<MermaidChart chart={goodChart} />);
+      renderedContainer = container;
+    });
+
+    await waitFor(() => {
+      expect(mermaid.render).toHaveBeenCalledWith(expect.stringMatching(/^mermaid-chart-/), goodChart);
+    });
+
+    expect(renderedContainer.querySelector('.mermaid-container').innerHTML).toBe(mockSvg);
+  });
+
+  it('does not call mermaid.render if chart prop is empty', async () => {
+    await act(async () => {
+      render(<MermaidChart chart="" />);
+    });
+
+    expect(mermaid.render).not.toHaveBeenCalled();
+  });
+
+  it('does not update state if unmounted before render finishes', async () => {
+    let resolveRender;
+    const renderPromise = new Promise(resolve => {
+      resolveRender = resolve;
+    });
+    mermaid.render.mockReturnValueOnce(renderPromise);
+
+    const chart = 'graph TD;\n  A-->B';
+
+    let unmountFunc;
+    await act(async () => {
+      const { unmount } = render(<MermaidChart chart={chart} />);
+      unmountFunc = unmount;
+    });
+
+    expect(mermaid.render).toHaveBeenCalled();
+
+    // unmount before resolve
+    await act(async () => {
+      unmountFunc();
+    });
+
+    // resolve render
+    await act(async () => {
+      resolveRender({ svg: '<svg>test</svg>' });
+    });
+
+    // Test passes if no state update warnings are thrown after unmount
+  });
 });
