@@ -1,5 +1,7 @@
 # How to Create a New Contact in CiviCRM
 
+![Essential guide to contact management in CiviCRM](/notices/civicrm-contact-management.png)
+
 Contact management is the core of CiviCRM. Before recording donations, memberships, events or communications, you need a clean database where each person, organization or household is created correctly.
 
 This guide covers the essential steps to create a new contact and keep your data ready to grow without duplicates or inconsistent records.
