@@ -1,5 +1,7 @@
 # Cómo crear un nuevo contacto en CiviCRM
 
+![Guía esencial de gestión de contactos en CiviCRM](/notices/civicrm-contact-management.png)
+
 La gestión de contactos es el corazón de CiviCRM. Antes de registrar donaciones, membresías, eventos o comunicaciones, necesitas una base de datos ordenada donde cada persona, organización u hogar esté creado correctamente.
 
 Esta guía resume los pasos esenciales para crear un nuevo contacto y mantener la información preparada para crecer sin duplicados ni datos inconsistentes.
