@@ -1,5 +1,26 @@
 export const notices = [
     {
+        id: 'civicrm-create-contact',
+        filename: 'civicrm_create_contact.md',
+        date: '2026-06-04',
+        seoTitle: {
+            en: 'How to Create a New Contact in CiviCRM - SmallPush',
+            es: 'Cómo Crear un Nuevo Contacto en CiviCRM - SmallPush',
+            ca: 'Com Crear un Nou Contacte a CiviCRM - SmallPush'
+        },
+        seoDescription: {
+            en: 'Practical guide to creating and managing contacts in CiviCRM: individuals, organizations, households, tabs, deduplication and CSV imports.',
+            es: 'Guía práctica para crear y gestionar contactos en CiviCRM: individuos, organizaciones, hogares, pestañas, deduplicación e importaciones CSV.',
+            ca: 'Guia pràctica per crear i gestionar contactes a CiviCRM: individus, organitzacions, llars, pestanyes, deduplicació i importacions CSV.'
+        },
+        keywords: {
+            en: 'CiviCRM, create contact, contact management, CRM, deduplication, CSV import, nonprofit',
+            es: 'CiviCRM, crear contacto, gestión de contactos, CRM, deduplicación, importación CSV, ONG',
+            ca: 'CiviCRM, crear contacte, gestió de contactes, CRM, deduplicació, importació CSV, ONG'
+        },
+        tags: ['CiviCRM', 'CRM', 'Contacts', 'Data Quality']
+    },
+    {
         id: 'civicrm-hosting-comparison',
         filename: 'civicrm_hosting_comparison.md',
         date: '2026-02-25',
