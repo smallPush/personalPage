@@ -104,10 +104,6 @@ const QuoteCalculator = () => {
           </div>
 
           <div className="mt-5 p-4 p-md-5 rounded-4 bg-primary bg-opacity-10 border border-primary border-opacity-25 position-relative overflow-hidden">
-            <div className="position-absolute top-0 end-0 p-3 opacity-10">
-              <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
-            </div>
-
             <div className="text-center position-relative z-1">
               <p className="text-uppercase text-primary small fw-bold mb-2">{t('quote.result.title')}</p>
               <div className="display-3 fw-bold mb-2 text-dark">
