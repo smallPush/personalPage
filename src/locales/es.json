@@ -16,12 +16,13 @@
         "contact": "Contacto"
     },
     "hero": {
-        "subtitle": "Consultoría experta e implementación rápida de CiviCRM para ONGs y partidos políticos. Centraliza tu base social, automatiza procesos y multiplica tu impacto en tiempo récord.",
-        "cta": "Impulsa tu Organización"
+        "subtitle": "Impulsamos tu organización con CiviCRM: centraliza contactos, automatiza procesos y dedica más tiempo a tu misión.",
+        "cta": "Empieza a impulsar tu organización",
+        "tagline": "Especialistas en tecnología para proyectos con impacto social."
     },
     "about": {
         "title": "Por qué SmallPush",
-        "text": "Con más de 14 años de experiencia en el sector, entendemos que las ONGs y las formaciones políticas no pueden permitirse proyectos tecnológicos interminables. Nos especializamos en la consultoría e implementación rápida de CiviCRM: auditamos tus necesidades reales y desplegamos soluciones robustas para que puedas centrarte en lo que de verdad importa: tu misión y tu base social."
+        "text": "Con más de 14 años de experiencia en tecnología para el tercer sector y organizaciones políticas, te ayudamos a poner orden en tu base social, automatizar tareas y desplegar CiviCRM de manera rápida, robusta y adaptada a tus necesidades reales."
     },
     "services": {
         "title": "Nuestros Servicios",
