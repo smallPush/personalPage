@@ -32,6 +32,22 @@
   -webkit-font-smoothing: antialiased;
 }
 
+[data-theme="dark"] {
+  --brand-secondary: #f8fafc;
+  --brand-neutral: #94a3b8;
+  --brand-light: #0f172a;
+  --surface: #1e293b;
+  --surface-muted: #0f172a;
+  --border-soft: #334155;
+  --glass-bg: rgba(15, 23, 42, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-stroke: rgba(255, 255, 255, 0.15);
+  --bs-secondary-rgb: 148, 163, 184;
+  --bs-dark-rgb: 248, 250, 252;
+  --bs-body-bg: #0f172a;
+  --bs-body-color: #f8fafc;
+}
+
 ::selection {
   background: var(--brand-primary);
   color: #fff;
@@ -75,7 +91,7 @@ body {
   font-size: var(--font-size-xl);
   font-weight: 800;
   letter-spacing: -0.04em;
-  background: linear-gradient(125deg, #0f172a 10%, var(--brand-primary) 100%);
+  background: linear-gradient(125deg, var(--brand-secondary) 10%, var(--brand-primary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -155,7 +171,7 @@ a:hover {
 }
 
 .navbar .nav-link {
-  color: #334155 !important;
+  color: var(--bs-body-color) !important;
   font-weight: 500;
 }
 
@@ -176,8 +192,8 @@ a:hover {
 }
 
 .navbar .navbar-toggler {
-  border: 1px solid #cbd5e1;
-  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-soft);
+  background: var(--glass-bg);
 }
 
 .navbar .navbar-toggler-icon {
@@ -185,7 +201,7 @@ a:hover {
 }
 
 .nav-menu-link {
-  color: #334155 !important;
+  color: var(--bs-body-color) !important;
   font-weight: 600;
   transition: var(--transition-smooth);
 }
@@ -227,9 +243,9 @@ a:hover {
 
 .form-control,
 .form-select {
-  background-color: #fff;
+  background-color: var(--surface);
   border: 1px solid var(--border-soft);
-  color: var(--brand-secondary);
+  color: var(--bs-body-color);
 }
 
 /* Card Overrides (for components not yet refactored) */

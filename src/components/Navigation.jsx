@@ -5,6 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import LanguageSelector from './LanguageSelector';
+import ThemeToggle from './ThemeToggle';
 import { NAV_LINKS } from '../config/navigation';
 
 const Navigation = () => {
@@ -86,7 +87,8 @@ const Navigation = () => {
               );
             })}
 
-            <div className="ms-lg-3 py-2 py-lg-0">
+            <div className="ms-lg-3 py-2 py-lg-0 d-flex align-items-center gap-2">
+              <ThemeToggle />
               <LanguageSelector />
             </div>
           </Nav>
