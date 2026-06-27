@@ -26,29 +26,37 @@
     },
     "services": {
         "title": "Nuestros Servicios",
+        "expand": "Más info",
+        "collapse": "Menos info",
         "civi": {
             "title": "Consultoría e Implementación CiviCRM",
-            "text": "Despliegues ágiles y estratégicos para que tu organización empiece a sacar partido a sus datos desde el primer día."
+            "text": "Despliegues ágiles y estratégicos para que tu organización empiece a sacar partido a sus datos desde el primer día.",
+            "details": "Implementamos CiviCRM adaptado a tus flujos de trabajo reales. Cubrimos desde la gestión de membresías y captación de donaciones, hasta el envío de boletines masivos y la automatización de procesos repetitivos, asegurando que tu equipo tenga control total y seguro sobre la base social."
         },
         "drupal": {
             "title": "Desarrollo Drupal",
-            "text": "Sitios web y aplicaciones Drupal robustos y escalables."
+            "text": "Sitios web y aplicaciones Drupal robustos y escalables.",
+            "details": "Desarrollamos portales web de alto rendimiento y máxima seguridad. Nos especializamos en integraciones complejas entre Drupal y CiviCRM, creando áreas privadas para socios, intranets y plataformas de contenido que escalan junto al crecimiento de tu organización."
         },
         "payment": {
             "title": "Ecosistema de Pagos Español",
-            "text": "Integración experta con pasarelas de pago y sistemas bancarios españoles."
+            "text": "Integración experta con pasarelas de pago y sistemas bancarios españoles.",
+            "details": "Conectamos tu CRM con las principales pasarelas de pago (Redsys, Stripe, PayPal, SEPA). Automatizamos la conciliación bancaria, la gestión de cobros recurrentes y las devoluciones, reduciendo drásticamente el trabajo manual de tu equipo administrativo."
         },
         "fiscal": {
             "title": "Gestión de Modelos Fiscales",
-            "text": "Soluciones para gestionar datos fiscales y generar informes de impuestos (ej. Modelo 182)."
+            "text": "Soluciones para gestionar datos fiscales y generar informes de impuestos (ej. Modelo 182).",
+            "details": "Simplificamos tu carga administrativa automatizando la generación del Modelo 182 y la emisión de certificados de donación. Garantizamos que todos los datos fiscales extraídos del CRM cumplan estrictamente con la normativa vigente de la Agencia Tributaria."
         },
         "ads": {
             "title": "Desarrollo de ADs",
-            "text": "Campañas de captación de clientes optimizadas para maximizar su conversión."
+            "text": "Campañas de captación de clientes optimizadas para maximizar su conversión.",
+            "details": "Diseñamos y ejecutamos estrategias de captación en medios digitales enfocadas en resultados. Trazamos el recorrido completo del usuario desde el anuncio hasta el CRM, permitiendo medir el coste de adquisición real de cada nuevo socio o donante."
         },
         "ai": {
             "title": "Integración con IA",
-            "text": "Implementación de soluciones de Inteligencia Artificial para automatizar y potenciar su negocio."
+            "text": "Implementación de soluciones de Inteligencia Artificial para automatizar y potenciar su negocio.",
+            "details": "Aplicamos IA (LLMs, LangChain) para crear agentes conversacionales que interactúan con tus seguidores, resuelven dudas complejas basándose en tus documentos y cualifican leads automáticamente, integrando todos los datos directamente en tu CRM."
         }
     },
     "quote": {

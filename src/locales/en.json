@@ -26,29 +26,37 @@
     },
     "services": {
         "title": "Our Services",
+        "expand": "More info",
+        "collapse": "Less info",
         "civi": {
             "title": "CiviCRM Consulting & Implementation",
-            "text": "Agile and strategic deployments so your organization can leverage its data from day one."
+            "text": "Agile and strategic deployments so your organization can leverage its data from day one.",
+            "details": "We implement CiviCRM tailored to your real workflows. From membership management and donation acquisition to bulk email campaigns and automation of repetitive processes, ensuring your team has full and secure control over your social base."
         },
         "drupal": {
             "title": "Drupal Development",
-            "text": "Robust and scalable Drupal websites and applications."
+            "text": "Robust and scalable Drupal websites and applications.",
+            "details": "We develop high-performance and highly secure web portals. We specialize in complex integrations between Drupal and CiviCRM, creating private member areas, intranets, and content platforms that scale with your organization's growth."
         },
         "payment": {
             "title": "Spanish Payments Ecosystem",
-            "text": "Expert integration with Spanish payment gateways and banking systems."
+            "text": "Expert integration with Spanish payment gateways and banking systems.",
+            "details": "We connect your CRM with major payment gateways (Redsys, Stripe, PayPal, SEPA). We automate bank reconciliation, recurring payment management, and refunds, drastically reducing manual work for your administrative team."
         },
         "fiscal": {
             "title": "Fiscal Models Management",
-            "text": "Solutions for managing fiscal data and generating tax reports (e.g., Model 182)."
+            "text": "Solutions for managing fiscal data and generating tax reports (e.g., Model 182).",
+            "details": "We simplify your administrative burden by automating the generation of tax models and donation certificates. We guarantee that all fiscal data extracted from the CRM strictly complies with current tax agency regulations."
         },
         "ads": {
             "title": "Ads Development",
-            "text": "Customer acquisition campaigns optimized to maximize conversion."
+            "text": "Customer acquisition campaigns optimized to maximize conversion.",
+            "details": "We design and execute digital acquisition strategies focused on results. We track the complete user journey from the ad to the CRM, allowing you to measure the real acquisition cost of each new member or donor."
         },
         "ai": {
             "title": "AI Integration",
-            "text": "Implementation of Artificial Intelligence solutions to automate and empower your business."
+            "text": "Implementation of Artificial Intelligence solutions to automate and empower your business.",
+            "details": "We apply AI (LLMs, LangChain) to create conversational agents that interact with your followers, resolve complex doubts based on your documents, and automatically qualify leads, integrating all data directly into your CRM."
         }
     },
     "quote": {

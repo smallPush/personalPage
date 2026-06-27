@@ -26,29 +26,37 @@
     },
     "services": {
         "title": "Els Nostres Serveis",
+        "expand": "Més info",
+        "collapse": "Menys info",
         "civi": {
             "title": "Consultoria i Implementació CiviCRM",
-            "text": "Desplegaments àgils i estratègics perquè la teva organització comenci a treure partit a les seves dades des del primer dia."
+            "text": "Desplegaments àgils i estratègics perquè la teva organització comenci a treure partit a les seves dades des del primer dia.",
+            "details": "Implementem CiviCRM adaptat als teus fluxos de treball reals. Cobrim des de la gestió de membresies i captació de donacions, fins a l'enviament de butlletins massius i l'automatització de processos repetitius, assegurant que el teu equip tingui control total i segur sobre la base social."
         },
         "drupal": {
             "title": "Desenvolupament Drupal",
-            "text": "Llocs web i aplicacions Drupal robustos i escalables."
+            "text": "Llocs web i aplicacions Drupal robustos i escalables.",
+            "details": "Desenvolupem portals web d'alt rendiment i màxima seguretat. Ens especialitzem en integracions complexes entre Drupal i CiviCRM, creant àrees privades per a socis, intranets i plataformes de contingut que escalen juntament amb el creixement de la teva organització."
         },
         "payment": {
             "title": "Ecosistema de Pagaments Espanyol",
-            "text": "Integració experta amb passarel·les de pagament i sistemes bancaris espanyols."
+            "text": "Integració experta amb passarel·les de pagament i sistemes bancaris espanyols.",
+            "details": "Connectem el teu CRM amb les principals passarel·les de pagament (Redsys, Stripe, PayPal, SEPA). Automatitzem la conciliació bancària, la gestió de cobraments recurrents i les devolucions, reduint dràsticament el treball manual del teu equip administratiu."
         },
         "fiscal": {
             "title": "Gestió de Models Fiscals",
-            "text": "Solucions per gestionar dades fiscals i generar informes d'impostos (ex. Model 182)."
+            "text": "Solucions per gestionar dades fiscals i generar informes d'impostos (ex. Model 182).",
+            "details": "Simplifiquem la teva càrrega administrativa automatitzant la generació del Model 182 i l'emissió de certificats de donació. Garantim que totes les dades fiscals extretes del CRM compleixin estrictament amb la normativa vigent de l'Agència Tributària."
         },
         "ads": {
             "title": "Desenvolupament d'ADs",
-            "text": "Campanyes de captació de clients optimitzades per maximitzar la seva conversió."
+            "text": "Campanyes de captació de clients optimitzades per maximitzar la seva conversió.",
+            "details": "Dissenyem i executem estratègies de captació en mitjans digitals enfocades en resultats. Tracem el recorregut complet de l'usuari des de l'anunci fins al CRM, permetent mesurar el cost d'adquisició real de cada nou soci o donant."
         },
         "ai": {
             "title": "Integració amb IA",
-            "text": "Implementació de solucions d'Intel·ligència Artificial per automatitzar i potenciar el vostre negoci."
+            "text": "Implementació de solucions d'Intel·ligència Artificial per automatitzar i potenciar el vostre negoci.",
+            "details": "Apliquem IA (LLMs, LangChain) per crear agents conversacionals que interactuen amb els teus seguidors, resolen dubtes complexos basant-se en els teus documents i qualifiquen leads automàticament, integrant totes les dades directament al teu CRM."
         }
     },
     "quote": {
