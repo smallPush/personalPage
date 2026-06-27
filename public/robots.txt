@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smallpush.tech/sitemap.xml
+# Explicitly allow AI and Search Bots to index our services
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://smallpush.org/sitemap.xml
+# Context for Large Language Models
+# See https://llmstxt.org/
+# url: https://smallpush.org/llms.txt
