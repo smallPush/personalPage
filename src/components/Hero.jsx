@@ -6,23 +6,13 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="hero-section text-center py-5 mb-5" style={{ marginTop: '100px' }} id="home">
-      <Container className="py-5">
-        <div className="mb-5 position-relative d-inline-block">
-          <div
-            className="position-absolute top-50 left-50 translate-middle rounded-circle shadow-lg"
-            style={{
-              width: '140%',
-              height: '140%',
-              background: 'var(--accent-glow)',
-              filter: 'blur(40px)',
-              zIndex: -1
-            }}
-          ></div>
-          <img src="logo-alt.svg" alt="SmallPush Icon" width="160" height="160" className="img-fluid" />
+    <div className="hero-section text-center py-4 mb-5" style={{ marginTop: '60px' }} id="home">
+      <Container className="py-4">
+        <div className="mb-4 d-inline-block">
+          <img src="logo-alt.svg" alt="SmallPush Icon" width="90" height="90" className="img-fluid" />
         </div>
         <h1 className="text-fluid-xl mb-3">SmallPush</h1>
-        <p className="lead mb-5 mx-auto" style={{ maxWidth: '640px' }}>
+        <p className="lead mb-4 mx-auto" style={{ maxWidth: '640px' }}>
           {t('hero.subtitle')}
         </p>
         <Button
@@ -31,7 +21,7 @@ const Hero = () => {
           to="/#contact"
           variant="primary"
           size="lg"
-          className="shadow-lg px-5 py-3 rounded-pill fw-bold"
+          className="shadow-sm px-5 py-3 rounded-3 fw-bold"
         >
           {t('hero.cta')}
         </Button>
