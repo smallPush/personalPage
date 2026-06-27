@@ -1,9 +1,9 @@
 {
     "seo": {
         "home": {
-            "title": "SmallPush - Experts en CiviCRM, Mètodes de Pagament i Drupal",
-            "description": "Solucions digitals a mida per al creixement i la captació. Especialitzats en Mètodes de Pagament CiviCRM, Stripe, Redsys i Integració Drupal.",
-            "keywords": "CiviCRM, Mètodes de Pagament, Stripe, Redsys, Drupal, CRM, ONG, creixement digital"
+            "title": "SmallPush - Consultoria CiviCRM per a ONGs i Partits Polítics",
+            "description": "Experts en implementació ràpida de CiviCRM. Ajudem a ONGs i partits polítics a centralitzar dades, gestionar donants i potenciar el seu impacte en temps rècord.",
+            "keywords": "CiviCRM, Mètodes de Pagament, Stripe, Redsys, Drupal, CRM, ONG, partits polítics, implementació ràpida"
         }
     },
     "navigation": {
@@ -16,18 +16,18 @@
         "contact": "Contacte"
     },
     "hero": {
-        "subtitle": "Solucions Expertes en CiviCRM i Drupal per a ONGs i Empreses.",
-        "cta": "Començar"
+        "subtitle": "Consultoria experta i implementació ràpida de CiviCRM per a ONGs i partits polítics. Centralitza la teva base social, automatitza processos i multiplica el teu impacte en temps rècord.",
+        "cta": "Impulsa la teva Organització"
     },
     "about": {
-        "title": "Sobre Nosaltres",
-        "text": "SmallPush és una empresa fundada per un expert amb més de 14 anys d'experiència en la indústria del programari. Ens especialitzem en desenvolupaments a mida per a CiviCRM i Drupal, ajudant organitzacions a optimitzar les seves operacions i gestionar les seves dades de manera efectiva."
+        "title": "Per què SmallPush",
+        "text": "Amb més de 14 anys d'experiència en el sector, entenem que les ONGs i les formacions polítiques no es poden permetre projectes tecnològics interminables. Ens especialitzem en consultoria i implementació ràpida de CiviCRM: auditem les teves necessitats reals i despleguem solucions robustes perquè et puguis centrar en allò que realment importa: la teva missió i la teva base social."
     },
     "services": {
         "title": "Els Nostres Serveis",
         "civi": {
-            "title": "Desenvolupament a Mida de CiviCRM",
-            "text": "Solucions CiviCRM adaptades a les necessitats úniques de la vostra organització."
+            "title": "Consultoria i Implementació CiviCRM",
+            "text": "Desplegaments àgils i estratègics perquè la teva organització comenci a treure partit a les seves dades des del primer dia."
         },
         "drupal": {
             "title": "Desenvolupament Drupal",

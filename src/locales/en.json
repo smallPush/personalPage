@@ -1,9 +1,9 @@
 {
     "seo": {
         "home": {
-            "title": "SmallPush - CiviCRM, Payment Methods & Drupal Experts",
-            "description": "Custom digital solutions for customer acquisition and growth. Specialized in CiviCRM Payment Methods, Stripe, Redsys, and Drupal Integration.",
-            "keywords": "CiviCRM, Payment Methods, Stripe, Redsys, Drupal, CRM, Non-profit, digital growth"
+            "title": "SmallPush - CiviCRM Consulting for NGOs & Political Parties",
+            "description": "Experts in rapid CiviCRM implementation. We help NGOs and political parties centralize data, manage donors, and boost impact in record time.",
+            "keywords": "CiviCRM, Payment Methods, Stripe, Redsys, Drupal, CRM, Non-profit, political parties, rapid implementation"
         }
     },
     "navigation": {
@@ -16,18 +16,18 @@
         "contact": "Contact"
     },
     "hero": {
-        "subtitle": "Expert CiviCRM & Drupal Solutions for Non-Profits and Enterprises.",
-        "cta": "Get Started"
+        "subtitle": "Expert consulting and rapid CiviCRM implementation for NGOs and political parties. Centralize your social base, automate processes, and multiply your impact in record time.",
+        "cta": "Boost Your Organization"
     },
     "about": {
-        "title": "About Us",
-        "text": "SmallPush is a new enterprise founded by an expert with over 14 years of experience in the software industry. We specialize in custom developments for CiviCRM and Drupal, helping organizations streamline their operations and manage their data effectively."
+        "title": "Why SmallPush",
+        "text": "With over 14 years of industry experience, we understand that NGOs and political organizations cannot afford endless technology projects. We specialize in rapid CiviCRM consulting and implementation: we audit your real needs and deploy robust solutions so you can focus on what truly matters: your mission and your people."
     },
     "services": {
         "title": "Our Services",
         "civi": {
-            "title": "CiviCRM Custom Development",
-            "text": "Tailored CiviCRM solutions to fit your organization's unique needs."
+            "title": "CiviCRM Consulting & Implementation",
+            "text": "Agile and strategic deployments so your organization can leverage its data from day one."
         },
         "drupal": {
             "title": "Drupal Development",
