@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
 import useCaptcha from '../hooks/useCaptcha';
 import useContactSubmit from '../hooks/useContactSubmit';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const ContactForm = () => {
     const { t } = useTranslation();
@@ -49,8 +50,10 @@ const ContactForm = () => {
         });
     };
 
+    const sectionRef = useScrollReveal();
+
     return (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center reveal-hidden" ref={sectionRef}>
             <Col md={10} lg={8}>
                 <GlassContainer className="p-4 p-md-5">
                     <h2 className="text-fluid-lg text-center mb-5">{t('contact.title')}</h2>

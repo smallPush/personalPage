@@ -1,12 +1,14 @@
 import { Container, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { HashLink } from 'react-router-hash-link';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Hero = () => {
   const { t } = useTranslation();
+  const sectionRef = useScrollReveal();
 
   return (
-    <div className="hero-section text-center py-4 mb-5" style={{ marginTop: '60px' }} id="home">
+    <div className="hero-section text-center py-4 mb-5 reveal-hidden" style={{ marginTop: '60px' }} id="home" ref={sectionRef}>
       <Container className="py-4">
         <div className="mb-4 d-inline-block">
           <img src="logo-alt.svg" alt="SmallPush Icon" width="90" height="90" className="img-fluid" />

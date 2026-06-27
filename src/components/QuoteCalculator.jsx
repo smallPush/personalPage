@@ -3,6 +3,7 @@ import { Row, Col, Button, Badge } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
 import { HashLink } from 'react-router-hash-link';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const projectTypes = [
   { id: 'civi', icon: '💻', rate: 50 },
@@ -25,9 +26,10 @@ const QuoteCalculator = () => {
   }, []);
 
   const estimatedCost = hours * (projectRates[projectType] || 50);
+  const sectionRef = useScrollReveal();
 
   return (
-    <Row className="justify-content-center">
+    <Row className="justify-content-center reveal-hidden" ref={sectionRef}>
       <Col md={10} lg={8} xl={7}>
         <GlassContainer className="p-4 p-md-5 overflow-hidden position-relative">
           <div

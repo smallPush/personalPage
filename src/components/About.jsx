@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import GlassContainer from './GlassContainer';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const About = () => {
   const { t } = useTranslation();
+  const sectionRef = useScrollReveal();
 
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center reveal-hidden" ref={sectionRef}>
       <div className="col-lg-10">
         <GlassContainer className="text-center p-5">
           <h2 className="text-fluid-lg mb-4">{t('about.title')}</h2>
