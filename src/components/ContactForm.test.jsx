@@ -201,8 +201,8 @@ describe('ContactForm', () => {
   });
 
   it('shows error when env variables are missing', async () => {
-    // Remove env variables
-    vi.unstubAllEnvs();
+    vi.stubEnv('VITE_TELEGRAM_BOT_TOKEN', '');
+    vi.stubEnv('VITE_TELEGRAM_CHAT_ID', '');
 
     render(<ContactForm />);
 

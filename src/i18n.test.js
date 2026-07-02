@@ -9,10 +9,12 @@ import ca from './locales/ca.json';
 vi.mock('i18next', () => {
     const useMock = vi.fn().mockReturnThis();
     const initMock = vi.fn().mockReturnThis();
+    const onMock = vi.fn().mockReturnThis();
     return {
         default: {
             use: useMock,
             init: initMock,
+            on: onMock,
         }
     };
 });
@@ -43,5 +45,7 @@ describe('i18n initialization', () => {
                 escapeValue: false
             }
         });
+
+        expect(i18n.on).toHaveBeenCalledWith('languageChanged', expect.any(Function));
     });
 });

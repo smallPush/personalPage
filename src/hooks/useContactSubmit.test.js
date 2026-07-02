@@ -95,7 +95,8 @@ describe('useContactSubmit', () => {
     });
 
     it('sets error if environment variables are missing', async () => {
-        vi.unstubAllEnvs();
+        vi.stubEnv('VITE_TELEGRAM_BOT_TOKEN', '');
+        vi.stubEnv('VITE_TELEGRAM_CHAT_ID', '');
 
         const { result } = renderHook(() => useContactSubmit());
 
