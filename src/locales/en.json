@@ -12,6 +12,7 @@
         "services": "Services",
         "quote": "Quote",
         "donorFunnel": "Donor Funnel",
+        "eventFunnel": "Events & Payments",
         "notices": "News",
         "contact": "Contact"
     },
@@ -164,6 +165,77 @@
                 "desc": "Help us understand how visitors interact with the website."
             },
             "save": "Save Preferences"
+        }
+    },
+    "eventFunnel": {
+        "seo": {
+            "title": "Event funnel for nonprofits and foundations - SmallPush",
+            "description": "Landing page, attendee registration, attendance tracking and payments for nonprofit events."
+        },
+        "hero": {
+            "badge": "Events with registration, attendance and payments",
+            "title": "Turn your events into an organized acquisition and follow-up system",
+            "subtitle": "We build an event landing page connected to your CRM so you can promote activities, register attendees, collect tickets or donations, and know who actually attended.",
+            "primaryCta": "Design my event funnel",
+            "secondaryCta": "See how it works"
+        },
+        "snapshot": {
+            "label": "Operations dashboard",
+            "registrations": "Registrations",
+            "registrationsValue": "Segmented forms",
+            "payments": "Payments",
+            "paymentsValue": "Stripe, Redsys or SEPA",
+            "attendance": "Attendance",
+            "attendanceValue": "Check-in and no-shows",
+            "followup": "Follow-up",
+            "followupValue": "Email and CRM"
+        },
+        "value": {
+            "registration": {
+                "title": "Registration without spreadsheets",
+                "text": "Centralize attendee data, guests, preferences and consent through a clear, measurable form."
+            },
+            "payments": {
+                "title": "Payments linked to the event",
+                "text": "Collect tickets, donations or fees and keep every transaction tied to the right person and activity."
+            },
+            "attendance": {
+                "title": "Verifiable attendance",
+                "text": "Track check-in, no-shows and participation so follow-up communications use real data."
+            }
+        },
+        "journey": {
+            "title": "The full attendee journey",
+            "subtitle": "From the first click to post-event follow-up, with less manual work for your team.",
+            "step1": {
+                "title": "Attraction",
+                "text": "A landing page focused on one action: reserve a seat, buy a ticket or confirm interest."
+            },
+            "step2": {
+                "title": "Registration and payment",
+                "text": "An event-specific form with fields, capacity, amounts and automatic confirmations."
+            },
+            "step3": {
+                "title": "Check-in",
+                "text": "An operational list for reception, attendee validation and no-show tracking."
+            },
+            "step4": {
+                "title": "Follow-up",
+                "text": "Segments to send thanks, share materials, request donations or invite people to the next event."
+            }
+        },
+        "deliverables": {
+            "title": "What we build",
+            "item1": "Conversion-focused event landing page",
+            "item2": "Registration form connected to CiviCRM",
+            "item3": "Payment integration and basic reconciliation",
+            "item4": "Confirmation, reminder and post-event emails",
+            "item5": "Dashboard for registered, paid and attended contacts"
+        },
+        "cta": {
+            "title": "Do you have an upcoming event?",
+            "text": "We can turn it into a repeatable flow to acquire attendees, measure results and keep the relationship alive after the event.",
+            "button": "Discuss your event"
         }
     },
     "donorFunnel": {

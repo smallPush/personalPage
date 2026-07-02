@@ -12,6 +12,7 @@
         "services": "Serveis",
         "quote": "Pressupost",
         "donorFunnel": "Embut de Donants",
+        "eventFunnel": "Esdeveniments i Pagaments",
         "notices": "Notícies",
         "contact": "Contacte"
     },
@@ -164,6 +165,77 @@
                 "desc": "Ens ajuden a entendre com els visitants interactuen amb el lloc web."
             },
             "save": "Desar preferències"
+        }
+    },
+    "eventFunnel": {
+        "seo": {
+            "title": "Embut d'esdeveniments per a fundacions i organitzacions - SmallPush",
+            "description": "Landing, registre d'assistents, control d'assistencia i pagaments per a esdeveniments d'organitzacions sense anim de lucre."
+        },
+        "hero": {
+            "badge": "Esdeveniments amb registre, assistencia i pagaments",
+            "title": "Converteix els teus esdeveniments en un sistema ordenat de captacio i seguiment",
+            "subtitle": "Creem una landing d'esdeveniment connectada amb el teu CRM per promocionar activitats, registrar inscripcions, cobrar entrades o donatius i saber qui hi va assistir realment.",
+            "primaryCta": "Dissenyar el meu embut d'esdeveniments",
+            "secondaryCta": "Veure com funciona"
+        },
+        "snapshot": {
+            "label": "Panell operatiu",
+            "registrations": "Inscripcions",
+            "registrationsValue": "Formularis segmentats",
+            "payments": "Pagaments",
+            "paymentsValue": "Stripe, Redsys o SEPA",
+            "attendance": "Assistencia",
+            "attendanceValue": "Check-in i no-shows",
+            "followup": "Seguiment",
+            "followupValue": "Emails i CRM"
+        },
+        "value": {
+            "registration": {
+                "title": "Registre sense fulls dispersos",
+                "text": "Centralitza dades d'assistents, acompanyants, preferencies i consentiments des d'un formulari clar i mesurable."
+            },
+            "payments": {
+                "title": "Pagaments vinculats a l'esdeveniment",
+                "text": "Cobra entrades, donatius o quotes i deixa cada transaccio associada a la persona i activitat correcta."
+            },
+            "attendance": {
+                "title": "Assistencia verificable",
+                "text": "Controla check-in, absencies i participacio per segmentar comunicacions posteriors amb dades reals."
+            }
+        },
+        "journey": {
+            "title": "El recorregut complet de l'assistent",
+            "subtitle": "Del primer clic al seguiment posterior, amb menys feina manual per al teu equip.",
+            "step1": {
+                "title": "Atraccio",
+                "text": "Landing enfocada a una accio: reservar placa, comprar entrada o confirmar interes."
+            },
+            "step2": {
+                "title": "Registre i pagament",
+                "text": "Formulari adaptat a l'esdeveniment amb camps, aforament, imports i confirmacions automatiques."
+            },
+            "step3": {
+                "title": "Check-in",
+                "text": "Llistat operatiu per a recepcio, validacio d'assistents i control de no presentats."
+            },
+            "step4": {
+                "title": "Seguiment",
+                "text": "Segments per agrair, enviar materials, demanar donacio o convidar al proper esdeveniment."
+            }
+        },
+        "deliverables": {
+            "title": "Que muntem",
+            "item1": "Landing d'esdeveniment optimitzada per a conversio",
+            "item2": "Formulari d'inscripcio connectat a CiviCRM",
+            "item3": "Integracio de pagaments i conciliacio basica",
+            "item4": "Emails de confirmacio, recordatori i post-esdeveniment",
+            "item5": "Panell de seguiment d'inscrits, pagats i assistents"
+        },
+        "cta": {
+            "title": "Tens un esdeveniment proper?",
+            "text": "Podem convertir-lo en un flux repetible per captar assistents, mesurar resultats i mantenir la relacio despres de l'esdeveniment.",
+            "button": "Parlem del teu esdeveniment"
         }
     },
     "donorFunnel": {

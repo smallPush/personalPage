@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import News from './pages/News';
 import DonorFunnel from './pages/DonorFunnel';
+import EventFunnel from './pages/EventFunnel';
 import CookieBanner from './components/CookieBanner';
 import { initializeConsent } from './utils/cookieConsent';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<News />} />
           <Route path="/donor-funnel" element={<DonorFunnel />} />
+          <Route path="/event-funnel" element={<EventFunnel />} />
         </Routes>
       </main>
       <Footer />

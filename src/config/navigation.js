@@ -33,6 +33,13 @@ export const NAV_LINKS = [
   },
   {
     type: 'link',
+    to: '/event-funnel',
+    labelKey: 'navigation.eventFunnel',
+    fallback: 'Event Funnel',
+    isActive: (location) => location.pathname === '/event-funnel',
+  },
+  {
+    type: 'link',
     to: '/news',
     labelKey: 'navigation.notices',
     fallback: 'News',

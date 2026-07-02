@@ -12,6 +12,8 @@ const PUBLIC_DIR = path.join(__dirname, '../public');
 // Define static routes
 const staticRoutes = [
   '/',
+  '/donor-funnel',
+  '/event-funnel',
   '/news'
 ];
 

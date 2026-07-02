@@ -12,6 +12,7 @@
         "services": "Servicios",
         "quote": "Presupuesto",
         "donorFunnel": "Embudo de Donantes",
+        "eventFunnel": "Eventos y Pagos",
         "notices": "Noticias",
         "contact": "Contacto"
     },
@@ -164,6 +165,77 @@
                 "desc": "Nos ayudan a entender cómo los visitantes interactúan con el sitio web."
             },
             "save": "Guardar preferencias"
+        }
+    },
+    "eventFunnel": {
+        "seo": {
+            "title": "Funnel de eventos para fundaciones y organizaciones - SmallPush",
+            "description": "Landing, registro de asistentes, control de asistencia y pagos para eventos de organizaciones sin ánimo de lucro."
+        },
+        "hero": {
+            "badge": "Eventos con registro, asistencia y pagos",
+            "title": "Convierte tus eventos en un sistema ordenado de captación y seguimiento",
+            "subtitle": "Creamos una landing de evento conectada con tu CRM para promocionar actividades, registrar inscripciones, cobrar entradas o donativos y saber quién asistió realmente.",
+            "primaryCta": "Diseñar mi funnel de eventos",
+            "secondaryCta": "Ver cómo funciona"
+        },
+        "snapshot": {
+            "label": "Panel operativo",
+            "registrations": "Inscripciones",
+            "registrationsValue": "Formularios segmentados",
+            "payments": "Pagos",
+            "paymentsValue": "Stripe, Redsys o SEPA",
+            "attendance": "Asistencia",
+            "attendanceValue": "Check-in y no-shows",
+            "followup": "Seguimiento",
+            "followupValue": "Emails y CRM"
+        },
+        "value": {
+            "registration": {
+                "title": "Registro sin hojas sueltas",
+                "text": "Centraliza datos de asistentes, acompañantes, preferencias y consentimientos desde un formulario claro y medible."
+            },
+            "payments": {
+                "title": "Pagos vinculados al evento",
+                "text": "Cobra entradas, donativos o cuotas y deja cada transacción asociada a la persona y actividad correcta."
+            },
+            "attendance": {
+                "title": "Asistencia verificable",
+                "text": "Controla check-in, ausencias y participación para segmentar comunicaciones posteriores con datos reales."
+            }
+        },
+        "journey": {
+            "title": "El recorrido completo del asistente",
+            "subtitle": "Del primer clic al seguimiento posterior, con menos trabajo manual para tu equipo.",
+            "step1": {
+                "title": "Atracción",
+                "text": "Landing enfocada a una acción: reservar plaza, comprar entrada o confirmar interés."
+            },
+            "step2": {
+                "title": "Registro y pago",
+                "text": "Formulario adaptado al evento con campos, cupos, importes y confirmaciones automáticas."
+            },
+            "step3": {
+                "title": "Check-in",
+                "text": "Listado operativo para recepción, validación de asistentes y control de no presentados."
+            },
+            "step4": {
+                "title": "Seguimiento",
+                "text": "Segmentos para agradecer, enviar materiales, pedir donación o invitar al siguiente evento."
+            }
+        },
+        "deliverables": {
+            "title": "Qué montamos",
+            "item1": "Landing de evento optimizada para conversión",
+            "item2": "Formulario de inscripción conectado a CiviCRM",
+            "item3": "Integración de pagos y conciliación básica",
+            "item4": "Emails de confirmación, recordatorio y post-evento",
+            "item5": "Panel de seguimiento de inscritos, pagados y asistentes"
+        },
+        "cta": {
+            "title": "¿Tienes un evento próximo?",
+            "text": "Podemos convertirlo en un flujo repetible para captar asistentes, medir resultados y mantener la relación después del evento.",
+            "button": "Hablemos de tu evento"
         }
     },
     "donorFunnel": {
