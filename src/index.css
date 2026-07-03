@@ -1,30 +1,30 @@
 /* Custom properties */
 :root {
-  --brand-primary: #4f46e5; /* Indigo 600 */
-  --brand-primary-dark: #4338ca; /* Indigo 700 */
-  --brand-secondary: #0f172a; /* Slate 900 */
-  --brand-accent: #1e293b; /* Slate 800 */
-  --brand-neutral: #64748b; /* Slate 500 */
-  --brand-light: #f8fafc; /* Slate 50 */
-  --surface: #ffffff;
-  --surface-muted: #f8fafc; /* Slate 50 */
-  --border-soft: #e2e8f0; /* Slate 200 */
-  --accent-glow: rgba(79, 70, 229, 0.15);
+  --brand-primary: #0055FF; /* Tech Blue */
+  --brand-primary-dark: #0044CC;
+  --brand-secondary: #09090B; /* Zinc 950 (Black) */
+  --brand-accent: #27272A; /* Zinc 800 */
+  --brand-neutral: #71717A; /* Zinc 500 */
+  --brand-light: #FAFAFA; /* Zinc 50 */
+  --surface: #FFFFFF;
+  --surface-muted: #FAFAFA;
+  --border-soft: #E4E4E7; /* Zinc 200 */
+  --accent-glow: rgba(0, 85, 255, 0.15);
   --glass-bg: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(15, 23, 42, 0.06);
-  --glass-stroke: rgba(15, 23, 42, 0.12);
+  --glass-border: rgba(9, 9, 11, 0.05);
+  --glass-stroke: rgba(9, 9, 11, 0.1);
   --font-size-base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
   --font-size-lg: clamp(1.35rem, 1.15rem + 0.5vw, 2rem);
   --font-size-xl: clamp(2.5rem, 5vw + 1rem, 5rem); /* up to 80px */
   --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --bs-primary: var(--brand-primary);
-  --bs-primary-rgb: 79, 70, 229;
+  --bs-primary-rgb: 0, 85, 255;
   --bs-secondary: var(--brand-neutral);
-  --bs-secondary-rgb: 100, 116, 139;
+  --bs-secondary-rgb: 113, 113, 122;
   --bs-dark: var(--brand-secondary);
-  --bs-dark-rgb: 15, 23, 42;
-  --bs-body-bg: #ffffff;
-  --bs-body-color: #334155; /* Slate 700 */
+  --bs-dark-rgb: 9, 9, 11;
+  --bs-body-bg: #FFFFFF;
+  --bs-body-color: #18181B; /* Zinc 900 */
   font-family: 'Inter', 'Segoe UI', sans-serif;
   line-height: 1.6;
   font-weight: 400;
@@ -32,19 +32,19 @@
 }
 
 [data-theme="dark"] {
-  --brand-secondary: #f8fafc; /* Slate 50 */
-  --brand-neutral: #94a3b8; /* Slate 400 */
-  --brand-light: #020617; /* Slate 950 */
-  --surface: #0f172a; /* Slate 900 */
-  --surface-muted: #020617; /* Slate 950 */
-  --border-soft: #1e293b; /* Slate 800 */
-  --glass-bg: rgba(2, 6, 23, 0.85);
+  --brand-secondary: #FAFAFA; /* Zinc 50 */
+  --brand-neutral: #A1A1AA; /* Zinc 400 */
+  --brand-light: #09090B; /* Zinc 950 */
+  --surface: #09090B; /* Zinc 950 */
+  --surface-muted: #000000; /* Pure black */
+  --border-soft: #27272A; /* Zinc 800 */
+  --glass-bg: rgba(9, 9, 11, 0.85);
   --glass-border: rgba(255, 255, 255, 0.05);
   --glass-stroke: rgba(255, 255, 255, 0.1);
-  --bs-secondary-rgb: 148, 163, 184;
-  --bs-dark-rgb: 248, 250, 252;
-  --bs-body-bg: #020617; /* Slate 950 */
-  --bs-body-color: #e2e8f0; /* Slate 200 */
+  --bs-secondary-rgb: 161, 161, 170;
+  --bs-dark-rgb: 250, 250, 250;
+  --bs-body-bg: #000000; /* Pure black */
+  --bs-body-color: #EDEDED; /* Zinc 200 */
 }
 
 /* Headings Typography */
@@ -74,11 +74,11 @@ body {
 /* Glassmorphism Utilities */
 .glass-effect {
   background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   box-shadow:
-    0 10px 40px -10px rgba(15, 23, 42, 0.08),
+    0 10px 40px -10px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
@@ -91,7 +91,7 @@ body {
 .glass-card:hover {
   border-color: var(--glass-stroke);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12), 0 0 20px 0 rgba(0, 85, 255, 0.05);
 }
 
 /* Futuristic Text */
@@ -141,7 +141,7 @@ body {
 .btn-primary:hover {
   background-color: var(--brand-primary-dark);
   border-color: var(--brand-primary-dark);
-  box-shadow: 0 8px 20px -6px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 8px 20px -6px rgba(0, 85, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -199,12 +199,12 @@ a:hover {
 .navbar .nav-link.active,
 .navbar .show > .nav-link {
   color: var(--brand-primary) !important;
-  background: rgba(79, 70, 229, 0.14);
+  background: rgba(0, 85, 255, 0.12);
 }
 
 .navbar .nav-link:hover {
   color: var(--brand-primary) !important;
-  background: rgba(79, 70, 229, 0.08);
+  background: rgba(0, 85, 255, 0.08);
 }
 
 .navbar .nav-link.text-primary {
@@ -229,12 +229,12 @@ a:hover {
 
 .nav-menu-link:hover {
   color: var(--brand-primary) !important;
-  background: rgba(79, 70, 229, 0.08);
+  background: rgba(0, 85, 255, 0.08);
 }
 
 .nav-menu-link-active {
   color: var(--brand-primary) !important;
-  background: rgba(79, 70, 229, 0.14);
+  background: rgba(0, 85, 255, 0.12);
 }
 
 .hero-section {
@@ -311,7 +311,7 @@ a:hover {
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
   border-left: 4px solid var(--brand-primary);
-  background: rgba(79, 70, 229, 0.05); /* Soft primary background */
+  background: rgba(0, 85, 255, 0.05); /* Soft primary background */
   color: var(--bs-body-color);
   border-radius: 0 10px 10px 0;
   font-style: italic;
