@@ -1,5 +1,26 @@
 export const notices = [
     {
+        id: 'civicrm-data-quality-deduplication',
+        filename: 'civicrm_data_quality_deduplication.md',
+        date: '2026-07-18',
+        seoTitle: {
+            en: 'CiviCRM Data Quality: Deduplication Guide - SmallPush',
+            es: 'Calidad de Datos en CiviCRM: Guía de Deduplicación - SmallPush',
+            ca: 'Qualitat de Dades a CiviCRM: Guia de Deduplicació - SmallPush'
+        },
+        seoDescription: {
+            en: 'A practical guide for nonprofits to detect duplicate contacts, configure CiviCRM deduplication rules and prevent errors in CSV imports.',
+            es: 'Guía práctica para que las ONG detecten contactos duplicados, configuren reglas de deduplicación en CiviCRM y eviten errores al importar CSV.',
+            ca: 'Guia pràctica perquè les ONG detectin contactes duplicats, configurin regles de deduplicació a CiviCRM i evitin errors en importar CSV.'
+        },
+        keywords: {
+            en: 'CiviCRM, deduplication, data quality, duplicate contacts, CSV import, nonprofit CRM',
+            es: 'CiviCRM, deduplicación, calidad de datos, contactos duplicados, importación CSV, CRM para ONG',
+            ca: 'CiviCRM, deduplicació, qualitat de dades, contactes duplicats, importació CSV, CRM per a ONG'
+        },
+        tags: ['CiviCRM', 'Data Quality', 'Deduplication', 'CRM']
+    },
+    {
         id: 'civicrm-create-contact',
         filename: 'civicrm_create_contact.md',
         date: '2026-06-04',

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">CiviCRM data quality and deduplication</title>
+  <desc id="desc">Two duplicate contact cards become one verified contact record</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07142f"/>
+      <stop offset="1" stop-color="#0b2f75"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb36b"/>
+      <stop offset="1" stop-color="#ff7a45"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020817" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1080" cy="80" r="210" fill="#0055ff" opacity=".22"/>
+  <circle cx="120" cy="600" r="260" fill="#ff8b4d" opacity=".12"/>
+  <g fill="none" stroke="#8db4ff" stroke-width="2" opacity=".18">
+    <path d="M0 126h1200M0 252h1200M0 378h1200M0 504h1200"/>
+    <path d="M200 0v630M400 0v630M600 0v630M800 0v630M1000 0v630"/>
+  </g>
+  <text x="90" y="105" fill="#ffb36b" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="3">CIVICRM</text>
+  <text x="90" y="168" fill="#ffffff" font-family="Arial, sans-serif" font-size="52" font-weight="700">Clean data, stronger impact</text>
+  <text x="90" y="215" fill="#c8d8f8" font-family="Arial, sans-serif" font-size="25">Detect, review and prevent duplicate contacts</text>
+  <g filter="url(#shadow)">
+    <g transform="translate(95 290) rotate(-4 190 110)">
+      <rect width="380" height="220" rx="24" fill="#f8fbff"/>
+      <circle cx="70" cy="72" r="34" fill="#dbe7ff"/>
+      <circle cx="70" cy="64" r="12" fill="#5f83c9"/>
+      <path d="M48 91c8-18 36-18 44 0" fill="#5f83c9"/>
+      <rect x="126" y="48" width="164" height="15" rx="7" fill="#19335f"/>
+      <rect x="126" y="79" width="205" height="11" rx="5" fill="#9aaccb"/>
+      <rect x="45" y="139" width="286" height="11" rx="5" fill="#d5deec"/>
+      <rect x="45" y="169" width="224" height="11" rx="5" fill="#d5deec"/>
+      <circle cx="340" cy="35" r="20" fill="#fff0e6"/>
+      <path d="M332 27l16 16m0-16l-16 16" stroke="#e66b35" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(345 328) rotate(4 190 110)">
+      <rect width="380" height="220" rx="24" fill="#f8fbff"/>
+      <circle cx="70" cy="72" r="34" fill="#dbe7ff"/>
+      <circle cx="70" cy="64" r="12" fill="#5f83c9"/>
+      <path d="M48 91c8-18 36-18 44 0" fill="#5f83c9"/>
+      <rect x="126" y="48" width="164" height="15" rx="7" fill="#19335f"/>
+      <rect x="126" y="79" width="205" height="11" rx="5" fill="#9aaccb"/>
+      <rect x="45" y="139" width="286" height="11" rx="5" fill="#d5deec"/>
+      <rect x="45" y="169" width="224" height="11" rx="5" fill="#d5deec"/>
+      <circle cx="340" cy="35" r="20" fill="#fff0e6"/>
+      <path d="M332 27l16 16m0-16l-16 16" stroke="#e66b35" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <path d="M760 416h92" stroke="url(#accent)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M824 380l36 36-36 36" fill="none" stroke="#ff8b4d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(890 305)">
+      <rect width="230" height="230" rx="32" fill="#ffffff"/>
+      <circle cx="115" cy="86" r="47" fill="#dbe7ff"/>
+      <circle cx="115" cy="74" r="17" fill="#0055ff"/>
+      <path d="M83 113c12-25 52-25 64 0" fill="#0055ff"/>
+      <rect x="45" y="155" width="140" height="13" rx="6" fill="#19335f"/>
+      <rect x="68" y="185" width="94" height="10" rx="5" fill="#9aaccb"/>
+      <circle cx="199" cy="31" r="30" fill="#1f9d65"/>
+      <path d="M185 31l9 9 19-21" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
