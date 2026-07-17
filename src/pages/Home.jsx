@@ -22,7 +22,7 @@ function Home() {
     );
 
     return (
-        <div className="container px-4 px-lg-5">
+        <div className="container px-4 px-lg-5 home-page">
             <Hero />
             <section id="about" className="py-5">
                 <About />

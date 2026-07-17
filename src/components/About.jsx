@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div className="row justify-content-center reveal-hidden" ref={sectionRef}>
       <div className="col-lg-10">
-        <GlassContainer className="text-center p-5">
+        <GlassContainer className="about-card text-center p-5">
           <h2 className="text-fluid-lg mb-4">{t('about.title')}</h2>
           <p className="lead mx-auto" style={{ maxWidth: '800px', opacity: 0.9 }}>
             {t('about.text')}

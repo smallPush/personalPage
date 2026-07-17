@@ -2,6 +2,9 @@
 :root {
   --brand-primary: #0055FF; /* Tech Blue */
   --brand-primary-dark: #0044CC;
+  --brand-warm: #9A3412; /* Warm, human accent */
+  --brand-warm-surface: #FFF7ED;
+  --brand-warm-border: #FDBA74;
   --brand-secondary: #09090B; /* Zinc 950 (Black) */
   --brand-accent: #27272A; /* Zinc 800 */
   --brand-neutral: #71717A; /* Zinc 500 */
@@ -32,6 +35,9 @@
 }
 
 [data-theme="dark"] {
+  --brand-warm: #FDBA74;
+  --brand-warm-surface: #21150E;
+  --brand-warm-border: #7C2D12;
   --brand-secondary: #FAFAFA; /* Zinc 50 */
   --brand-neutral: #A1A1AA; /* Zinc 400 */
   --brand-light: #09090B; /* Zinc 950 */
@@ -240,6 +246,38 @@ a:hover {
 .hero-section {
   background: transparent;
   color: var(--brand-secondary);
+}
+
+/* Restrained warm accents give the homepage a more human tone without
+   competing with blue interactive states. */
+.home-page .hero-tagline {
+  width: fit-content;
+  max-width: 600px;
+  padding: 0.4rem 0.75rem;
+  color: var(--brand-warm) !important;
+  background-color: var(--brand-warm-surface);
+  border: 1px solid var(--brand-warm-border);
+  border-radius: 0.5rem;
+  line-height: 1.5;
+}
+
+.home-page .about-card {
+  border-top: 3px solid var(--brand-warm-border);
+}
+
+.home-page .service-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  background-color: var(--brand-warm-surface);
+  border: 1px solid var(--brand-warm-border);
+  border-radius: 0.75rem;
+  line-height: 1;
+}
+
+.home-page .service-card:not(.service-card-expanded):hover {
+  border-color: var(--brand-warm-border);
 }
 
 /* Text Visibility Fixes */

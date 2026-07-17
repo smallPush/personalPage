@@ -33,11 +33,11 @@ const Services = () => {
           return (
             <Col md={6} lg={4} key={index}>
               <GlassContainer 
-                className={`h-100 p-4 d-flex flex-column align-items-center text-center transition-all ${isExpanded ? 'shadow-lg border-primary bg-primary bg-opacity-10' : ''}`}
+                className={`service-card h-100 p-4 d-flex flex-column align-items-center text-center transition-all ${isExpanded ? 'service-card-expanded shadow-lg border-primary bg-primary bg-opacity-10' : ''}`}
                 onClick={() => toggleService(index)}
                 style={{ cursor: 'pointer', transform: isExpanded ? 'translateY(-5px)' : 'none' }}
               >
-                <div className="fs-1 mb-3">{service.icon}</div>
+                <div className="service-icon fs-2 mb-3" aria-hidden="true">{service.icon}</div>
                 <h4 className={`mb-3 transition-all ${isExpanded ? 'text-primary' : ''}`}>{service.title}</h4>
                 <p className={`small mb-0 transition-all ${isExpanded ? 'opacity-100' : 'opacity-75'}`}>
                   {service.text}

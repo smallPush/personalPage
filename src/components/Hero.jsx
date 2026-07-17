@@ -18,7 +18,7 @@ const Hero = () => {
           {t('hero.subtitle')}
         </p>
         {t('hero.tagline', { defaultValue: '' }) && (
-          <p className="small text-muted mb-4 fw-semibold mx-auto" style={{ maxWidth: '600px' }}>
+          <p className="hero-tagline small mb-4 fw-semibold mx-auto">
             {t('hero.tagline')}
           </p>
         )}
