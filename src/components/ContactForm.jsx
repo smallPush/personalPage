@@ -14,6 +14,7 @@ const ContactForm = () => {
         message: '',
         captchaInput: ''
     });
+    const [captchaVisible, setCaptchaVisible] = useState(false);
 
     const { captcha, captchaVerified, setCaptchaVerified, generateCaptcha } = useCaptcha();
     const { status, setStatus, isSubmitting, submitContactForm } = useContactSubmit();
@@ -22,10 +23,6 @@ const ContactForm = () => {
         generateCaptcha();
         setFormData(prev => ({ ...prev, captchaInput: '' }));
     }, [generateCaptcha]);
-
-    React.useEffect(() => {
-        handleGenerateCaptcha();
-    }, [handleGenerateCaptcha]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,8 +41,17 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!captchaVisible) {
+            handleGenerateCaptcha();
+            setCaptchaVisible(true);
+            setStatus({ type: '', msg: '' });
+            return;
+        }
+
         await submitContactForm(formData, captchaVerified, () => {
             setFormData({ name: '', email: '', message: '', captchaInput: '' });
+            setCaptchaVisible(false);
             handleGenerateCaptcha();
         });
     };
@@ -115,27 +121,29 @@ const ContactForm = () => {
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-5">
-                            <Form.Label className="small fw-bold opacity-75 mb-3">
-                                {t('contact.captcha.question')}
-                            </Form.Label>
-                            <div className="d-flex flex-wrap gap-2">
-                                {captcha.options.map((emoji, index) => (
-                                    <Button
-                                        key={index}
-                                        data-index={index}
-                                        variant={captchaVerified && index === captcha.correctIndex ? 'success' : 'outline-primary'}
-                                        onClick={handleCaptchaClick}
-                                        className={`flex-grow-1 p-3 fs-3 transition-smooth ${captchaVerified && index !== captcha.correctIndex ? 'opacity-25' : ''}`}
-                                        disabled={captchaVerified && index !== captcha.correctIndex}
-                                        type="button"
-                                        style={{ borderRadius: '15px' }}
-                                    >
-                                        {emoji}
-                                    </Button>
-                                ))}
-                            </div>
-                        </Form.Group>
+                        {captchaVisible && (
+                            <Form.Group className="mb-5">
+                                <Form.Label className="small fw-bold opacity-75 mb-3">
+                                    {t('contact.captcha.question')}
+                                </Form.Label>
+                                <div className="d-flex flex-wrap gap-2">
+                                    {captcha.options.map((emoji, index) => (
+                                        <Button
+                                            key={index}
+                                            data-index={index}
+                                            variant={captchaVerified && index === captcha.correctIndex ? 'success' : 'outline-primary'}
+                                            onClick={handleCaptchaClick}
+                                            className={`flex-grow-1 p-3 fs-3 transition-smooth ${captchaVerified && index !== captcha.correctIndex ? 'opacity-25' : ''}`}
+                                            disabled={captchaVerified && index !== captcha.correctIndex}
+                                            type="button"
+                                            style={{ borderRadius: '15px' }}
+                                        >
+                                            {emoji}
+                                        </Button>
+                                    ))}
+                                </div>
+                            </Form.Group>
+                        )}
 
                         <div className="d-grid">
                             <Button

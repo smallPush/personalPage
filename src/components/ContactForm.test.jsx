@@ -13,6 +13,18 @@ vi.mock('react-i18next', () => ({
 // Mock fetch
 globalThis.fetch = vi.fn();
 
+const fillRequiredFields = () => {
+  const nameInput = screen.getByPlaceholderText('John Doe');
+  const emailInput = screen.getByPlaceholderText('john@example.com');
+  const messageInput = screen.getAllByRole('textbox').find(el => el.tagName === 'TEXTAREA');
+
+  fireEvent.change(nameInput, { target: { value: 'Test User' } });
+  fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+  fireEvent.change(messageInput, { target: { value: 'This is a test message' } });
+
+  return { nameInput, emailInput, messageInput };
+};
+
 describe('ContactForm', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -27,26 +39,32 @@ describe('ContactForm', () => {
     expect(screen.getByText('contact.name')).toBeInTheDocument();
     expect(screen.getByText('contact.email')).toBeInTheDocument();
     expect(screen.getByText('contact.message')).toBeInTheDocument();
-    expect(screen.getByText('contact.captcha.question')).toBeInTheDocument();
+    expect(screen.queryByText('contact.captcha.question')).not.toBeInTheDocument();
     expect(screen.getByText('contact.submit')).toBeInTheDocument();
   });
 
-  it('fails submission if captcha is not solved', async () => {
+  it('reveals the captcha on submit before requiring it', async () => {
     render(<ContactForm />);
 
-    // Mock HTML5 form validation to force submit to run
-    const form = document.querySelector('form');
-    form.checkValidity = () => true;
+    fillRequiredFields();
+    const submitBtn = screen.getByText('contact.submit');
 
-    // We must manually invoke the onSubmit or fireEvent.submit since we mock checkValidity
-    fireEvent.submit(form);
+    fireEvent.click(submitBtn);
 
+    expect(screen.getByText('contact.captcha.question')).toBeInTheDocument();
+    expect(screen.queryByText('contact.captcha.error')).not.toBeInTheDocument();
+    expect(fetch).not.toHaveBeenCalled();
+
+    fireEvent.click(submitBtn);
     expect(await screen.findByText('contact.captcha.error')).toBeInTheDocument();
     expect(fetch).not.toHaveBeenCalled();
   });
 
   it('shows error on incorrect captcha click and resets captcha', async () => {
     render(<ContactForm />);
+
+    fillRequiredFields();
+    fireEvent.click(screen.getByText('contact.submit'));
 
     // Find the captcha buttons
     const buttons = screen.getAllByRole('button').filter(btn => btn.textContent !== 'contact.submit');
@@ -75,14 +93,9 @@ describe('ContactForm', () => {
     const form = document.querySelector('form');
     form.checkValidity = () => true;
 
-    // Fill the form
-    const nameInput = screen.getByPlaceholderText('John Doe');
-    const emailInput = screen.getByPlaceholderText('john@example.com');
-    const messageInput = screen.getAllByRole('textbox').find(el => el.tagName === 'TEXTAREA');
-
-    fireEvent.change(nameInput, { target: { value: 'Test User' } });
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(messageInput, { target: { value: 'This is a test message' } });
+    const { nameInput, emailInput, messageInput } = fillRequiredFields();
+    const submitBtn = screen.getByText('contact.submit');
+    fireEvent.click(submitBtn);
 
     // Solve captcha
     const buttons = screen.getAllByRole('button').filter(btn => btn.textContent !== 'contact.submit' && btn.textContent !== 'Close alert');
@@ -99,7 +112,6 @@ describe('ContactForm', () => {
     fireEvent.click(correctButton);
 
     // Submit form
-    const submitBtn = screen.getByText('contact.submit');
     fireEvent.click(submitBtn);
 
     // Verify fetch was called correctly
@@ -135,14 +147,9 @@ describe('ContactForm', () => {
     const form = document.querySelector('form');
     form.checkValidity = () => true;
 
-    // Fill the form
-    const nameInput = screen.getByPlaceholderText('John Doe');
-    const emailInput = screen.getByPlaceholderText('john@example.com');
-    const messageInput = screen.getAllByRole('textbox').find(el => el.tagName === 'TEXTAREA');
-
-    fireEvent.change(nameInput, { target: { value: 'Test User' } });
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(messageInput, { target: { value: 'This is a test message' } });
+    fillRequiredFields();
+    const submitBtn = screen.getByText('contact.submit');
+    fireEvent.click(submitBtn);
 
     // Solve captcha
     const buttons = screen.getAllByRole('button').filter(btn => btn.textContent !== 'contact.submit' && btn.textContent !== 'Close alert');
@@ -156,7 +163,6 @@ describe('ContactForm', () => {
     fireEvent.click(correctButton);
 
     // Submit form
-    const submitBtn = screen.getByText('contact.submit');
     fireEvent.click(submitBtn);
 
     // Check for error message
@@ -172,14 +178,9 @@ describe('ContactForm', () => {
     const form = document.querySelector('form');
     form.checkValidity = () => true;
 
-    // Fill the form
-    const nameInput = screen.getByPlaceholderText('John Doe');
-    const emailInput = screen.getByPlaceholderText('john@example.com');
-    const messageInput = screen.getAllByRole('textbox').find(el => el.tagName === 'TEXTAREA');
-
-    fireEvent.change(nameInput, { target: { value: 'Test User' } });
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(messageInput, { target: { value: 'This is a test message' } });
+    fillRequiredFields();
+    const submitBtn = screen.getByText('contact.submit');
+    fireEvent.click(submitBtn);
 
     // Solve captcha
     const buttons = screen.getAllByRole('button').filter(btn => btn.textContent !== 'contact.submit' && btn.textContent !== 'Close alert');
@@ -193,7 +194,6 @@ describe('ContactForm', () => {
     fireEvent.click(correctButton);
 
     // Submit form
-    const submitBtn = screen.getByText('contact.submit');
     fireEvent.click(submitBtn);
 
     // Check for error message
@@ -209,14 +209,9 @@ describe('ContactForm', () => {
     const form = document.querySelector('form');
     form.checkValidity = () => true;
 
-    // Fill the form
-    const nameInput = screen.getByPlaceholderText('John Doe');
-    const emailInput = screen.getByPlaceholderText('john@example.com');
-    const messageInput = screen.getAllByRole('textbox').find(el => el.tagName === 'TEXTAREA');
-
-    fireEvent.change(nameInput, { target: { value: 'Test User' } });
-    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(messageInput, { target: { value: 'This is a test message' } });
+    fillRequiredFields();
+    const submitBtn = screen.getByText('contact.submit');
+    fireEvent.click(submitBtn);
 
     // Solve captcha
     const buttons = screen.getAllByRole('button').filter(btn => btn.textContent !== 'contact.submit' && btn.textContent !== 'Close alert');
@@ -230,7 +225,6 @@ describe('ContactForm', () => {
     fireEvent.click(correctButton);
 
     // Submit form
-    const submitBtn = screen.getByText('contact.submit');
     fireEvent.click(submitBtn);
 
     // Check for error message
