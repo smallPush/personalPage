@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
+import DOMPurify from 'dompurify';
 
 mermaid.initialize({
   startOnLoad: false,
@@ -22,7 +23,8 @@ const MermaidChart = ({ chart }) => {
         const id = `mermaid-chart-${window.crypto.randomUUID()}`;
         const { svg } = await mermaid.render(id, chart);
         if (isMounted) {
-          setSvg(svg);
+          const cleanSvg = DOMPurify.sanitize(svg);
+          setSvg(cleanSvg);
           setError(false);
         }
       } catch (e) {
