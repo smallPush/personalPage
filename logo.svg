@@ -1,13 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="100%" height="100%">
-  <!-- Top Box (small, slightly offset) -->
-  <rect x="17" y="6" width="14" height="11" rx="1.5" fill="#D98E58" stroke="#5C3312" stroke-width="2"/>
-  <line x1="24" y1="6" x2="24" y2="17" stroke="#8C4E1F" stroke-width="1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="box-face-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5A663" />
+      <stop offset="100%" stop-color="#D98A48" />
+    </linearGradient>
+    <linearGradient id="box-face-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C47A3B" />
+      <stop offset="100%" stop-color="#A56126" />
+    </linearGradient>
+    <linearGradient id="box-face-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B26C31" />
+      <stop offset="100%" stop-color="#8A4E1B" />
+    </linearGradient>
+  </defs>
 
-  <!-- Middle Box -->
-  <rect x="13" y="19" width="22" height="12" rx="1.5" fill="#C47943" stroke="#5C3312" stroke-width="2"/>
-  <line x1="24" y1="19" x2="24" y2="31" stroke="#7D4217" stroke-width="1.5"/>
+  <g stroke="#2C3E50" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Bottom Layer Boxes -->
+    <!-- Bottom Left Box -->
+    <path d="M 15 62 L 35 72 L 55 62 L 35 52 Z" fill="url(#box-face-top)" />
+    <path d="M 15 62 L 15 74 L 35 84 L 35 72 Z" fill="url(#box-face-left)" />
+    <path d="M 55 62 L 55 74 L 35 84 L 35 72 Z" fill="url(#box-face-right)" />
 
-  <!-- Bottom Box -->
-  <rect x="9" y="33" width="30" height="13" rx="1.5" fill="#B06633" stroke="#5C3312" stroke-width="2"/>
-  <line x1="24" y1="33" x2="24" y2="46" stroke="#6B3710" stroke-width="1.5"/>
+    <!-- Bottom Center Box -->
+    <path d="M 35 72 L 55 82 L 75 72 L 55 62 Z" fill="url(#box-face-top)" />
+    <path d="M 35 72 L 35 84 L 55 94 L 55 82 Z" fill="url(#box-face-left)" />
+    <path d="M 75 72 L 75 84 L 55 94 L 55 82 Z" fill="url(#box-face-right)" />
+
+    <!-- Bottom Right Box -->
+    <path d="M 55 62 L 75 72 L 95 62 L 75 52 Z" fill="url(#box-face-top)" />
+    <path d="M 55 62 L 55 74 L 75 84 L 75 72 Z" fill="url(#box-face-left)" />
+    <path d="M 95 62 L 95 74 L 75 84 L 75 72 Z" fill="url(#box-face-right)" />
+
+    <!-- Middle Layer Boxes -->
+    <!-- Middle Left Box -->
+    <path d="M 25 46 L 45 56 L 65 46 L 45 36 Z" fill="url(#box-face-top)" />
+    <path d="M 25 46 L 25 58 L 45 68 L 45 56 Z" fill="url(#box-face-left)" />
+    <path d="M 65 46 L 65 58 L 45 68 L 45 56 Z" fill="url(#box-face-right)" />
+
+    <!-- Middle Right Box -->
+    <path d="M 45 46 L 65 56 L 85 46 L 65 36 Z" fill="url(#box-face-top)" />
+    <path d="M 45 46 L 45 58 L 65 68 L 65 56 Z" fill="url(#box-face-left)" />
+    <path d="M 85 46 L 85 58 L 65 68 L 65 56 Z" fill="url(#box-face-right)" />
+
+    <!-- Top Pushed Box (Elevated) -->
+    <g transform="translate(-4, -14)">
+      <path d="M 35 30 L 55 40 L 75 30 L 55 20 Z" fill="url(#box-face-top)" />
+      <path d="M 35 30 L 35 42 L 55 52 L 55 40 Z" fill="url(#box-face-left)" />
+      <path d="M 75 30 L 75 42 L 55 52 L 55 40 Z" fill="url(#box-face-right)" />
+      <!-- Tape detail on top box -->
+      <path d="M 50 22.5 L 60 27.5 L 60 33.5 L 50 28.5 Z" fill="#8B4513" opacity="0.7" stroke="none" />
+    </g>
+
+    <!-- Hand Pushing Box -->
+    <path d="M 73 24 C 77 22, 85 24, 87 27 C 88 29, 85 33, 80 34 L 75 35 L 75 39 C 75 41, 71 42, 67 41 L 65 37" fill="#FFE0BD" stroke="#2C3E50" stroke-width="1.8" />
+
+    <!-- Upward Push Arrow -->
+    <path d="M 78 44 L 86 36 M 86 36 L 80 36 M 86 36 L 86 42" stroke="#2980B9" stroke-width="2.5" fill="none" />
+  </g>
 </svg>
