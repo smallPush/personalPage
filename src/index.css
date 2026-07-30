@@ -188,59 +188,79 @@ a:hover {
 
 .navbar {
   transition: var(--transition-smooth);
-  --bs-navbar-color: #334155;
+  --bs-navbar-color: var(--bs-body-color);
   --bs-navbar-hover-color: var(--brand-primary);
   --bs-navbar-active-color: var(--brand-primary);
 }
 
 .navbar .navbar-brand {
   color: var(--brand-secondary) !important;
-}
-
-.navbar .nav-link {
-  color: var(--bs-body-color) !important;
-  font-weight: 500;
-}
-
-.navbar .nav-link.active,
-.navbar .show > .nav-link {
-  color: var(--brand-primary) !important;
-  background: rgba(0, 85, 255, 0.12);
-}
-
-.navbar .nav-link:hover {
-  color: var(--brand-primary) !important;
-  background: rgba(0, 85, 255, 0.08);
-}
-
-.navbar .nav-link.text-primary {
-  color: var(--brand-primary) !important;
-  text-shadow: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
 }
 
 .navbar .navbar-toggler {
   border: 1px solid var(--border-soft);
   background: var(--glass-bg);
+  color: var(--bs-body-color);
+  border-radius: 8px;
+  padding: 0.375rem 0.625rem;
 }
 
 .navbar .navbar-toggler-icon {
   filter: none;
 }
 
+[data-theme="dark"] .navbar .navbar-toggler-icon {
+  filter: invert(1) brightness(1.8);
+}
+
 .nav-menu-link {
   color: var(--bs-body-color) !important;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
   transition: var(--transition-smooth);
+  border-radius: 8px;
 }
 
 .nav-menu-link:hover {
   color: var(--brand-primary) !important;
-  background: rgba(0, 85, 255, 0.08);
+  background: rgba(0, 85, 255, 0.08) !important;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .nav-menu-link:hover {
+  color: #60A5FA !important;
+  background: rgba(59, 130, 246, 0.15) !important;
 }
 
 .nav-menu-link-active {
   color: var(--brand-primary) !important;
-  background: rgba(0, 85, 255, 0.12);
+  background: rgba(0, 85, 255, 0.12) !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .nav-menu-link-active {
+  color: #60A5FA !important;
+  background: rgba(59, 130, 246, 0.22) !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  }
+
+  .nav-utilities-wrapper {
+    border-top: 1px solid var(--border-soft);
+    padding-top: 0.75rem !important;
+  }
 }
 
 .hero-section {

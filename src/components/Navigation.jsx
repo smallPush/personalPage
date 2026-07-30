@@ -28,16 +28,17 @@ const Navigation = () => {
       fixed="top"
       expanded={expanded}
       onToggle={(toggle) => setExpanded(toggle)}
-      className="glass-effect m-3 rounded-4 shadow-sm navbar-light"
+      className="glass-effect m-3 rounded-4 shadow-sm navbar-light py-2"
       style={{
         width: 'calc(100% - 2rem)',
         left: '1rem',
-        top: '1rem'
+        top: '1rem',
+        zIndex: 1030
       }}
     >
-      <Container>
+      <Container fluid className="px-3 px-lg-4">
         <LinkContainer to="/">
-          <Navbar.Brand className="d-flex align-items-center" style={{ cursor: 'pointer' }} onClick={() => {
+          <Navbar.Brand className="d-flex align-items-center me-4" style={{ cursor: 'pointer' }} onClick={() => {
             setExpanded(false);
             window.scrollTo(0, 0);
           }}>
@@ -45,16 +46,16 @@ const Navigation = () => {
               src="logo.png"
               width="36"
               height="36"
-              className="d-inline-block align-top me-2 rounded-circle shadow-sm"
+              className="d-inline-block me-2 rounded-circle shadow-sm"
               alt="SmallPush Logo"
               style={{ objectFit: 'contain' }}
             />
             <span className="fw-bold tracking-tight">SmallPush</span>
           </Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto align-items-center gap-2" onSelect={() => setExpanded(false)}>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none px-2 py-1" />
+        <Navbar.Collapse id="basic-navbar-nav" className="mt-2 mt-lg-0">
+          <Nav className="ms-auto align-items-lg-center gap-1 gap-lg-2" onSelect={() => setExpanded(false)}>
             {NAV_LINKS.map((link, index) => {
               const isActive = link.isActive(location);
               const className = `nav-menu-link px-3 py-2 rounded-3 ${isActive ? 'nav-menu-link-active' : ''}`;
@@ -87,7 +88,7 @@ const Navigation = () => {
               );
             })}
 
-            <div className="ms-lg-3 py-2 py-lg-0 d-flex align-items-center gap-2">
+            <div className="nav-utilities-wrapper ms-lg-3 pt-2 pt-lg-0 mt-2 mt-lg-0 d-flex align-items-center gap-2">
               <ThemeToggle />
               <LanguageSelector />
             </div>
