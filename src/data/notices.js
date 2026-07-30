@@ -1,5 +1,26 @@
 export const notices = [
     {
+        id: 'civicrm-essential-automations',
+        filename: 'civicrm_essential_automations.md',
+        date: '2026-07-30',
+        seoTitle: {
+            en: '5 Essential CiviCRM Automations for Nonprofits - SmallPush',
+            es: '5 automatizaciones esenciales de CiviCRM para ONG - SmallPush',
+            ca: '5 automatitzacions essencials de CiviCRM per a ONG - SmallPush'
+        },
+        seoDescription: {
+            en: 'Five practical CiviCRM automations to welcome supporters, renew memberships, recover failed payments and reduce repetitive work.',
+            es: 'Cinco automatizaciones prácticas de CiviCRM para dar la bienvenida, renovar membresías, recuperar pagos fallidos y reducir tareas repetitivas.',
+            ca: 'Cinc automatitzacions pràctiques de CiviCRM per donar la benvinguda, renovar membresies, recuperar pagaments fallits i reduir tasques repetitives.'
+        },
+        keywords: {
+            en: 'CiviCRM, automation, nonprofits, scheduled reminders, CiviRules, memberships, recurring donations',
+            es: 'CiviCRM, automatización, ONG, recordatorios programados, CiviRules, membresías, donaciones recurrentes',
+            ca: 'CiviCRM, automatització, ONG, recordatoris programats, CiviRules, membresies, donacions recurrents'
+        },
+        tags: ['CiviCRM', 'Automation', 'Nonprofit', 'CiviRules']
+    },
+    {
         id: 'civicrm-data-quality-deduplication',
         filename: 'civicrm_data_quality_deduplication.md',
         date: '2026-07-18',

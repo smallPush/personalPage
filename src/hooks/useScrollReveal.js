@@ -1,19 +1,20 @@
 import { useEffect, useRef } from 'react';
 
-const useScrollReveal = (options = { threshold: 0.1, triggerOnce: true }) => {
+const useScrollReveal = (options = {}) => {
   const ref = useRef(null);
+  const { root = null, rootMargin = '0px', threshold = 0.1, triggerOnce = true } = options;
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('reveal-visible');
-        if (options.triggerOnce) {
+        if (triggerOnce) {
           observer.unobserve(entry.target);
         }
-      } else if (!options.triggerOnce) {
+      } else if (!triggerOnce) {
         entry.target.classList.remove('reveal-visible');
       }
-    }, options);
+    }, { root, rootMargin, threshold });
 
     const currentRef = ref.current;
     if (currentRef) {
@@ -25,7 +26,7 @@ const useScrollReveal = (options = { threshold: 0.1, triggerOnce: true }) => {
         observer.unobserve(currentRef);
       }
     };
-  }, [options.threshold, options.triggerOnce]);
+  }, [root, rootMargin, threshold, triggerOnce]);
 
   return ref;
 };

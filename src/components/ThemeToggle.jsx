@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeContext } from '../context/themeContextValue';
 
 const ThemeToggle = () => {
   const context = useContext(ThemeContext);
