@@ -43,10 +43,10 @@ const Navigation = () => {
             window.scrollTo(0, 0);
           }}>
             <img
-              src="logo.png"
+              src="logo.svg"
               width="36"
               height="36"
-              className="d-inline-block me-2 rounded-circle shadow-sm"
+              className="d-inline-block me-2 rounded-1"
               alt="SmallPush Logo"
               style={{ objectFit: 'contain' }}
             />
