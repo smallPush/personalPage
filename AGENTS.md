@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Repo At A Glance
-- Vite + React SPA, routed with `HashRouter` (`src/main.jsx`), so route URLs use `/#/...` instead of path-based routing.
+- Vite + React SPA, routed with `BrowserRouter` (`src/main.jsx`), so route URLs use clean paths (`/news`, `/donor-funnel`) with GitHub Pages SPA fallback (`public/404.html`).
 - Main app wiring is in `src/App.jsx` (routes for `/`, `/news`, `/news/:id`, `/donor-funnel`).
 - `README.md` is boilerplate from Vite; rely on scripts/config as source of truth.
 
@@ -25,7 +25,7 @@
   - Markdown bodies: `public/notices/*.md`
 - Notices loader in `src/components/Notices.jsx` uses `import.meta.glob('/public/notices/*.md', { eager: true })` and locale prefixes (`es_`, `ca_`) with fallback to base file.
 - Keep `notices.js` IDs/filenames aligned with markdown filenames, or posts/sitemap routes will break.
-- Sitemap generator (`scripts/generate-sitemap.js`) builds URLs as `https://smallpush.org/#...` from `notices.js` IDs.
+- Sitemap generator (`scripts/generate-sitemap.js`) builds clean URLs (`https://smallpush.org/...`) from `notices.js` IDs.
 
 ## Environment + Deploy Facts
 - Contact form send path requires `VITE_TELEGRAM_BOT_TOKEN` and `VITE_TELEGRAM_CHAT_ID` (`src/hooks/useContactSubmit.js`).
