@@ -50,15 +50,15 @@ const QuoteCalculator = () => {
                   <div
                     data-id={pt.id}
                     onClick={handleProjectTypeClick}
-                    className={`h-100 p-3 rounded-4 cursor-pointer transition-all ${projectType === pt.id
-                      ? 'bg-primary bg-opacity-10 border border-primary shadow-sm'
-                      : 'card border border-soft'
+                    className={`h-100 p-3 cursor-pointer transition-all ${projectType === pt.id
+                      ? 'quote-option-card-active shadow-sm'
+                      : 'quote-option-card'
                       }`}
                     style={{ transition: 'all 0.3s ease', cursor: 'pointer', transform: projectType === pt.id ? 'scale(1.02)' : 'scale(1)' }}
                   >
                     <div className="text-center">
                       <div className="display-4 mb-2">{pt.icon}</div>
-                      <div className={`fw-medium ${projectType === pt.id ? 'text-primary' : 'text-muted'}`}>
+                      <div className="fw-semibold fs-6">
                         {t(`quote.projectType.${pt.id}`)}
                       </div>
                     </div>

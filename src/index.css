@@ -135,6 +135,74 @@ body {
   color: var(--brand-primary) !important;
 }
 
+[data-theme="dark"] .text-primary {
+  color: #60A5FA !important;
+}
+
+/* High-Contrast Tag & Card Utilities */
+.tag-badge {
+  background-color: var(--surface) !important;
+  color: var(--bs-body-color) !important;
+  border: 1px solid var(--border-soft) !important;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+[data-theme="dark"] .tag-badge {
+  background-color: #1E293B !important;
+  color: #F8FAFC !important;
+  border: 1px solid #334155 !important;
+}
+
+.tag-badge:hover {
+  border-color: var(--brand-primary) !important;
+  color: var(--brand-primary) !important;
+}
+
+[data-theme="dark"] .tag-badge:hover {
+  border-color: #60A5FA !important;
+  color: #60A5FA !important;
+}
+
+.tag-badge-active {
+  background-color: var(--brand-primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--brand-primary) !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .tag-badge-active {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #60A5FA !important;
+}
+
+.quote-option-card {
+  background-color: var(--surface) !important;
+  color: var(--bs-body-color) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 1rem;
+  transition: var(--transition-smooth);
+}
+
+[data-theme="dark"] .quote-option-card {
+  background-color: #18181B !important;
+  color: #F4F4F5 !important;
+  border: 1px solid #3F3F46 !important;
+}
+
+.quote-option-card-active {
+  background-color: rgba(0, 85, 255, 0.1) !important;
+  border-color: var(--brand-primary) !important;
+  color: var(--brand-primary) !important;
+}
+
+[data-theme="dark"] .quote-option-card-active {
+  background-color: rgba(37, 99, 235, 0.25) !important;
+  border-color: #60A5FA !important;
+  color: #93C5FD !important;
+}
+
 .btn-primary {
   background-color: var(--brand-primary);
   border-color: var(--brand-primary);

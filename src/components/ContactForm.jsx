@@ -80,7 +80,7 @@ const ContactForm = () => {
                         <Row>
                             <Col md={6}>
                                 <Form.Group className="mb-4">
-                                    <Form.Label className="small fw-bold opacity-75">{t('contact.name')}</Form.Label>
+                                    <Form.Label className="small fw-bold">{t('contact.name')}</Form.Label>
                                     <Form.Control
                                         type="text"
                                         name="name"
@@ -94,7 +94,7 @@ const ContactForm = () => {
                             </Col>
                             <Col md={6}>
                                 <Form.Group className="mb-4">
-                                    <Form.Label className="small fw-bold opacity-75">{t('contact.email')}</Form.Label>
+                                    <Form.Label className="small fw-bold">{t('contact.email')}</Form.Label>
                                     <Form.Control
                                         type="email"
                                         name="email"
@@ -109,7 +109,7 @@ const ContactForm = () => {
                         </Row>
 
                         <Form.Group className="mb-4">
-                            <Form.Label className="small fw-bold opacity-75">{t('contact.message')}</Form.Label>
+                            <Form.Label className="small fw-bold">{t('contact.message')}</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={4}

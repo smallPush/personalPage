@@ -39,7 +39,7 @@ const Services = () => {
               >
                 <div className="service-icon fs-2 mb-3" aria-hidden="true">{service.icon}</div>
                 <h4 className={`mb-3 transition-all ${isExpanded ? 'text-primary' : ''}`}>{service.title}</h4>
-                <p className={`small mb-0 transition-all ${isExpanded ? 'opacity-100' : 'opacity-75'}`}>
+                <p className="small mb-0 text-muted">
                   {service.text}
                 </p>
                 
@@ -51,13 +51,13 @@ const Services = () => {
                 </Collapse>
 
                 <div className="mt-auto pt-4">
-                  <Badge 
-                    bg={isExpanded ? 'primary' : 'secondary'} 
-                    text="white"
-                    className="px-3 py-2 rounded-pill transition-all border border-primary"
+                  <span
+                    className={`btn btn-sm rounded-pill px-3 py-2 fw-semibold transition-all ${
+                      isExpanded ? 'btn-primary' : 'btn-outline-primary'
+                    }`}
                   >
                     {isExpanded ? `${t('services.collapse')} ▲` : `${t('services.expand')} ▼`}
-                  </Badge>
+                  </span>
                 </div>
               </GlassContainer>
             </Col>

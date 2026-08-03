@@ -109,7 +109,7 @@ const NoticeFilter = ({ selectedTag, setSelectedTag, t }) => {
     }, [tagSearch]);
 
     return (
-        <GlassContainer className="mb-5 p-4 rounded-4 bg-dark bg-opacity-25 border border-white border-opacity-10 position-relative overflow-hidden">
+        <GlassContainer className="mb-5 p-4 rounded-4 position-relative overflow-hidden">
             {/* Decorative glow */}
             <div className="position-absolute top-0 start-0 w-50 h-100 bg-primary opacity-5 blur-3xl z-n1" style={{ filter: 'blur(80px)' }}></div>
 
@@ -125,7 +125,7 @@ const NoticeFilter = ({ selectedTag, setSelectedTag, t }) => {
                             placeholder={t('notices.searchTagsPlaceholder', 'Search tags...')}
                             value={tagSearch}
                             onChange={(e) => setTagSearch(e.target.value)}
-                            className="bg-black bg-opacity-50 text-white border-secondary rounded-pill ps-5 pe-5 py-2 transition-all focus-ring-primary"
+                            className="form-control rounded-pill ps-5 pe-5 py-2 transition-all"
                         />
                         {/* Clear Button */}
                         {tagSearch && (
@@ -143,28 +143,27 @@ const NoticeFilter = ({ selectedTag, setSelectedTag, t }) => {
 
                 <Col lg={7}>
                     <div className="d-flex flex-wrap align-items-center gap-2">
-                        <span className="text-white-50 small fw-bold text-uppercase tracking-wider me-2">
+                        <span className="text-muted small fw-bold text-uppercase tracking-wider me-2">
                             {t('notices.filterByTag', 'Filter by tag:')}
                         </span>
                         {filteredTags.map(tag => (
-                            <Badge
+                            <span
                                 key={tag}
-                                bg={selectedTag === tag ? 'primary' : 'dark'}
-                                text={selectedTag === tag ? 'white' : 'light'}
-                                className={`px-3 py-2 rounded-pill cursor-pointer transition-all border ${selectedTag === tag
-                                    ? 'border-primary shadow-sm scale-105'
-                                    : 'border-secondary border-opacity-50 hover-bg-secondary opacity-75 hover-opacity-100'
+                                className={`px-3 py-2 rounded-pill cursor-pointer transition-all ${selectedTag === tag
+                                    ? 'tag-badge-active shadow-sm'
+                                    : 'tag-badge'
                                     }`}
                                 style={{
                                     cursor: 'pointer',
                                     fontSize: '0.85rem',
+                                    display: 'inline-block',
                                     transform: selectedTag === tag ? 'scale(1.05)' : 'scale(1)',
                                     transition: 'all 0.2s ease'
                                 }}
                                 onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
                             >
                                 {tag}
-                            </Badge>
+                            </span>
                         ))}
                         {selectedTag && (
                             <Button

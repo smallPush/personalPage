@@ -11,7 +11,7 @@ const About = () => {
       <div className="col-lg-10">
         <GlassContainer className="about-card text-center p-5">
           <h2 className="text-fluid-lg mb-4">{t('about.title')}</h2>
-          <p className="lead mx-auto" style={{ maxWidth: '800px', opacity: 0.9 }}>
+          <p className="lead mx-auto" style={{ maxWidth: '800px' }}>
             {t('about.text')}
           </p>
         </GlassContainer>
