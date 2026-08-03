@@ -5,14 +5,14 @@ import GlassContainer from '../components/GlassContainer';
 import useSeo from '../utils/useSeo';
 
 const EcosystemCard = ({ icon, title, role, desc }) => (
-  <Card className="h-100 bg-dark bg-opacity-25 border-white border-opacity-10 rounded-4 overflow-hidden shadow-lg transition-all hover-translate-y">
+  <Card className="h-100 card border border-soft rounded-4 overflow-hidden shadow-lg transition-all hover-translate-y">
     <Card.Body className="p-4 d-flex flex-column align-items-center text-center">
       <div className="mb-4 p-3 rounded-circle bg-primary bg-opacity-10 text-primary">
         <i className={`fa-solid ${icon} fa-2x`}></i>
       </div>
       <h4 className="fw-bold mb-1">{title}</h4>
       <div className="text-primary small fw-bold text-uppercase mb-3 tracking-wider">{role}</div>
-      <p className="text-white-50 mb-0">{desc}</p>
+      <p className="text-muted mb-0">{desc}</p>
     </Card.Body>
   </Card>
 );
@@ -27,12 +27,12 @@ const TimelineItem = ({ phase, title, desc, isLast }) => (
     )}
     <div className="flex-shrink-0 z-1">
       <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center shadow-primary" style={{ width: '40px', height: '40px' }}>
-        <span className="text-dark fw-bold">{phase}</span>
+        <span className="text-white fw-bold">{phase}</span>
       </div>
     </div>
     <div className="ms-4">
       <h4 className="fw-bold mb-2">{title}</h4>
-      <p className="text-white-50 lead fs-6">{desc}</p>
+      <p className="text-muted lead fs-6">{desc}</p>
     </div>
   </div>
 );
@@ -69,7 +69,7 @@ const DonorFunnel = () => {
           <Col lg={10}>
             <GlassContainer className="p-5 text-center">
               <h2 className="display-5 fw-bold mb-4">{t('donorFunnel.narrative.title')}</h2>
-              <p className="fs-4 text-white-75 mb-0">
+              <p className="fs-4 text-muted mb-0">
                 {t('donorFunnel.narrative.text')}
               </p>
             </GlassContainer>

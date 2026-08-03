@@ -300,24 +300,36 @@ a:hover {
   border-color: var(--brand-warm-border);
 }
 
-/* Text Visibility Fixes */
+/* Text Visibility & High Contrast Accessibility Fixes */
 .text-gray-200 {
-    color: #e5e7eb;
+  color: #e5e7eb;
 }
 .text-gray-300 {
-    color: #d1d5db;
+  color: #d1d5db;
 }
 .text-muted {
-  color: #334155 !important;
+  color: #475569 !important; /* Slate 600 - 7.0:1 contrast ratio on light surface */
+}
+
+[data-theme="dark"] .text-muted {
+  color: #94A3B8 !important; /* Slate 400 - 8.2:1 contrast ratio on dark surface */
 }
 
 .form-label {
-  color: #334155;
-  font-weight: 500;
+  color: #1E293B; /* Slate 800 */
+  font-weight: 600;
+}
+
+[data-theme="dark"] .form-label {
+  color: #F1F5F9; /* Slate 100 */
 }
 
 .form-control::placeholder {
-  color: #94a3b8;
+  color: #64748B; /* Slate 500 */
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: #94A3B8; /* Slate 400 */
 }
 
 .form-control,
@@ -327,7 +339,24 @@ a:hover {
   color: var(--bs-body-color);
 }
 
-/* Card Overrides (for components not yet refactored) */
+/* Accessible Focus States */
+:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+a:focus-visible {
+  outline: 3px solid #0055FF !important;
+  outline-offset: 2px !important;
+}
+
+[data-theme="dark"] :focus-visible,
+[data-theme="dark"] .btn:focus-visible,
+[data-theme="dark"] .form-control:focus-visible,
+[data-theme="dark"] a:focus-visible {
+  outline: 3px solid #60A5FA !important;
+  outline-offset: 2px !important;
+}
+
+/* Card Overrides */
 .card {
   background: var(--surface) !important;
   color: var(--bs-body-color) !important;
@@ -343,7 +372,11 @@ a:hover {
 }
 
 .hero-section .lead {
-  color: #475569;
+  color: #334155;
+}
+
+[data-theme="dark"] .hero-section .lead {
+  color: #CBD5E1;
 }
 
 .language-selector {
@@ -351,8 +384,17 @@ a:hover {
   border: 1px solid #cfe0ff;
 }
 
+[data-theme="dark"] .language-selector {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
 .language-selector .btn {
-  color: #334155;
+  color: #1e293b;
+}
+
+[data-theme="dark"] .language-selector .btn {
+  color: #f8fafc;
 }
 
 /* Markdown Content Elements */

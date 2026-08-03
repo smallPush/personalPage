@@ -37,9 +37,9 @@ const QuoteCalculator = () => {
             style={{ filter: 'blur(130px)', opacity: 0.06 }}
           ></div>
 
-          <div className="text-center mb-5 rounded-4 px-3 py-3" style={{ background: 'rgba(255, 255, 255, 0.78)' }}>
+          <div className="text-center mb-5 rounded-4 px-3 py-3">
             <h3 className="display-6 fw-bold mb-3">{t('quote.title')}</h3>
-            <p className="lead mb-0" style={{ color: '#334155' }}>{t('quote.subtitle', 'Build your custom project estimate in seconds.')}</p>
+            <p className="lead mb-0 text-muted">{t('quote.subtitle', 'Build your custom project estimate in seconds.')}</p>
           </div>
 
           <div className="mb-5">
@@ -52,13 +52,13 @@ const QuoteCalculator = () => {
                     onClick={handleProjectTypeClick}
                     className={`h-100 p-3 rounded-4 cursor-pointer transition-all ${projectType === pt.id
                       ? 'bg-primary bg-opacity-10 border border-primary shadow-sm'
-                      : 'bg-white border border-secondary-subtle'
+                      : 'card border border-soft'
                       }`}
                     style={{ transition: 'all 0.3s ease', cursor: 'pointer', transform: projectType === pt.id ? 'scale(1.02)' : 'scale(1)' }}
                   >
                     <div className="text-center">
                       <div className="display-4 mb-2">{pt.icon}</div>
-                      <div className={`fw-medium ${projectType === pt.id ? 'text-primary' : 'text-secondary'}`}>
+                      <div className={`fw-medium ${projectType === pt.id ? 'text-primary' : 'text-muted'}`}>
                         {t(`quote.projectType.${pt.id}`)}
                       </div>
                     </div>
@@ -92,14 +92,14 @@ const QuoteCalculator = () => {
               </div>
             </div>
 
-            <div className="mt-4 p-3 rounded-3 bg-white border border-secondary-subtle text-start shadow-sm transition-all">
+            <div className="mt-4 p-3 rounded-3 card border border-soft text-start shadow-sm transition-all">
               <div className="d-flex align-items-center mb-2">
                 <span className="me-2 fs-5">💡</span>
                 <span className="text-muted small fw-bold text-uppercase">
                   {t('quote.exampleTitle', 'Estimated Scope Example')}
                 </span>
               </div>
-              <p className="mb-0 small text-secondary lh-base">
+              <p className="mb-0 small text-muted lh-base">
                 {t(`quote.examples.${projectType}.${hours <= 15 ? 'small' : hours <= 40 ? 'medium' : 'large'}`)}
               </p>
             </div>
@@ -108,7 +108,7 @@ const QuoteCalculator = () => {
           <div className="mt-5 p-4 p-md-5 rounded-4 bg-primary bg-opacity-10 border border-primary border-opacity-25 position-relative overflow-hidden">
             <div className="text-center position-relative z-1">
               <p className="text-uppercase text-primary small fw-bold mb-2">{t('quote.result.title')}</p>
-              <div className="display-3 fw-bold mb-2 text-dark">
+              <div className="display-3 fw-bold mb-2">
                 €{estimatedCost.toLocaleString()}
               </div>
               <p className="text-muted small mb-4">{t('quote.result.disclaimer')}</p>

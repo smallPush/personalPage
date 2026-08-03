@@ -46,15 +46,15 @@ const Services = () => {
                 <Collapse in={isExpanded}>
                   <div className="mt-3 text-start w-100">
                     <hr className="opacity-25 my-3 border-primary" />
-                    <p className="mb-0 fs-6 fw-medium text-dark">{service.details}</p>
+                    <p className="mb-0 fs-6 fw-medium">{service.details}</p>
                   </div>
                 </Collapse>
 
                 <div className="mt-auto pt-4">
                   <Badge 
-                    bg={isExpanded ? 'primary' : 'light'} 
-                    text={isExpanded ? 'white' : 'dark'}
-                    className={`px-3 py-2 rounded-pill transition-all border ${!isExpanded ? 'border-secondary-subtle' : 'border-primary'}`}
+                    bg={isExpanded ? 'primary' : 'secondary'} 
+                    text="white"
+                    className="px-3 py-2 rounded-pill transition-all border border-primary"
                   >
                     {isExpanded ? `${t('services.collapse')} ▲` : `${t('services.expand')} ▼`}
                   </Badge>
