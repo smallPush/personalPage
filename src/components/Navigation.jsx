@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -12,6 +12,17 @@ const Navigation = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [expanded, setExpanded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 15);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const linkHandlers = useMemo(() => {
     return NAV_LINKS.map((link) => () => {
@@ -28,15 +39,9 @@ const Navigation = () => {
       fixed="top"
       expanded={expanded}
       onToggle={(toggle) => setExpanded(toggle)}
-      className="glass-effect m-3 rounded-4 shadow-sm navbar-light py-2"
-      style={{
-        width: 'calc(100% - 2rem)',
-        left: '1rem',
-        top: '1rem',
-        zIndex: 1030
-      }}
+      className={`site-navbar navbar-light ${scrolled || expanded ? 'site-navbar-scrolled' : ''}`}
     >
-      <Container fluid className="px-3 px-lg-4">
+      <Container fluid="xl" className="px-3 px-lg-4">
         <LinkContainer to="/">
           <Navbar.Brand className="d-flex align-items-center me-4" style={{ cursor: 'pointer' }} onClick={() => {
             setExpanded(false);

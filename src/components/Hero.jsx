@@ -8,7 +8,7 @@ const Hero = () => {
   const sectionRef = useScrollReveal();
 
   return (
-    <div className="hero-section text-center py-4 mb-5 reveal-hidden" style={{ marginTop: '60px' }} id="home" ref={sectionRef}>
+    <div className="hero-section text-center py-4 mb-5 reveal-hidden" style={{ paddingTop: '70px', marginTop: '10px' }} id="home" ref={sectionRef}>
       <Container className="py-4">
         <div className="mb-4 d-inline-block">
           <img src="logo-alt.svg" alt="SmallPush Icon" width="90" height="90" className="img-fluid" />
