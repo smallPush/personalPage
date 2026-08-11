@@ -293,5 +293,41 @@
             "title": "Ready to transform your acquisition?",
             "button": "Discuss your funnel"
         }
+    },
+    "civiFunnelBcn": {
+        "seo": {
+            "title": "CiviCRM Integration for Foundations in Barcelona - SmallPush",
+            "description": "Centralize member management, donations, and tax models for your foundation with CiviCRM."
+        },
+        "hero": {
+            "badge": "Exclusive for Foundations",
+            "title": "Empower your Foundation in Barcelona with CiviCRM",
+            "subtitle": "Centralized member management, SEPA direct debits, automated Tax Model 182, and donation certificates in a single platform.",
+            "primaryCta": "Integrate CiviCRM"
+        },
+        "value": {
+            "socios": {
+                "title": "Member Management",
+                "text": "Total control over your members, donors, and volunteers in a CRM designed for the non-profit sector."
+            },
+            "pagos": {
+                "title": "Payments and SEPA",
+                "text": "Automate recurring membership fees and one-off donations connected to your bank."
+            },
+            "fiscal": {
+                "title": "Automated Tax Forms",
+                "text": "Generate tax agency files and send donation certificates with a single click."
+            }
+        },
+        "form": {
+            "title": "Let's talk about your Foundation",
+            "subtitle": "Fill out this short form and we'll analyze how CiviCRM can help your organization.",
+            "foundationName": "Foundation Name",
+            "phone": "Contact Phone",
+            "problem": "What main challenge do you want to solve?",
+            "submit": "Request Free Analysis",
+            "success": "Thank you! We have received your request. We will contact you shortly.",
+            "error": "There was an error submitting the form. Please try again."
+        }
     }
 }

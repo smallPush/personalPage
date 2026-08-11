@@ -293,5 +293,41 @@
             "title": "¿Listo para transformar tu captación?",
             "button": "Hablemos de tu funnel"
         }
+    },
+    "civiFunnelBcn": {
+        "seo": {
+            "title": "Integración CiviCRM para Fundaciones en Barcelona - SmallPush",
+            "description": "Centraliza la gestión de socios, donativos y modelos fiscales de tu fundación con CiviCRM."
+        },
+        "hero": {
+            "badge": "Exclusivo para Fundaciones",
+            "title": "Potencia tu Fundación en Barcelona con CiviCRM",
+            "subtitle": "Gestión centralizada de socios, cobro de cuotas SEPA, automatización del Modelo 182 y certificados de donación en una única plataforma.",
+            "primaryCta": "Integrar CiviCRM"
+        },
+        "value": {
+            "socios": {
+                "title": "Gestión de Base Social",
+                "text": "Control total sobre tus socios, donantes y voluntarios en un CRM diseñado para el tercer sector."
+            },
+            "pagos": {
+                "title": "Cobros y Remesas SEPA",
+                "text": "Automatiza el cobro de cuotas periódicas y donativos puntuales conectados a tu banco."
+            },
+            "fiscal": {
+                "title": "Modelo 182 Automático",
+                "text": "Genera el archivo para la Agencia Tributaria y envía los certificados de donación en un clic."
+            }
+        },
+        "form": {
+            "title": "Hablemos de tu Fundación",
+            "subtitle": "Rellena este breve formulario y analizaremos cómo CiviCRM puede ayudar a tu entidad.",
+            "foundationName": "Nombre de la Fundación",
+            "phone": "Teléfono de Contacto",
+            "problem": "¿Qué reto principal quieres resolver?",
+            "submit": "Solicitar Análisis Gratuito",
+            "success": "¡Gracias! Hemos recibido tu solicitud. Nos pondremos en contacto contigo pronto.",
+            "error": "Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo."
+        }
     }
 }
