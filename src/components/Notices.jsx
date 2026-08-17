@@ -105,7 +105,8 @@ const NoticeFilter = ({ selectedTag, setSelectedTag, t }) => {
 
     const filteredTags = useMemo(() => {
         if (!tagSearch.trim()) return moduleUniqueTags;
-        return moduleUniqueTags.filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()));
+        const lowerSearch = tagSearch.toLowerCase();
+        return moduleUniqueTags.filter(tag => tag.toLowerCase().includes(lowerSearch));
     }, [tagSearch]);
 
     return (
