@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import mermaid from 'mermaid';
 import DOMPurify from 'dompurify';
 
-mermaid.initialize({
-  startOnLoad: false,
-  theme: 'dark',
-  securityLevel: 'strict',
-});
+let mermaidInitialized = false;
 
 const MermaidChart = ({ chart }) => {
   const containerRef = useRef(null);
@@ -20,6 +15,18 @@ const MermaidChart = ({ chart }) => {
 
     const renderChart = async () => {
       try {
+        const mermaidModule = await import('mermaid');
+        const mermaid = mermaidModule.default || mermaidModule;
+
+        if (!mermaidInitialized) {
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'strict',
+          });
+          mermaidInitialized = true;
+        }
+
         const id = `mermaid-chart-${window.crypto.randomUUID()}`;
         const { svg } = await mermaid.render(id, chart);
         if (isMounted) {
