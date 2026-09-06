@@ -17,10 +17,14 @@ SmallPush provides end-to-end digital engineering and growth strategies for non-
 - [SmallPush Home Page](https://smallpush.org): Main portal outlining core services, AI integration, and quote calculator for non-profits.
 - [Donor Funnel Solution](https://smallpush.org/donor-funnel): Specialized acquisition and donation funnel design to maximize recurring donor conversion for NGOs.
 - [Event Funnel Solution](https://smallpush.org/event-funnel): Turnkey event registration, ticketing, and participant tracking integrated with CiviCRM.
+- [Barcelona Foundations & CiviCRM](https://smallpush.org/fundaciones-barcelona): Specialized CiviCRM implementation and fiscal compliance for non-profits and foundations in Catalonia.
 - [Technical Blog & Articles](https://smallpush.org/news): Technical guides, benchmarks, and best practices for CiviCRM, Drupal, and AI programming.
 
 ## Featured Technical Articles & Case Studies
 
+- [CiviCRM vs Salesforce Nonprofit Cloud](https://smallpush.org/news/civicrm-vs-salesforce-ong): Cost, data sovereignty, and Spanish fiscal compliance comparison for non-profits.
+- [Integrating Bizum & Redsys in CiviCRM](https://smallpush.org/news/civicrm-bizum-redsys-donaciones): Activating mobile donations with Bizum via Redsys Virtual POS in CiviCRM.
+- [CiviCRM Modelo 182 Guide](https://smallpush.org/news/civicrm-modelo-182-guia-fiscal): Complete guide to Spanish Tax Agency Modelo 182 reporting and automated donor tax certificates.
 - [Payment Methods in CiviCRM: Integration Guide](https://smallpush.org/news/civicrm-payment-methods): Integrating Stripe, Redsys, PayPal, and SEPA Direct Debit for non-profits.
 - [5 Essential CiviCRM Automations for Nonprofits](https://smallpush.org/news/civicrm-essential-automations): Automated scheduled reminders, member renewals, and failed payment recovery workflows using CiviRules.
 - [CiviCRM 6.11: AI Agent Architectures & Predictive Intelligence](https://smallpush.org/news/civicrm-agents-architecture): Transforming relational CRM databases into predictive engines using Vector DBs and LLM orchestration.
