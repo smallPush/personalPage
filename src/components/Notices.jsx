@@ -348,6 +348,24 @@ const Notices = ({ singleNoticeId }) => {
                                     <div className="py-5 text-center opacity-50">{t('notices.loading', 'Loading content...')}</div>
                                 )}
                             </div>
+                            {singleNoticeId && (
+                                <div className="mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+                                    <div className="p-4 rounded-4 bg-primary bg-opacity-10 border border-primary border-opacity-25 mx-auto" style={{ maxWidth: '720px' }}>
+                                        <Badge bg="primary" className="rounded-pill px-3 py-2 mb-3">
+                                            {t('notices.cta.badge', 'Soporte Especializado para ONGs')}
+                                        </Badge>
+                                        <h3 className="h5 fw-bold mb-2">
+                                            {t('notices.cta.title', '¿Necesitas implantar esto en tu entidad?')}
+                                        </h3>
+                                        <p className="small text-muted mb-4">
+                                            {t('notices.cta.text', 'En SmallPush te ayudamos a configurar tu CiviCRM, pasarelas de pago y modelos fiscales. Solicita una sesión de diagnóstico gratuita de 30 minutos.')}
+                                        </p>
+                                        <Button as={HashLink} smooth to="/#contact" variant="primary" className="rounded-pill px-4 py-2 fw-semibold">
+                                            {t('notices.cta.button', 'Solicitar diagnóstico gratuito')}
+                                        </Button>
+                                    </div>
+                                </div>
+                            )}
                         </GlassContainer>
                     </Col>
                 ))}

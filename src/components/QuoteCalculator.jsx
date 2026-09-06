@@ -119,6 +119,13 @@ const QuoteCalculator = () => {
                 smooth
                 variant="primary"
                 size="lg"
+                onClick={() => {
+                  const projectTypeName = t(`quote.projectType.${projectType}`, projectType);
+                  const prefillIntro = t('quote.prefillIntro', 'Hola, he calculado una estimación en la web para:');
+                  const hoursUnit = t('quote.hours.unit', 'h');
+                  const msg = `${prefillIntro} ${projectTypeName} (~${hours} ${hoursUnit}, aprox. €${estimatedCost.toLocaleString()}). Me gustaría recibir más información y analizar mi proyecto.`;
+                  window.dispatchEvent(new CustomEvent('prefill-contact', { detail: { message: msg } }));
+                }}
                 className="w-100 py-3 rounded-pill fw-bold shadow-lg mt-2 transition-transform hover-scale-105"
                 style={{ transition: 'transform 0.2s ease', maxWidth: '300px' }}
               >

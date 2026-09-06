@@ -1,5 +1,68 @@
 export const notices = [
     {
+        id: 'civicrm-vs-salesforce-ong',
+        filename: 'civicrm_vs_salesforce_ong.md',
+        date: '2026-08-30',
+        seoTitle: {
+            en: 'CiviCRM vs Salesforce Nonprofit Cloud: Cost & Data Sovereignty Breakdown - SmallPush',
+            es: 'CiviCRM vs Salesforce Nonprofit Cloud: Comparativa de Costes y Soberanía para ONGs - SmallPush',
+            ca: 'CiviCRM vs Salesforce Nonprofit Cloud: Comparativa de Costos i Sobirania per a ONGs - SmallPush'
+        },
+        seoDescription: {
+            en: 'Technical and financial breakdown between CiviCRM and Salesforce Nonprofit Cloud for NGOs: hidden costs, data sovereignty, Spanish tax compliance and flexibility.',
+            es: 'Análisis técnico y financiero entre CiviCRM y Salesforce Nonprofit Cloud para ONGs y fundaciones: costes ocultos, soberanía de datos, Modelo 182 y adaptabilidad.',
+            ca: 'Anàlisi tècnica i financera entre CiviCRM i Salesforce Nonprofit Cloud per a ONGs i fundacions: costos ocults, sobirania de dades, Model 182 i adaptabilitat.'
+        },
+        keywords: {
+            en: 'CiviCRM vs Salesforce, Salesforce Nonprofit Cloud, nonprofit CRM comparison, open source CRM, fundraising software',
+            es: 'CiviCRM vs Salesforce, Salesforce Nonprofit Cloud, CRM para ONG, software gestión socios, comparativa CRM fundaciones',
+            ca: 'CiviCRM vs Salesforce, Salesforce Nonprofit Cloud, CRM per a ONG, programari gestió socis, comparativa CRM fundacions'
+        },
+        tags: ['CiviCRM', 'Salesforce', 'CRM', 'Nonprofit']
+    },
+    {
+        id: 'civicrm-bizum-redsys-donaciones',
+        filename: 'civicrm_bizum_redsys_donaciones.md',
+        date: '2026-08-22',
+        seoTitle: {
+            en: 'Integrating Bizum and Redsys with CiviCRM for Nonprofit Donations - SmallPush',
+            es: 'Cómo Integrar Bizum y Redsys en CiviCRM para Multiplicar Donaciones - SmallPush',
+            ca: 'Com Integrar Bizum i Redsys a CiviCRM per Multiplicar Donacions - SmallPush'
+        },
+        seoDescription: {
+            en: 'Discover how to enable Bizum via Redsys in CiviCRM. Boost donation conversion rates on mobile devices and sync one-off donations directly with your CRM.',
+            es: 'Descubre cómo activar Bizum a través de Redsys en CiviCRM. Aumenta la conversión de donaciones en dispositivos móviles y sincroniza cobros puntuales con el CRM.',
+            ca: 'Descobreix com activar Bizum a través de Redsys a CiviCRM. Augmenta la conversió de donacions en mòbils i sincronitza cobraments puntuals amb el CRM.'
+        },
+        keywords: {
+            en: 'CiviCRM, Bizum, Redsys, mobile donations, nonprofit payment gateway, online fundraising',
+            es: 'CiviCRM, Bizum, Redsys, donaciones móviles, captación donantes, pasarela de pago ONG, pagos online',
+            ca: 'CiviCRM, Bizum, Redsys, donacions mòbils, captació donants, passarel·la pagament ONG'
+        },
+        tags: ['CiviCRM', 'Bizum', 'Redsys', 'Payment Methods']
+    },
+    {
+        id: 'civicrm-modelo-182-guia-fiscal',
+        filename: 'civicrm_modelo_182_guia_fiscal.md',
+        date: '2026-08-15',
+        seoTitle: {
+            en: 'CiviCRM Modelo 182 Guide: Automating Donor Tax Deductions in Spain - SmallPush',
+            es: 'Guía del Modelo 182 en CiviCRM: Donaciones y Hacienda sin Errores - SmallPush',
+            ca: 'Guia del Model 182 a CiviCRM: Donacions i Hisenda sense Errors - SmallPush'
+        },
+        seoDescription: {
+            en: 'Step-by-step guide to generating the Spanish Tax Agency Modelo 182 in CiviCRM, validating tax IDs and issuing automated donor tax deduction certificates.',
+            es: 'Aprende paso a paso cómo configurar CiviCRM para generar el Modelo 182 de la Agencia Tributaria (AEAT), validar NIFs y emitir certificados fiscales de donación automáticos.',
+            ca: 'Aprèn pas a pas com configurar CiviCRM per generar el Model 182 de l\'Agència Tributària (AEAT), validar NIFs i emetre certificats fiscals de donació automàtics.'
+        },
+        keywords: {
+            en: 'CiviCRM, Modelo 182, tax deductions, AEAT, nonprofit taxes Spain, donation certificates',
+            es: 'CiviCRM, Modelo 182, certificados donación, AEAT, deducción fiscal donaciones, ONG, fundaciones, tercer sector',
+            ca: 'CiviCRM, Model 182, certificats donació, AEAT, deducció fiscal donacions, ONG, fundacions'
+        },
+        tags: ['CiviCRM', 'Modelo 182', 'Fiscal', 'Nonprofit']
+    },
+    {
         id: 'civicrm-essential-automations',
         filename: 'civicrm_essential_automations.md',
         date: '2026-07-30',

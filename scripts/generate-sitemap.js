@@ -14,6 +14,7 @@ const staticRoutes = [
   '/',
   '/donor-funnel',
   '/event-funnel',
+  '/fundaciones-barcelona',
   '/news'
 ];
 

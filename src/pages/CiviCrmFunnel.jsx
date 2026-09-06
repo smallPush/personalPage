@@ -27,6 +27,8 @@ const CiviCrmFunnel = () => {
 
   const [formData, setFormData] = useState({
     foundationName: '',
+    contactName: '',
+    email: '',
     phone: '',
     problem: '',
     cid: cid,
@@ -57,12 +59,31 @@ const CiviCrmFunnel = () => {
     setStatus({ submitting: true, success: false, error: false });
     
     try {
-      // Simulate API call to a webhook / Form Processor
-      // In a real scenario, this would be a fetch POST to a CiviCRM Form Processor endpoint or n8n webhook
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+      if (botToken && chatId) {
+        const text = `🏛️ *Nueva Solicitud: Fundaciones Barcelona*\n\n*Fundación:* ${formData.foundationName}\n*Contacto:* ${formData.contactName}\n*Email:* ${formData.email}\n*Teléfono:* ${formData.phone}\n*Reto/Problema:*\n${formData.problem}${formData.cid ? `\n\n*CiviCRM CID:* ${formData.cid}` : ''}`;
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: text,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al enviar el formulario a través del bot');
+        }
+      } else {
+        // Simulación para entornos de desarrollo o tests
+        await new Promise(resolve => setTimeout(resolve, 800));
+      }
       
       setStatus({ submitting: false, success: true, error: false });
-      setFormData({ ...formData, foundationName: '', phone: '', problem: '' });
+      setFormData({ ...formData, foundationName: '', contactName: '', email: '', phone: '', problem: '' });
     } catch (err) {
       console.error(err);
       setStatus({ submitting: false, success: false, error: true });
@@ -159,6 +180,32 @@ const CiviCrmFunnel = () => {
                           type="text"
                           name="foundationName"
                           value={formData.foundationName}
+                          onChange={handleChange}
+                          required
+                          className="bg-white border-0 shadow-sm p-3"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group controlId="contactName">
+                        <Form.Label className="fw-bold">{t('civiFunnelBcn.form.contactName', 'Persona de Contacto')}</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="contactName"
+                          value={formData.contactName}
+                          onChange={handleChange}
+                          required
+                          className="bg-white border-0 shadow-sm p-3"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group controlId="email">
+                        <Form.Label className="fw-bold">{t('civiFunnelBcn.form.email', 'Correo Electrónico')}</Form.Label>
+                        <Form.Control
+                          type="email"
+                          name="email"
+                          value={formData.email}
                           onChange={handleChange}
                           required
                           className="bg-white border-0 shadow-sm p-3"

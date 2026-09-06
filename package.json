@@ -1,13 +1,14 @@
 {
   "name": "smallpush",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run sitemap && vite build",
+    "build": "npm run sitemap && vite build && npm run prerender",
     "lint": "eslint .",
     "preview": "vite preview",
+    "prerender": "node scripts/prerender-routes.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "test": "vitest run"
   },

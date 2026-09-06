@@ -17,13 +17,31 @@
         "contact": "Contacto"
     },
     "hero": {
-        "subtitle": "Impulsamos tu organización con CiviCRM: centraliza contactos, automatiza procesos y dedica más tiempo a tu misión.",
+        "subtitle": "Impulsamos tu ONG o fundación con CiviCRM: centraliza socios, automatiza remesas SEPA y Modelo 182, integra donaciones con Bizum y Redsys, y reduce el trabajo manual de tu equipo.",
         "cta": "Empieza a impulsar tu organización",
-        "tagline": "Especialistas en tecnología para proyectos con impacto social."
+        "tagline": "Especialistas en tecnología, captación y fiscalidad para proyectos con impacto social."
     },
     "about": {
         "title": "Por qué SmallPush",
-        "text": "Con más de 14 años de experiencia en tecnología para el tercer sector y organizaciones políticas, te ayudamos a poner orden en tu base social, automatizar tareas y desplegar CiviCRM de manera rápida, robusta y adaptada a tus necesidades reales."
+        "text": "Con más de 14 años de experiencia en tecnología para el tercer sector y organizaciones políticas, te ayudamos a poner orden en tu base social, automatizar tareas y desplegar CiviCRM de manera rápida, robusta y adaptada a tus necesidades reales.",
+        "pillars": {
+            "experience": {
+                "title": "+14 Años en el Tercer Sector",
+                "desc": "Conocemos en profundidad el día a día, los ritmos de captación y los retos de gestión de ONGs y fundaciones."
+            },
+            "fiscal": {
+                "title": "Ecosistema Español y Modelo 182",
+                "desc": "Integración completa con Redsys, Bizum, remesas SEPA y generación certificada del Modelo 182 para la AEAT."
+            },
+            "openSource": {
+                "title": "Soberanía de Datos (Open Source)",
+                "desc": "Tus datos son 100% de tu organización en CiviCRM y Drupal, sin pagar licencias abusivas por volumen de contactos."
+            },
+            "automation": {
+                "title": "Automatización e IA Práctica",
+                "desc": "Conectamos anuncios de captación, agentes de IA para atender consultas y procesos automatizados que ahorran horas de trabajo."
+            }
+        }
     },
     "services": {
         "title": "Nuestros Servicios",
@@ -41,8 +59,8 @@
         },
         "payment": {
             "title": "Ecosistema de Pagos Español",
-            "text": "Integración experta con pasarelas de pago y sistemas bancarios españoles.",
-            "details": "Conectamos tu CRM con las principales pasarelas de pago (Redsys, Stripe, PayPal, SEPA). Automatizamos la conciliación bancaria, la gestión de cobros recurrentes y las devoluciones, reduciendo drásticamente el trabajo manual de tu equipo administrativo."
+            "text": "Integración experta con pasarelas de pago y sistemas bancarios españoles (Redsys, Bizum, Stripe y SEPA).",
+            "details": "Conectamos tu CRM con las principales pasarelas de pago (Redsys, Bizum, Stripe, PayPal, SEPA). Automatizamos la conciliación bancaria, la gestión de cobros recurrentes y las devoluciones, reduciendo drásticamente el trabajo manual de tu equipo administrativo."
         },
         "fiscal": {
             "title": "Gestión de Modelos Fiscales",
@@ -114,13 +132,21 @@
                 "medium": "Integración de un chatbot inteligente en su web entrenado con sus propios documentos (FAQ).",
                 "large": "Orquestación de agentes avanzados (LLMs) para automatizar procesos complejos en el CRM."
             }
-        }
+        },
+        "prefillIntro": "Hola, he calculado una estimación en la web para:"
     },
     "footer": {
-        "rights": "Todos los derechos reservados."
+        "rights": "Todos los derechos reservados.",
+        "donorFunnel": "Embudo de Donantes",
+        "eventFunnel": "Eventos y Pagos",
+        "bcnFunnel": "Fundaciones Barcelona",
+        "contactEmail": "info@smallpush.org"
     },
     "contact": {
         "title": "Contáctanos",
+        "auditBadge": "Diagnóstico Gratuito de 30 min",
+        "auditTitle": "¿Quieres revisar la captación o el CRM de tu organización?",
+        "auditDesc": "Ofrecemos una sesión técnica gratuita de 30 minutos para fundaciones y ONGs. Analizamos tu caso sin compromiso.",
         "name": "Nombre",
         "email": "Correo Electrónico",
         "message": "Mensaje",
@@ -144,7 +170,13 @@
         "readMore": "Leer más",
         "filterByTag": "Filtrar por etiqueta:",
         "clearFilter": "Limpiar filtro",
-        "searchTagsPlaceholder": "Buscar etiquetas..."
+        "searchTagsPlaceholder": "Buscar etiquetas...",
+        "cta": {
+            "badge": "Soporte Especializado para ONGs",
+            "title": "¿Necesitas implantar esto en tu entidad?",
+            "text": "En SmallPush te ayudamos a configurar tu CiviCRM, pasarelas de pago y modelos fiscales. Solicita una sesión de diagnóstico gratuita de 30 minutos.",
+            "button": "Solicitar diagnóstico gratuito"
+        }
     },
     "cookies": {
         "banner": {
@@ -323,6 +355,8 @@
             "title": "Hablemos de tu Fundación",
             "subtitle": "Rellena este breve formulario y analizaremos cómo CiviCRM puede ayudar a tu entidad.",
             "foundationName": "Nombre de la Fundación",
+            "contactName": "Persona de Contacto",
+            "email": "Correo Electrónico",
             "phone": "Teléfono de Contacto",
             "problem": "¿Qué reto principal quieres resolver?",
             "submit": "Solicitar Análisis Gratuito",

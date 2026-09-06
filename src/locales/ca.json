@@ -17,13 +17,31 @@
         "contact": "Contacte"
     },
     "hero": {
-        "subtitle": "Impulsem la teva organització amb CiviCRM: centralitza contactes, automatitza processos i dedica més temps a la teva missió.",
+        "subtitle": "Impulsem la teva ONG o fundació amb CiviCRM: centralitza socis, automatitza remeses SEPA i Model 182, integra donacions amb Bizum i Redsys, i redueix el treball manual del teu equip.",
         "cta": "Comença a impulsar la teva organització",
-        "tagline": "Especialistes en tecnologia per a projectes amb impacte social."
+        "tagline": "Especialistes en tecnologia, captació i fiscalitat per a projectes amb impacte social."
     },
     "about": {
         "title": "Per què SmallPush",
-        "text": "Amb més de 14 anys d’experiència en tecnologia per al tercer sector i organitzacions polítiques, t’ajudem a posar ordre a la teva base social, automatitzar tasques i desplegar CiviCRM de manera ràpida, robusta i adaptada a les teves necessitats reals."
+        "text": "Amb més de 14 anys d’experiència en tecnologia per al tercer sector i organitzacions polítiques, t’ajudem a posar ordre a la teva base social, automatitzar tasques i desplegar CiviCRM de manera ràpida, robusta i adaptada a les teves necessitats reals.",
+        "pillars": {
+            "experience": {
+                "title": "+14 Anys al Tercer Sector",
+                "desc": "Coneixem en profunditat el dia a dia, els ritmes de captació i els reptes de gestió d'ONGs i fundacions."
+            },
+            "fiscal": {
+                "title": "Ecosistema Espanyol i Model 182",
+                "desc": "Integració completa amb Redsys, Bizum, remeses SEPA i generació certificada del Model 182 per a l'AEAT."
+            },
+            "openSource": {
+                "title": "Sobirania de Dades (Codi Obert)",
+                "desc": "Les teves dades són 100% de la teva organització a CiviCRM i Drupal, sense pagar llicències abusives per volum de contactes."
+            },
+            "automation": {
+                "title": "Automatització i IA Pràctica",
+                "desc": "Connectem anuncis de captació, agents d'IA per atendre consultes i processos automatitzats que estalvien hores de feina."
+            }
+        }
     },
     "services": {
         "title": "Els Nostres Serveis",
@@ -41,7 +59,7 @@
         },
         "payment": {
             "title": "Ecosistema de Pagaments Espanyol",
-            "text": "Integració experta amb passarel·les de pagament i sistemes bancaris espanyols.",
+            "text": "Integració experta amb passarel·les de pagament i sistemes bancaris espanyols (Redsys, Bizum, Stripe i SEPA).",
             "details": "Connectem el teu CRM amb les principals passarel·les de pagament (Redsys, Stripe, PayPal, SEPA). Automatitzem la conciliació bancària, la gestió de cobraments recurrents i les devolucions, reduint dràsticament el treball manual del teu equip administratiu."
         },
         "fiscal": {
@@ -114,13 +132,21 @@
                 "medium": "Integració d'un xatbot intel·ligent al seu web entrenat amb els seus propis documents (FAQ).",
                 "large": "Orquestració d'agents avançats (LLMs) per automatitzar processos complexos en el CRM."
             }
-        }
+        },
+        "prefillIntro": "Hola, he calculat una estimació al web per a:"
     },
     "footer": {
-        "rights": "Tots els drets reservats."
+        "rights": "Tots els drets reservats.",
+        "donorFunnel": "Embús de Donants",
+        "eventFunnel": "Esdeveniments i Pagaments",
+        "bcnFunnel": "Fundacions Barcelona",
+        "contactEmail": "info@smallpush.org"
     },
     "contact": {
         "title": "Contacta'ns",
+        "auditBadge": "Diagnòstic Gratuït de 30 min",
+        "auditTitle": "Vols revisar la captació o el CRM de la teva organització?",
+        "auditDesc": "Oferim una sessió tècnica gratuïta de 30 minuts per a fundacions i ONGs. Analitzem el teu cas sense compromís.",
         "name": "Nom",
         "email": "Correu Electrònic",
         "message": "Missatge",
@@ -144,7 +170,13 @@
         "readMore": "Llegir més",
         "filterByTag": "Filtrar per etiqueta:",
         "clearFilter": "Netejar filtre",
-        "searchTagsPlaceholder": "Cercar etiquetes..."
+        "searchTagsPlaceholder": "Cercar etiquetes...",
+        "cta": {
+            "badge": "Suport Especialitzat per a ONGs",
+            "title": "Necessites implantar això a la teva entitat?",
+            "text": "A SmallPush t'ajudem a configurar el teu CiviCRM, passarel·les de pagament i models fiscals. Demana una sessió de diagnòstic gratuïta de 30 minuts.",
+            "button": "Demanar diagnòstic gratuït"
+        }
     },
     "cookies": {
         "banner": {
@@ -323,6 +355,8 @@
             "title": "Parlem de la teva Fundació",
             "subtitle": "Emplena aquest breu formulari i analitzarem com CiviCRM pot ajudar la teva entitat.",
             "foundationName": "Nom de la Fundació",
+            "contactName": "Persona de Contacte",
+            "email": "Correu Electrònic",
             "phone": "Telèfon de Contacte",
             "problem": "Quin repte principal vols resoldre?",
             "submit": "Sol·licitar Anàlisi Gratuït",

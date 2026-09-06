@@ -23,7 +23,25 @@
     },
     "about": {
         "title": "Why SmallPush",
-        "text": "With over 14 years of experience in technology for the non-profit sector and political organizations, we help you bring order to your social base, automate tasks, and deploy CiviCRM in a fast, robust manner tailored to your real needs."
+        "text": "With over 14 years of experience in technology for the non-profit sector and political organizations, we help you bring order to your social base, automate tasks, and deploy CiviCRM in a fast, robust manner tailored to your real needs.",
+        "pillars": {
+            "experience": {
+                "title": "+14 Years in Non-Profit Sector",
+                "desc": "Deep understanding of daily operations, fundraising cycles, and management challenges for NGOs and foundations."
+            },
+            "fiscal": {
+                "title": "Spanish Ecosystem & Tax Models",
+                "desc": "Full integration with Redsys, Bizum, SEPA direct debits, and certified Modelo 182 tax reports for the Spanish Tax Agency."
+            },
+            "openSource": {
+                "title": "Data Sovereignty (Open Source)",
+                "desc": "Your data remains 100% owned by your organization with CiviCRM & Drupal, free from predatory contact-tier licensing fees."
+            },
+            "automation": {
+                "title": "Practical Automation & AI",
+                "desc": "We connect donor acquisition campaigns, conversational AI support, and automated workflows that save hours of manual work."
+            }
+        }
     },
     "services": {
         "title": "Our Services",
@@ -41,7 +59,7 @@
         },
         "payment": {
             "title": "Spanish Payments Ecosystem",
-            "text": "Expert integration with Spanish payment gateways and banking systems.",
+            "text": "Expert integration with Spanish payment gateways and banking systems (Redsys, Bizum, Stripe, and SEPA).",
             "details": "We connect your CRM with major payment gateways (Redsys, Stripe, PayPal, SEPA). We automate bank reconciliation, recurring payment management, and refunds, drastically reducing manual work for your administrative team."
         },
         "fiscal": {
@@ -114,13 +132,21 @@
                 "medium": "Integration of a smart chatbot into your web trained with your own documents (FAQ).",
                 "large": "Orchestration of advanced agents (LLMs) to automate complex processes in the CRM."
             }
-        }
+        },
+        "prefillIntro": "Hello, I calculated an estimate on the website for:"
     },
     "footer": {
-        "rights": "All rights reserved."
+        "rights": "All rights reserved.",
+        "donorFunnel": "Donor Funnel",
+        "eventFunnel": "Events & Payments",
+        "bcnFunnel": "Foundations Barcelona",
+        "contactEmail": "info@smallpush.org"
     },
     "contact": {
         "title": "Contact Us",
+        "auditBadge": "Free 30-min Technical Audit",
+        "auditTitle": "Want to review your organization's CRM or donor acquisition?",
+        "auditDesc": "We offer a free 30-minute technical session for foundations and NGOs. No commitment required.",
         "name": "Name",
         "email": "Email Address",
         "message": "Message",
@@ -144,7 +170,13 @@
         "readMore": "Read More",
         "filterByTag": "Filter by tag:",
         "clearFilter": "Clear filter",
-        "searchTagsPlaceholder": "Search tags..."
+        "searchTagsPlaceholder": "Search tags...",
+        "cta": {
+            "badge": "Specialized Support for Nonprofits",
+            "title": "Need help implementing this in your organization?",
+            "text": "At SmallPush, we help configure CiviCRM, payment gateways, and tax workflows. Request a free 30-minute consultation.",
+            "button": "Request Free Consultation"
+        }
     },
     "cookies": {
         "banner": {
@@ -323,6 +355,8 @@
             "title": "Let's talk about your Foundation",
             "subtitle": "Fill out this short form and we'll analyze how CiviCRM can help your organization.",
             "foundationName": "Foundation Name",
+            "contactName": "Contact Person",
+            "email": "Email Address",
             "phone": "Contact Phone",
             "problem": "What main challenge do you want to solve?",
             "submit": "Request Free Analysis",

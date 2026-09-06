@@ -19,6 +19,19 @@ const ContactForm = () => {
     const { captcha, captchaVerified, setCaptchaVerified, generateCaptcha } = useCaptcha();
     const { status, setStatus, isSubmitting, submitContactForm } = useContactSubmit();
 
+    React.useEffect(() => {
+        const handlePrefill = (event) => {
+            if (event?.detail?.message) {
+                setFormData(prev => ({
+                    ...prev,
+                    message: event.detail.message
+                }));
+            }
+        };
+        window.addEventListener('prefill-contact', handlePrefill);
+        return () => window.removeEventListener('prefill-contact', handlePrefill);
+    }, []);
+
     const handleGenerateCaptcha = React.useCallback(() => {
         generateCaptcha();
         setFormData(prev => ({ ...prev, captchaInput: '' }));
@@ -62,7 +75,19 @@ const ContactForm = () => {
         <Row className="justify-content-center reveal-hidden" ref={sectionRef}>
             <Col md={10} lg={8}>
                 <GlassContainer className="p-4 p-md-5">
-                    <h2 className="text-fluid-lg text-center mb-5">{t('contact.title')}</h2>
+                    <h2 className="text-fluid-lg text-center mb-4">{t('contact.title')}</h2>
+
+                    <div className="p-3 mb-4 rounded-3 bg-primary bg-opacity-10 border border-primary border-opacity-25 text-center">
+                        <span className="badge bg-primary text-white rounded-pill px-3 py-1 mb-2 fw-semibold">
+                            {t('contact.auditBadge', 'Diagnóstico Gratuito de 30 min')}
+                        </span>
+                        <h3 className="h6 fw-bold mb-1">
+                            {t('contact.auditTitle', '¿Quieres revisar la captación o el CRM de tu organización?')}
+                        </h3>
+                        <p className="small text-muted mb-0">
+                            {t('contact.auditDesc', 'Ofrecemos una sesión técnica gratuita de 30 minutos para fundaciones y ONGs. Analizamos tu caso sin compromiso.')}
+                        </p>
+                    </div>
 
                     {status.msg && (
                         <Alert
