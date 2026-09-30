@@ -1,5 +1,26 @@
 export const notices = [
     {
+        id: 'civicrm-ley-mecenazgo-ticket-medio',
+        filename: 'civicrm_ley_mecenazgo_ticket_medio.md',
+        date: '2026-09-30',
+        seoTitle: {
+            en: 'The 80% Tax Deduction Pitch: Boost Average Donations with CiviCRM - SmallPush',
+            es: 'Deducción del 80% en Mecenazgo: Cómo Multiplicar el Ticket Medio con CiviCRM - SmallPush',
+            ca: 'Deducció del 80% en Mecenatge: Com Multiplicar el Tiquet Mitjà amb CiviCRM - SmallPush'
+        },
+        seoDescription: {
+            en: 'Learn how Spain\'s reformed Ley de Mecenazgo and an 80% tax deduction up to €250 can boost average NGO donation sizes using CiviCRM automation.',
+            es: 'Descubre cómo la reforma de la Ley de Mecenazgo y la desgravación del 80% hasta 250 € permiten elevar el ticket medio de donación en ONGs mediante automatizaciones en CiviCRM.',
+            ca: 'Descobreix com la reforma de la Llei de Mecenatge i la desgravació del 80% fins a 250 € permeten augmentar el tiquet mitjà de donació en ONGs amb automatitzacions a CiviCRM.'
+        },
+        keywords: {
+            en: 'Ley de Mecenazgo, tax deduction donations, 80 percent deduction, CiviCRM fundraising, Modelo 182, average donation size, NGO donor funnel',
+            es: 'Ley de Mecenazgo, deducción fiscal donaciones, desgravación 80 por ciento, captación de fondos, CiviCRM, ticket medio, Modelo 182, embudo donantes ONG',
+            ca: 'Llei de Mecenatge, deducció fiscal donacions, desgravació 80 per cent, captació de fons, CiviCRM, tiquet mitjà, Model 182, embut donants ONG'
+        },
+        tags: ['CiviCRM', 'Ley de Mecenazgo', 'Fundraising', 'Fiscal', 'Nonprofit']
+    },
+    {
         id: 'civicrm-vs-salesforce-ong',
         filename: 'civicrm_vs_salesforce_ong.md',
         date: '2026-08-30',
