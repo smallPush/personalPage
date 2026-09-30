@@ -22,6 +22,7 @@ SmallPush provides end-to-end digital engineering and growth strategies for non-
 
 ## Featured Technical Articles & Case Studies
 
+- [The 80% Tax Deduction Pitch in Spain's Ley de Mecenazgo](https://smallpush.org/news/civicrm-ley-mecenazgo-ticket-medio): How to double average donation sizes using tax relief framing and CiviCRM automations.
 - [CiviCRM vs Salesforce Nonprofit Cloud](https://smallpush.org/news/civicrm-vs-salesforce-ong): Cost, data sovereignty, and Spanish fiscal compliance comparison for non-profits.
 - [Integrating Bizum & Redsys in CiviCRM](https://smallpush.org/news/civicrm-bizum-redsys-donaciones): Activating mobile donations with Bizum via Redsys Virtual POS in CiviCRM.
 - [CiviCRM Modelo 182 Guide](https://smallpush.org/news/civicrm-modelo-182-guia-fiscal): Complete guide to Spanish Tax Agency Modelo 182 reporting and automated donor tax certificates.
