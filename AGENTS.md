@@ -32,6 +32,14 @@
 - Analytics tag in `index.html` uses `%VITE_GA_MEASUREMENT_ID%`.
 - GitHub Pages deploy workflow is `.github/workflows/deploy.yml`; it runs on tag pushes (`'*'`) and manual dispatch, then builds and deploys `dist/`.
 
+## Releases & Development Workflow
+- Every time a new development, publication, or feature is finished, make a new release:
+  1. Bump the version in `package.json` (and regenerate sitemap / update `llms.txt` if applicable).
+  2. Run verification (`npm run lint`, `npm run test`, `npm run build`).
+  3. Commit the changes with an appropriate message.
+  4. Create a git tag matching the version (e.g. `git tag X.Y.Z`).
+  5. Push the commit and tags to origin (`git push origin main --tags`) to trigger the automated deployment workflow.
+
 ## Web Design Criteria
 - Favor professional clarity over decorative effects: high contrast text, predictable spacing, and obvious hierarchy.
 - Keep navigation readability first: links must stay legible in desktop and mobile states (default, hover, active, expanded menu).
