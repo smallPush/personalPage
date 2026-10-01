@@ -1,17 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import mermaid from 'mermaid';
 import DOMPurify from 'dompurify';
-
-mermaid.initialize({
-  startOnLoad: false,
-  theme: 'dark',
-  securityLevel: 'strict',
-});
+import { ThemeContext } from '../context/themeContextValue';
 
 const MermaidChart = ({ chart }) => {
   const containerRef = useRef(null);
   const [svg, setSvg] = useState('');
   const [error, setError] = useState(false);
+  const themeContext = useContext(ThemeContext);
+  const currentTheme = themeContext?.theme === 'dark' ? 'dark' : 'default';
 
   useEffect(() => {
     if (!chart || !containerRef.current) return;
@@ -20,10 +17,19 @@ const MermaidChart = ({ chart }) => {
 
     const renderChart = async () => {
       try {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: currentTheme,
+          securityLevel: 'strict',
+          fontFamily: 'Inter, Segoe UI, sans-serif',
+        });
         const id = `mermaid-chart-${window.crypto.randomUUID()}`;
         const { svg } = await mermaid.render(id, chart);
         if (isMounted) {
-          const cleanSvg = DOMPurify.sanitize(svg);
+          const cleanSvg = DOMPurify.sanitize(svg, {
+            ADD_TAGS: ['foreignObject'],
+            HTML_INTEGRATION_POINTS: { foreignobject: true },
+          });
           setSvg(cleanSvg);
           setError(false);
         }
@@ -40,7 +46,7 @@ const MermaidChart = ({ chart }) => {
     return () => {
       isMounted = false;
     };
-  }, [chart]);
+  }, [chart, currentTheme]);
 
   if (error) {
     return (
@@ -61,3 +67,4 @@ const MermaidChart = ({ chart }) => {
 };
 
 export default MermaidChart;
+

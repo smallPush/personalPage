@@ -77,6 +77,13 @@ const NoticeContent = ({ content, singleNoticeId, noticeId, t }) => {
                         }
                         return <a target="_blank" rel="noopener noreferrer" {...props} />;
                     },
+                    pre: ({ children, ...props }) => {
+                        const child = React.Children.toArray(children)[0];
+                        if (React.isValidElement(child) && child.props?.className?.includes('language-mermaid')) {
+                            return <>{children}</>;
+                        }
+                        return <pre {...props}>{children}</pre>;
+                    },
                     code: ({inline, className, children, ...props}) => {
                         const match = /language-(\w+)/.exec(className || '');
                         if (!inline && match && match[1] === 'mermaid') {

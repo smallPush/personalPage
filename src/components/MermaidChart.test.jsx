@@ -65,4 +65,49 @@ describe('MermaidChart Component', () => {
       expect(container.innerHTML).toContain('<rect');
     });
   });
+
+  it('preserves foreignObject and inner text content while stripping XSS', async () => {
+    const foSvg = `
+      <svg id="chart-with-fo">
+        <g class="node">
+          <rect width="100" height="50" />
+          <foreignObject width="100" height="50">
+            <script>alert("XSS")</script>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+              <span class="nodeLabel">Donante visita Formulario</span>
+            </div>
+          </foreignObject>
+        </g>
+      </svg>
+    `;
+    mermaid.render.mockResolvedValueOnce({ svg: foSvg });
+
+    const chart = 'flowchart TD;\n  A[Donante visita Formulario]';
+
+    await act(async () => {
+      render(<MermaidChart chart={chart} />);
+    });
+
+    await waitFor(() => {
+      const container = document.querySelector('.mermaid-container');
+      expect(container).toBeInTheDocument();
+      expect(container.innerHTML).not.toContain('<script>');
+      expect(screen.getByText('Donante visita Formulario')).toBeInTheDocument();
+    });
+  });
+
+  it('initializes mermaid with default theme when light mode and dark theme when dark mode', async () => {
+    mermaid.render.mockResolvedValue({ svg: '<svg id="chart"></svg>' });
+
+    await act(async () => {
+      render(<MermaidChart chart="graph TD; A-->B;" />);
+    });
+
+    expect(mermaid.initialize).toHaveBeenCalledWith(
+      expect.objectContaining({
+        theme: 'default',
+        securityLevel: 'strict',
+      })
+    );
+  });
 });
