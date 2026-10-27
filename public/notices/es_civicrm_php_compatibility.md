@@ -1,114 +1,112 @@
-# CiviCRM y PHP: problemas de compatibilidad y cómo resolverlos
+# PHP2Shell y CiviCRM: qué actualizar ante la vulnerabilidad de PHP
 
-Un cambio de PHP en el alojamiento puede dejar CiviCRM con un error 500, un formulario de donación bloqueado o tareas automáticas que ya no se ejecutan. Para una ONG, la incidencia puede traducirse en aportaciones sin registrar, renovaciones pendientes y trabajo manual para reconstruir lo ocurrido.
+**Si tu organización utiliza CiviCRM, pide al alojamiento que confirme la instalación de los parches de PHP2Shell en el PHP que sirve la web. Actualizar únicamente CiviCRM o el CMS no sustituye ese trabajo.** La prioridad es verificar el entorno real, aplicar la corrección y comprobar que los procesos de socios y donaciones siguen funcionando.
 
-**La solución empieza por comprobar la compatibilidad de todo el conjunto: PHP, CiviCRM, el CMS y las extensiones.** Después hay que reproducir el fallo, preparar la actualización en un entorno de pruebas y validar los procesos de la entidad antes de cambiar producción.
+El 21 de octubre de 2026, PHP publicó actualizaciones frente a dos vulnerabilidades críticas. El [informe de Wiz sobre PHP2Shell](https://www.wiz.io/blog/php2shell-php-rce) describe ejecución remota de código sin autenticación y exposición de memoria en escenarios demostrados. Para una entidad que gestiona datos personales y aportaciones con CiviCRM, merece una revisión urgente del servidor.
 
-*Por SmallPush · Revisión técnica: 27 de octubre de 2026.*
+*Por SmallPush · Revisado el 27 de octubre de 2026. Artículo actualizado para tratar específicamente PHP2Shell.*
 
-## Por qué una actualización de PHP puede romper CiviCRM
+## Qué es PHP2Shell
 
-PHP es el lenguaje con el que se ejecuta CiviCRM en el servidor. Cada nueva rama introduce cambios que pueden afectar a código antiguo. Además, el núcleo de CiviCRM, las extensiones y el CMS tienen calendarios de actualización distintos.
+PHP2Shell agrupa fallos de seguridad de memoria del motor de PHP. Los avisos oficiales identifican dos problemas:
 
-Esto explica una situación habitual: el proveedor cambia PHP, la web pública sigue funcionando y el error aparece únicamente al abrir una ficha, confirmar un pago o procesar una cola. Que la portada cargue no demuestra que el CRM funcione correctamente.
+- **[CVE-2026-109618](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w):** el tratamiento de errores por agotamiento de memoria puede dejar estructuras internas en un estado inválido.
+- **[CVE-2026-109619](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp):** un proceso puede conservar referencias a memoria de una petición anterior que ya se ha liberado.
 
-Si utilizas CiviCRM sobre Drupal, WordPress, Joomla o Backdrop, revisa también ese CMS y sus módulos. En una instalación Standalone, comprueba igualmente las extensiones y las integraciones externas.
+En determinadas condiciones, estos fallos permiten ejecutar código con los permisos del proceso PHP. Eso no equivale automáticamente a obtener acceso de administrador del sistema, pero puede dar acceso a los recursos que ese proceso tenga autorizados.
 
-## Qué versión de PHP es compatible con CiviCRM
+## ¿Cómo puede afectar PHP2Shell a CiviCRM?
 
-No existe una respuesta única para todas las instalaciones. Consulta los [requisitos oficiales de CiviCRM](https://docs.civicrm.org/installation/en/latest/requirements/) para tu versión concreta y contrástalos con las notas de cada extensión.
+CiviCRM depende de PHP, tanto integrado con un CMS como en una instalación Standalone. Por ello, **la conclusión operativa es revisar también el PHP de los servidores de CiviCRM**. Es una inferencia basada en esa dependencia, no una afirmación de que se haya demostrado una explotación específica contra CiviCRM.
 
-Como ejemplo de por qué importa la rama: la documentación distingue CiviCRM 6.10, que no es compatible con PHP 8.4, de CiviCRM 6.16 o posterior, para el que contempla PHP 8.5. Es información sobre el núcleo, no una garantía para toda tu instalación.
+Wiz presenta demostraciones sobre WordPress, Drupal y Joomla. Esos ejemplos no prueban que todas las instalaciones de CiviCRM sean explotables: importan la versión de PHP, su configuración, el modo de ejecución y el código accesible. Tampoco permiten considerar segura una instalación por utilizar un CMS distinto o no utilizar CMS.
 
-También hay que distinguir **compatibilidad** de **soporte de seguridad**. Según el [calendario oficial de PHP](https://www.php.net/supported-versions.php), estas son las fechas de fin de soporte de seguridad:
+La [PHP Foundation explica el alcance técnico](https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/), incluidos escenarios con Apache `mod_php` y PHP-FPM. Usar PHP-FPM no basta para descartar el problema.
 
-| Rama PHP | Fin del soporte de seguridad |
+### Qué datos y procesos de una ONG conviene proteger
+
+En una revisión de CiviCRM, comprueba qué recursos puede consultar o modificar la cuenta del servidor web:
+
+- Configuración y credenciales de acceso a las bases de datos.
+- Datos personales de socios, donantes, voluntariado y participantes.
+- Claves de servicios de correo, API e integraciones.
+- Archivos adjuntos y documentos accesibles desde la aplicación.
+
+Esta lista describe posibles consecuencias según los permisos y la arquitectura. No afirma que se haya producido una filtración. Si existen indicios de intrusión, el parche debe acompañarse de una investigación y de medidas sobre las credenciales que puedan haber quedado expuestas.
+
+## Versiones de PHP corregidas para PHP2Shell
+
+Los avisos de PHP señalan estas **primeras versiones corregidas de las ramas mantenidas**:
+
+| Rama | Primera versión corregida |
 | --- | --- |
-| 8.2 | 31 de diciembre de 2026 |
-| 8.3 | 31 de diciembre de 2027 |
-| 8.4 | 31 de diciembre de 2028 |
-| 8.5 | 31 de diciembre de 2029 |
+| PHP 8.2 | 8.2.35 |
+| PHP 8.3 | 8.3.36 |
+| PHP 8.4 | 8.4.27 |
+| PHP 8.5 | 8.5.12 |
 
-Si sigues en PHP 8.2, prepara la migración antes de que termine 2026. Elige una rama mantenida que admita todo tu conjunto de software; la versión más reciente del servidor no siempre es la que puedes implantar de inmediato. Revisa de nuevo las fuentes al ejecutar el cambio, porque la compatibilidad evoluciona.
+Fuente: [avisos oficiales de seguridad de PHP del 21 de octubre](https://www.php.net/archive/2026.php#2026-10-21-5). Instala la actualización de seguridad vigente de tu rama o una posterior compatible; estos números son una referencia inicial, no una recomendación de quedarse indefinidamente en esa revisión.
 
-## Errores frecuentes de PHP en CiviCRM
+Una distribución o un proveedor puede incorporar el parche a su propio paquete sin utilizar exactamente esa numeración. En ese caso, pide el aviso del proveedor y la revisión completa del paquete que acredita la corrección de ambos CVE. El número que muestra `php -v` no basta por sí solo para evaluar un paquete con correcciones incorporadas por el distribuidor.
 
-Estos síntomas orientan el diagnóstico, pero ninguno identifica por sí solo la causa:
+### Aviso adicional del 23 de octubre: progreso de subida de sesiones
 
-| Síntoma | Qué comprobar primero |
-| --- | --- |
-| Pantalla en blanco o error 500 tras cambiar PHP | Primer error fatal en los registros de PHP y del servidor |
-| Avisos `Deprecated` | Archivo y extensión que originan el aviso |
-| Error `TypeError` o función inexistente | Traza del error, código personalizado y dependencias |
-| La web funciona, pero cron falla | PHP y configuración del usuario que ejecuta cron |
-| Donación cobrada con estado pendiente en CiviCRM | Notificación de la pasarela y registro de la integración |
-| Importaciones o informes interrumpidos | Límites de memoria, tiempos de ejecución y consulta que falla |
+PHP publicó después una [recomendación sobre `session.upload_progress.enabled`](https://www.php.net/archive/2026.php#2026-10-23-1), asociada a un vector adicional en una combinación poco habitual de configuración y código. Recomienda desactivar esa función hasta la siguiente versión regular de correcciones; las aplicaciones que nunca cambian el serializador de sesiones durante la ejecución pueden mantenerla habilitada.
 
-Los avisos `Deprecated` señalan código que necesita adaptación; no equivalen automáticamente a un error fatal. Por ejemplo, PHP documenta cambios sobre [propiedades dinámicas en PHP 8.2](https://www.php.net/manual/en/migration82.deprecated.php) y [parámetros implícitamente anulables en PHP 8.4](https://www.php.net/manual/en/migration84.deprecated.php). La traza permite saber si afectan a tu instalación.
+Pide al administrador que revise también ese aviso y aplique la recomendación correspondiente. Haber instalado una de las cuatro versiones de la tabla no sustituye consultar las indicaciones posteriores.
 
-Ocultar todos los avisos no corrige la incompatibilidad. En producción, evita mostrar detalles técnicos a visitantes y conserva registros accesibles al equipo responsable. Tampoco desactives una extensión de pagos sin estudiar qué procesos dependen de ella.
+## Qué hacer en una instalación de CiviCRM
 
-## Cómo diagnosticar el problema sin perder información
+### 1. Identificar el PHP que recibe las peticiones web
 
-### 1. Anota el cambio y reproduce la operación
+Solicita un inventario por sitio, servidor, contenedor y conjunto de procesos PHP-FPM. Anota la versión, la procedencia del paquete y el modo de ejecución. Comprueba por separado el PHP de cron y de los procesos persistentes.
 
-Registra las versiones exactas de PHP, CiviCRM, CMS y extensiones, cuándo empezó el fallo y qué se modificó. Describe una operación concreta: «al enviar el formulario de alta aparece un error 500» resulta más útil que «CiviCRM no funciona».
+En la terminal, `php -v` ayuda a identificar **PHP CLI**. No demuestra qué versión está atendiendo formularios web ni que todos los procesos en ejecución hayan cargado la actualización. Evita publicar una página de diagnóstico con detalles del servidor.
 
-Consulta los registros en el instante de la prueba y localiza el primer error relevante. Los mensajes posteriores pueden ser consecuencias del fallo inicial. Comparte con soporte una traza depurada de credenciales y datos personales.
+### 2. Aplicar el parche y renovar los procesos
 
-### 2. Compara el PHP de la web con el de cron
+Coordina con el alojamiento la actualización de todos los entornos afectados y el reinicio o sustitución de los servicios y procesos correspondientes. En contenedores, verifica la imagen desplegada y las réplicas activas; cambiar únicamente la imagen de referencia no actualiza los contenedores que siguen ejecutándose.
 
-En la terminal, estos comandos permiten consultar el entorno de PHP por línea de comandos:
+Siempre que sea posible, aplica primero la corrección de tu rama compatible. Si necesitas cambiar de rama, contrasta los [requisitos oficiales de CiviCRM](https://docs.civicrm.org/installation/en/latest/requirements/) y los de tu CMS y extensiones. Prepara una copia restaurable y ensaya la operación sin demorar innecesariamente la corrección de un servicio expuesto.
 
-```bash
-php -v
-php --ini
-php -m
-```
+### 3. Comprobar los procesos de la entidad
 
-**Su salida describe PHP CLI, no el PHP del servidor web.** Contrástala con la configuración del sitio y del proceso PHP-FPM en tu alojamiento. Revisa además la ruta al ejecutable y el usuario definidos en cron: pueden estar utilizando otro PHP u otro archivo `php.ini`.
+Valida acceso, altas y renovaciones, formularios públicos, adjuntos, correo y tareas programadas. Para las donaciones, utiliza el modo de pruebas de la pasarela y comprueba tanto el resultado del pago como su registro en el CRM. Nuestra [guía de métodos de pago de CiviCRM](/news/civicrm-payment-methods) ayuda a identificar las integraciones que deben entrar en la revisión.
 
-Si una tarea manual funciona pero la ejecución automática falla, comprueba el historial y la hora de la última ejecución. La [guía oficial de tareas programadas](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/) explica cómo revisar ese circuito.
+Conserva como evidencia la revisión instalada, el aviso del proveedor, la fecha del cambio y las comprobaciones realizadas. Si el proveedor gestiona el servidor, pídele esta confirmación por escrito.
 
-### 3. Separa compatibilidad de rendimiento
+### 4. Revisar indicios de actividad anómala
 
-Una función eliminada no se recupera aumentando `memory_limit`. En cambio, un proceso que agota memoria requiere estudiar el volumen de datos y sus límites. Si la lentitud es anterior al cambio de PHP, revisa también nuestra [guía de rendimiento y base de datos de CiviCRM](/news/civicrm-tuning).
+La [guía de respuesta de PHP2Shell](https://www.php2shell.com/#upgrade-php) recoge señales como errores de memoria, respuestas 500 repetidas, reinicios inesperados de procesos y cookies de sesión anómalas. Sirven para orientar una investigación: por separado no prueban explotación, y su ausencia tampoco garantiza que no haya ocurrido.
 
-## Cómo actualizar PHP y CiviCRM con un plan verificable
+Si encuentras señales relevantes, conserva los registros y coordina la respuesta antes de limpiar o reinstalar. Aplicar el parche detiene la exposición corregida, pero no deshace una intrusión anterior.
 
-La [guía oficial de actualización de CiviCRM](https://docs.civicrm.org/sysadmin/en/latest/upgrade/) es el punto de partida. Adapta el procedimiento al CMS y documenta los pasos que hayas validado:
+## Qué medidas no sustituyen la actualización de PHP
 
-1. **Define la combinación de destino.** Comprueba núcleo, CMS, extensiones, código propio y pasarelas. Si no hay una versión de PHP común entre origen y destino, planifica etapas intermedias compatibles.
-2. **Prepara una copia restaurable.** Incluye bases de datos de CiviCRM y del CMS, archivos, configuración y extensiones. Ensaya la restauración.
-3. **Crea un entorno de pruebas aislado.** Bloquea correos a contactos reales, cobros, webhooks de producción y tareas que puedan producir efectos externos. Utiliza las opciones de prueba de cada proveedor.
-4. **Ejecuta la actualización ensayada.** Sigue las instrucciones específicas de las versiones implicadas y limpia las cachés cuando corresponda. Conserva un registro de cada cambio.
-5. **Valida procesos completos.** Prueba un alta, una renovación, una donación en modo de pruebas, su notificación, el correo y una tarea programada. Verifica también permisos, importaciones e informes habituales.
-6. **Programa el cambio en producción.** Acuerda la pausa de escrituras y tareas, realiza una copia final y aplica el procedimiento probado. Supervisa los primeros ciclos automáticos tras reactivarlos.
+Un WAF, una CDN o una regla del alojamiento pueden reducir determinados caminos de ataque. No los presentes como una corrección completa. Consulta las [limitaciones de las mitigaciones oficiales](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) antes de cambiar parámetros del servidor.
 
-Para los pagos, comprueba que el estado de la contribución coincide con el resultado de la pasarela. Nuestra [guía de métodos de pago en CiviCRM](/news/civicrm-payment-methods) ayuda a situar las integraciones que debes incluir en las pruebas.
+Tampoco basta con cambiar contraseñas, ocultar la versión de PHP o actualizar solo Drupal, WordPress o CiviCRM. Evita copiar ajustes de memoria sin evaluar sus consecuencias sobre disponibilidad y consumo de recursos.
 
-Define también cómo volver atrás. Si se ha actualizado el esquema de datos, cambiar únicamente el código o bajar PHP puede ser insuficiente: necesitas restaurar un conjunto coherente. Antes de hacerlo, conserva y concilia las operaciones posteriores a la copia para evitar perder registros o repetir cobros y mensajes.
+## Preguntas frecuentes sobre PHP2Shell y CiviCRM
 
-## Preguntas frecuentes sobre PHP y CiviCRM
+### ¿Una versión reciente de CiviCRM me protege?
 
-### ¿Puedo solucionar el error volviendo a la versión anterior de PHP?
+Por sí sola no acredita que PHP esté corregido. Comprueba las dos capas y pide evidencia del paquete que ejecuta el sitio.
 
-Puede servir como medida temporal si esa rama sigue mantenida y continúa siendo compatible con el código instalado. Si también cambiaste CiviCRM o su base de datos, analiza todo el cambio antes de revertir. Una bajada de PHP no sustituye un plan de actualización.
+### ¿Tengo que migrar directamente a PHP 8.5?
 
-### ¿Por qué falla CiviCRM si WordPress o Drupal funcionan?
+No necesariamente. Hay correcciones para varias ramas. Prioriza una revisión corregida y compatible, y planifica por separado cualquier cambio de rama.
 
-La página pública y el CRM ejecutan rutas de código diferentes. Un módulo, una extensión o un proceso de pago puede fallar aunque el CMS muestre la portada. Prueba la operación afectada y revisa su traza.
+### ¿Un CRM accesible solo tras iniciar sesión queda fuera de riesgo?
 
-### ¿Actualizar PHP mejora el rendimiento de CiviCRM?
+No lo des por hecho. Algunas rutas se procesan antes del código de la aplicación. Revisa qué llega realmente a PHP, incluidos los formularios públicos y las integraciones.
 
-Puede ayudar, pero el resultado depende de las consultas, las extensiones y los recursos del servidor. Compara los mismos procesos y volúmenes antes y después; no atribuyas a PHP una mejora que no hayas medido.
+### ¿Qué debo pedir al proveedor de hosting?
 
-### ¿Qué debo pedir al proveedor de alojamiento?
+La confirmación de corrección de **CVE-2026-109618 y CVE-2026-109619**, el paquete instalado en el servicio web, la renovación de los procesos y la revisión del aviso del 23 de octubre. Incluye estos criterios en el [mantenimiento del alojamiento de CiviCRM](/news/civicrm-hosting-comparison).
 
-La versión de PHP de cada sitio y de cron, el calendario de cambios, acceso a registros y copias, y un entorno para ensayar. Incluye estos requisitos al [elegir hosting para CiviCRM](/news/civicrm-hosting-comparison).
+## Convierte el aviso en una actuación comprobable
 
-## Prepara el siguiente cambio antes de que se convierta en una incidencia
+Para una ONG, la respuesta útil consiste en saber quién mantiene PHP, qué entornos están corregidos y qué pruebas confirman que la actividad continúa. El seguimiento debe cubrir tanto el CRM como la infraestructura que lo ejecuta.
 
-Mantén un inventario de versiones, un responsable del mantenimiento y pruebas de los procesos que sostienen la actividad de tu entidad. Eso permite programar las actualizaciones y detectar un fallo antes de que afecte a socios y donantes.
-
-En **SmallPush** revisamos instalaciones de CiviCRM y planificamos actualizaciones de PHP, CMS y extensiones. Si tu organización recibe avisos del alojamiento o ya tiene errores, [cuéntanos qué versiones utilizas y qué operación falla](/#contact) para valorar el siguiente paso.
+En **SmallPush** ayudamos a revisar el entorno de CiviCRM y coordinar actualizaciones con el alojamiento. Si necesitas organizar esa revisión, [cuéntanos cómo está desplegada tu instalación](/#contact).

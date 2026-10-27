@@ -4,21 +4,21 @@ export const notices = [
         filename: 'civicrm_php_compatibility.md',
         date: '2026-10-27',
         seoTitle: {
-            en: 'CiviCRM and PHP: Compatibility and Common Errors | SmallPush',
-            es: 'CiviCRM y PHP: compatibilidad y errores frecuentes | SmallPush',
-            ca: 'CiviCRM i PHP: compatibilitat i errors freqüents | SmallPush'
+            en: 'PHP2Shell and CiviCRM: PHP Security Updates | SmallPush',
+            es: 'PHP2Shell y CiviCRM: qué PHP actualizar y cómo | SmallPush',
+            ca: 'PHP2Shell i CiviCRM: quin PHP actualitzar i com | SmallPush'
         },
         seoDescription: {
-            en: 'Troubleshoot PHP errors in CiviCRM, check version compatibility and plan an upgrade with tests for donation forms, payments and scheduled jobs.',
-            es: 'Resuelve errores de PHP en CiviCRM, comprueba la compatibilidad de versiones y prepara una actualización con pruebas de formularios, pagos y tareas cron.',
-            ca: 'Resol errors de PHP a CiviCRM, comprova la compatibilitat de versions i prepara una actualització amb proves de formularis, pagaments i tasques cron.'
+            en: 'What PHP2Shell means for CiviCRM: the two PHP CVEs, first fixed versions, hosting checks and steps to protect nonprofit data and donation workflows.',
+            es: 'Qué implica PHP2Shell para CiviCRM: los dos CVE de PHP, versiones corregidas y qué pedir al hosting para proteger datos de socios y procesos de donación.',
+            ca: 'Què implica PHP2Shell per a CiviCRM: els dos CVE de PHP, versions corregides i què demanar al hosting per protegir dades de socis i processos de donació.'
         },
         keywords: {
-            en: 'CiviCRM PHP compatibility, CiviCRM PHP errors, upgrade PHP CiviCRM, CiviCRM error 500, CiviCRM cron',
-            es: 'CiviCRM PHP, compatibilidad PHP CiviCRM, errores PHP CiviCRM, actualizar PHP CiviCRM, CiviCRM error 500, cron CiviCRM',
-            ca: 'CiviCRM PHP, compatibilitat PHP CiviCRM, errors PHP CiviCRM, actualitzar PHP CiviCRM, CiviCRM error 500, cron CiviCRM'
+            en: 'PHP2Shell, CiviCRM security, PHP RCE, CVE-2026-109618, CVE-2026-109619, PHP security update, nonprofit hosting',
+            es: 'PHP2Shell, seguridad CiviCRM, vulnerabilidad PHP, PHP RCE, CVE-2026-109618, CVE-2026-109619, actualizar PHP, hosting ONG',
+            ca: 'PHP2Shell, seguretat CiviCRM, vulnerabilitat PHP, PHP RCE, CVE-2026-109618, CVE-2026-109619, actualitzar PHP, hosting ONG'
         },
-        tags: ['CiviCRM', 'PHP', 'Maintenance', 'Hosting']
+        tags: ['CiviCRM', 'PHP', 'PHP2Shell', 'Security', 'Hosting']
     },
     {
         id: 'civicrm-ley-mecenazgo-ticket-medio',
