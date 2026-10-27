@@ -1,5 +1,26 @@
 export const notices = [
     {
+        id: 'civicrm-php-compatibilidad',
+        filename: 'civicrm_php_compatibility.md',
+        date: '2026-10-27',
+        seoTitle: {
+            en: 'CiviCRM and PHP: Compatibility and Common Errors | SmallPush',
+            es: 'CiviCRM y PHP: compatibilidad y errores frecuentes | SmallPush',
+            ca: 'CiviCRM i PHP: compatibilitat i errors freqüents | SmallPush'
+        },
+        seoDescription: {
+            en: 'Troubleshoot PHP errors in CiviCRM, check version compatibility and plan an upgrade with tests for donation forms, payments and scheduled jobs.',
+            es: 'Resuelve errores de PHP en CiviCRM, comprueba la compatibilidad de versiones y prepara una actualización con pruebas de formularios, pagos y tareas cron.',
+            ca: 'Resol errors de PHP a CiviCRM, comprova la compatibilitat de versions i prepara una actualització amb proves de formularis, pagaments i tasques cron.'
+        },
+        keywords: {
+            en: 'CiviCRM PHP compatibility, CiviCRM PHP errors, upgrade PHP CiviCRM, CiviCRM error 500, CiviCRM cron',
+            es: 'CiviCRM PHP, compatibilidad PHP CiviCRM, errores PHP CiviCRM, actualizar PHP CiviCRM, CiviCRM error 500, cron CiviCRM',
+            ca: 'CiviCRM PHP, compatibilitat PHP CiviCRM, errors PHP CiviCRM, actualitzar PHP CiviCRM, CiviCRM error 500, cron CiviCRM'
+        },
+        tags: ['CiviCRM', 'PHP', 'Maintenance', 'Hosting']
+    },
+    {
         id: 'civicrm-ley-mecenazgo-ticket-medio',
         filename: 'civicrm_ley_mecenazgo_ticket_medio.md',
         date: '2026-09-30',

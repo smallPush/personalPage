@@ -22,6 +22,7 @@ SmallPush provides end-to-end digital engineering and growth strategies for non-
 
 ## Featured Technical Articles & Case Studies
 
+- [CiviCRM and PHP: Compatibility and Common Errors](https://smallpush.org/news/civicrm-php-compatibilidad): Diagnose PHP compatibility errors, compare web and CLI environments, and plan tested upgrades covering donations, payments and scheduled jobs.
 - [The 80% Tax Deduction Pitch in Spain's Ley de Mecenazgo](https://smallpush.org/news/civicrm-ley-mecenazgo-ticket-medio): How to double average donation sizes using tax relief framing and CiviCRM automations.
 - [CiviCRM vs Salesforce Nonprofit Cloud](https://smallpush.org/news/civicrm-vs-salesforce-ong): Cost, data sovereignty, and Spanish fiscal compliance comparison for non-profits.
 - [Integrating Bizum & Redsys in CiviCRM](https://smallpush.org/news/civicrm-bizum-redsys-donaciones): Activating mobile donations with Bizum via Redsys Virtual POS in CiviCRM.
